@@ -24,9 +24,11 @@ blueprint:
       name: Disabled when on
       description: "The motion activation is disabled when one of these lights is on."
       selector:
-        target:
-          entity:
+        entity:
+          filter:
             domain: light
+          multiple: true
+      default: []
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
@@ -69,7 +71,7 @@ conditions:
     entity_id: !input lux_entity
     below: 5
   - condition: state
-    entity_id: !disabled_when_on
+    entity_id: !input disabled_when_on
     state: "off"
 
 actions:
