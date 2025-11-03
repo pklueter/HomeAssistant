@@ -3,6 +3,7 @@ blueprint:
   description: Turn on a light when motion is detected and lux is below a threshold.
   domain: automation
   author: Philipp Klüter
+  source_url: https://git.klueter.dev/ThronRycer/HomeAssistant/raw/branch/main/blueprints/lights/motion-activated-with-lux-sensor.yml
   input:
     motion_entity:
       name: Motion Sensor
@@ -10,7 +11,7 @@ blueprint:
         entity:
           filter:
             domain: binary_sensor
-            device_class: 
+            device_class:
               - motion
               - occupancy
     light_target:
@@ -21,7 +22,7 @@ blueprint:
             domain: light
     disabled_when_on:
       name: Disabled when on
-      description: 'The motion activation is disabled when one of these lights is on.'
+      description: "The motion activation is disabled when one of these lights is on."
       selector:
         target:
           entity:
@@ -60,8 +61,8 @@ max_exceeded: silent
 triggers:
   - trigger: state
     entity_id: !input motion_entity
-    from: 'off'
-    to: 'on'
+    from: "off"
+    to: "on"
 
 conditions:
   - condition: numeric_state
@@ -69,20 +70,20 @@ conditions:
     below: 5
   - condition: state
     entity_id: !disabled_when_on
-    state: 'off'
+    state: "off"
 
 actions:
-  - alias: 'Turn on the light'
+  - alias: "Turn on the light"
     action: light.turn_on
     target: !input light_target
-  - alias: 'Wait until there is no motion from device'
+  - alias: "Wait until there is no motion from device"
     wait_for_trigger:
       - trigger: state
         entity_id: !input motion_entity
-        from: 'on'
-        to: 'off'
-  - alias: 'Wait the number of seconds that has been set'
+        from: "on"
+        to: "off"
+  - alias: "Wait the number of seconds that has been set"
     delay: !input no_motion_wait
-  - alias: 'Turn off the light'
+  - alias: "Turn off the light"
     action: light.turn_off
     target: !input light_target
