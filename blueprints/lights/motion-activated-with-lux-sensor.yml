@@ -4,6 +4,7 @@ blueprint:
   domain: automation
   author: Philipp Klüter
   source_url: https://git.klueter.dev/ThronRycer/HomeAssistant/raw/branch/main/blueprints/lights/motion-activated-with-lux-sensor.yml
+
   input:
     motion_entity:
       name: Motion Sensor
@@ -14,21 +15,24 @@ blueprint:
             device_class:
               - motion
               - occupancy
+
     light_target:
       name: Light
       selector:
         target:
           entity:
             domain: light
+
     disabled_when_on:
       name: Disabled when on
-      description: "The motion activation is disabled when one of these lights is on."
+      description: The motion activation is disabled when one of these lights is on.
       selector:
         entity:
           filter:
             domain: light
           multiple: true
       default: []
+
     no_motion_wait:
       name: Wait time
       description: Time to leave the light on after last motion is detected.
@@ -38,6 +42,7 @@ blueprint:
           min: 0
           max: 3600
           unit_of_measurement: seconds
+
     lux_entity:
       name: Illuminance Sensor
       selector:
@@ -45,9 +50,9 @@ blueprint:
           filter:
             domain: sensor
             device_class: illuminance
+
     lux_threshold:
       name: Illuminance threshold
-      description: Threshold for lux.
       default: 5
       selector:
         number:
@@ -55,37 +60,37 @@ blueprint:
           max: 200
           unit_of_measurement: lux
 
-# If new motion is detected, we
-# we restart the script.
-mode: single
+mode: restart
 max_exceeded: silent
 
 triggers:
   - trigger: state
     entity_id: !input motion_entity
-    from: "off"
     to: "on"
 
 conditions:
+  # Only checked when motion turns ON
   - condition: numeric_state
     entity_id: !input lux_entity
-    below: 5
+    below: !input lux_threshold
+
   - condition: state
     entity_id: !input disabled_when_on
     state: "off"
 
 actions:
-  - alias: "Turn on the light"
+  - alias: Turn on the light
     action: light.turn_on
     target: !input light_target
-  - alias: "Wait until there is no motion from device"
+
+  - alias: Wait until motion is off for the configured time
     wait_for_trigger:
       - trigger: state
         entity_id: !input motion_entity
-        from: "on"
         to: "off"
-  - alias: "Wait the number of seconds that has been set"
-    delay: !input no_motion_wait
-  - alias: "Turn off the light"
+        for:
+          seconds: !input no_motion_wait
+
+  - alias: Turn off the light
     action: light.turn_off
     target: !input light_target
