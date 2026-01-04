@@ -1,0 +1,43 @@
+# Basic Config
+esphome:
+  name: spiegel
+  friendly_name: Spiegel
+
+esp8266:
+  board: esp01_1m
+
+logger:
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "8vthed/+UZgbq4lqrM7D8rVWBK47gYx6pkHVQgDCWSs="
+
+ota:
+  - platform: esphome
+    password: "1164b87ea7dde095f5240fea51f868c0"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Spiegel Fallback Hotspot"
+    password: "bUgByIWOhRHX"
+
+captive_portal:
+
+web_server:
+  port: 80
+
+# Device Specific Config
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: shelly_1_relay
+
+light:
+  - platform: binary
+    name: "Spiegel"
+    output: shelly_1_relay
+    id: spiegel

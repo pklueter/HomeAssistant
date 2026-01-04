@@ -1,0 +1,10 @@
+substitutions:
+  device_name: schalter-diele
+  friendly_name: Schalter Diele
+  ota_password: !secret ota_password
+  fallback_wifi_pwd: !secret fallback_wifi_pwd
+  light_entity: light.deckenlampe_light
+  bt_proxy: "false"
+
+packages:
+  minir4: !include common/minir4.yaml

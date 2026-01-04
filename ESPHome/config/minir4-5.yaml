@@ -1,0 +1,15 @@
+substitutions:
+  device_name: mini-r4-5
+  friendly_name: mini-r4-5
+  ota_password: "2785ba00e63ab387e8e9fde3f2005eea"
+  fallback_wifi_pwd: !secret fallback_wifi_pwd
+  light_entity: light.deckenlampe_treppenhaus
+  bt_proxy: "true"
+
+packages:
+  minir4: !include common/minir4.yaml
+
+esphome:
+  on_boot:
+    - lambda: |-
+        id(myota).set_auth_password("2785ba00e63ab387e8e9fde3f2005eea");

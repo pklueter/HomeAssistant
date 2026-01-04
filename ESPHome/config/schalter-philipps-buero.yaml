@@ -1,0 +1,10 @@
+substitutions:
+  device_name: schalter-philipps-buero
+  friendly_name: Schalter Philipps Büro
+  ota_password: !secret ota_password
+  fallback_wifi_pwd: !secret fallback_wifi_pwd
+  light_entity: light.deckenlampe_philipp_s_buro_light_2
+  bt_proxy: "false"
+
+packages:
+  minir4: !include common/minir4.yaml

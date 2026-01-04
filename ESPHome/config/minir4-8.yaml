@@ -1,0 +1,10 @@
+substitutions:
+  device_name: mini-r4-8
+  friendly_name: mini-r4-8
+  ota_password: !secret ota_password
+  fallback_wifi_pwd: !secret fallback_wifi_pwd
+  light_entity: light.deckenlampe_treppenhaus
+  bt_proxy: "true"
+
+packages:
+  minir4: !include common/minir4.yaml

@@ -1,0 +1,9 @@
+substitutions:
+  device_name: schalter-treppenhaus-eg
+  friendly_name: Treppenhaus EG
+  ota_password: !secret ota_password
+  fallback_wifi_pwd: !secret fallback_wifi_pwd
+  bt_proxy: "false"
+
+packages:
+  minir4: !include common/minir4-local.yaml

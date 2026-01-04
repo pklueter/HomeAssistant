@@ -1,0 +1,10 @@
+substitutions:
+  device_name: schalter-kitchen
+  friendly_name: Schalter Küche
+  ota_password: !secret ota_password
+  fallback_wifi_pwd: !secret fallback_wifi_pwd
+  light_entity: light.philips_915005996401_light
+  bt_proxy: "true"
+
+packages:
+  minir4: !include common/minir4.yaml
