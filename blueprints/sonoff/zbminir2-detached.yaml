@@ -6,36 +6,31 @@ blueprint:
   source_url: https://git.klueter.dev/ThronRycer/HomeAssistant/raw/branch/main/blueprints/sonoff/zbminir2-detached.yaml
 
   input:
-    zbminir2_entity:
+    zbminir2_device:
       name: ZBMINIR2 input
       description: Binary sensor of the ZBMINIR2 (detach relay mode)
       selector:
-        entity:
-          filter:
-            domain: binary_sensor
-          multiple: false
+        device:
+          manufacturer: Sonoff
+          model: ZBMINIR2
 
     controlled_light:
       name: Toggle target lights
       description: The switch will toggle these lights.
       selector:
         entity:
-          filter:
-            domain: light
+          domain: light
           multiple: true
 
-triggers:
-  - domain: binary_sensor
-    entity_id: !input "zbminir2_entity"
+trigger:
+  - platform: device
+    domain: binary_sensor
+    device_id: !input zbminir2_device
     type: opened
-    trigger: device
 
-actions:
-  sequence:
-    - action: light.toggle
-      metadata: {}
-      data: {}
-      target:
-        entity_id: !input "controlled_light"
+action:
+  - service: light.toggle
+    target:
+      entity_id: !input controlled_light
 
 mode: single
