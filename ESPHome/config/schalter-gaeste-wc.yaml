@@ -1,10 +1,10 @@
 substitutions:
-  device_name: mini-r4-8
-  friendly_name: mini-r4-8
+  device_name: schalter-gaeste-wc
+  friendly_name: Schalter Gäste WC
   ota_password: !secret ota_password
   fallback_wifi_pwd: !secret fallback_wifi_pwd
   light_entity: light.deckenlampe_treppenhaus
-  bt_proxy: "true"
+  bt_proxy: false
 
 packages:
-  minir4: !include common/minir4.yaml
+  minir4: !include common/minir4-local-schalter.yaml
