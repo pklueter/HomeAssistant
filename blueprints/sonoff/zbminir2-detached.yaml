@@ -11,8 +11,10 @@ blueprint:
       description: Binary sensor of the ZBMINIR2 (detach relay mode)
       selector:
         device:
-          manufacturer: Sonoff
-          model: ZBMINIR2
+          filter:
+            manufacturer: SONOFF
+            model: ZBMINIR2
+          multiple: false
 
     controlled_light:
       name: Toggle target lights
