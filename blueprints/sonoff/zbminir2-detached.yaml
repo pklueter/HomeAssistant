@@ -24,14 +24,14 @@ blueprint:
           domain: light
           multiple: true
 
-trigger:
+triggers:
   - platform: device
     domain: binary_sensor
     device_id: !input zbminir2_device
     type: opened
 
-action:
-  - service: light.toggle
+actions:
+  - action: light.toggle
     target:
       entity_id: !input controlled_light
 
