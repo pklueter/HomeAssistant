@@ -3,8 +3,7 @@ blueprint:
   description: Configure ZBMINIR2 to toggle light without turn off the switch.
   domain: automation
   author: Philipp Klüter
-  homeassistant:
-    min_version: 25.12.0
+  source_url: https://git.klueter.dev/ThronRycer/HomeAssistant/raw/branch/main/blueprints/sonoff/zbminir2-detached.yaml
 
   input:
     zbminir2_device:
@@ -14,7 +13,7 @@ blueprint:
         device:
           filter:
             manufacturer: SONOFF
-            model: Zigbee smart switch
+            model: ZBMINIR2
           multiple: false
 
     controlled_light:
