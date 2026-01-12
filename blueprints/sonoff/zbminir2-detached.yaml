@@ -13,6 +13,7 @@ blueprint:
         entity:
           filter:
             domain: binary_sensor
+            device_class: opening
           multiple: false
 
     controlled_light:
@@ -25,10 +26,10 @@ blueprint:
           multiple: true
 
 triggers:
-  - domain: binary_sensor
-    entity_id: !input "zbminir2_entity"
-    type: opened
-    trigger: device
+  - platform: state
+    entity_id: !input zbminir2_entity
+    from: "off"
+    to: "on"
 
 actions:
   sequence:
