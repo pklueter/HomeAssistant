@@ -1,9 +1,9 @@
 substitutions:
-  device_name: schalter-philipps-buero
-  friendly_name: Schalter Philipps Büro
+  device_name: schalter-liane
+  friendly_name: Schalter Liane
   ota_password: !secret ota_password
   fallback_wifi_pwd: !secret fallback_wifi_pwd
-  light_entity: light.deckenlampe_philipps_buro
+  light_entity: light.liane_light
   bt_proxy: "false"
 
 packages:
