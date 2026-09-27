@@ -1,0 +1,225 @@
+views:
+  - type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:chair-rolling
+            heading: Lauras Büro
+            heading_style: subtitle
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: binary_sensor.fenster_lauras_buro
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.fenster_lauras_buro
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru0690373120_current_temperature
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/5
+          - type: tile
+            entity: light.philips_lwo001_light
+            layout_options:
+              grid_columns: full
+            visibility:
+              - condition: state
+                entity: light.philips_lwo001_light
+                state_not: unavailable
+            name: Deckenlampe
+            icon: mdi:ceiling-light
+            icon_tap_action:
+              action: toggle
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: cover.lauras_buro_gross_2
+            features_position: bottom
+            vertical: false
+            features:
+              - type: cover-open-close
+            grid_options:
+              columns: 6
+              rows: 2
+          - type: tile
+            entity: cover.lauras_buro_klein_2
+            features_position: bottom
+            vertical: false
+            features:
+              - type: cover-open-close
+            grid_options:
+              columns: 6
+              rows: 2
+          - type: tile
+            entity: light.schreibtisch
+            vertical: false
+            features_position: bottom
+            grid_options:
+              columns: 12
+              rows: 1
+          - type: heading
+            icon: mdi:yoga
+            heading: Sportzimmer
+            heading_style: subtitle
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: binary_sensor.fenster_sportzimmer
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.fenster_sportzimmer
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru0630216448_current_temperature
+          - type: tile
+            visibility:
+              - condition: state
+                entity: light.deckenlampe_sportzimmer_light_2
+                state_not: unavailable
+            entity: light.deckenlampe_sportzimmer_light_2
+            name: Deckenlampe
+            icon: mdi:ceiling-light
+            vertical: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+            icon_tap_action:
+              action: toggle
+            features_position: bottom
+            grid_options:
+              columns: 6
+              rows: 1
+          - type: tile
+            entity: switch.sportzimmer_sportzimmer
+            vertical: false
+            features_position: bottom
+          - type: tile
+            entity: cover.sportzimmer_gross_2
+            features_position: bottom
+            vertical: false
+            features:
+              - type: cover-open-close
+            grid_options:
+              columns: 6
+              rows: 2
+          - type: tile
+            entity: cover.sportzimmer_klein_2
+            features_position: bottom
+            vertical: false
+            features:
+              - type: cover-open-close
+            grid_options:
+              columns: 6
+              rows: 2
+          - type: heading
+            icon: mdi:stairs
+            heading: Treppenhaus
+            heading_style: subtitle
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: >-
+                  binary_sensor.treppenhaus_bewegungsmelder_treppenhaus_dg_belegung
+                visibility:
+                  - condition: state
+                    entity: >-
+                      binary_sensor.treppenhaus_bewegungsmelder_treppenhaus_dg_belegung
+                    state: "on"
+          - type: tile
+            entity: light.liane_light
+            icon_tap_action:
+              action: toggle
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.deckenlampe_treppenhaus
+            name: Deckenlampe
+            icon: mdi:ceiling-light
+            icon_tap_action:
+              action: toggle
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: heading
+            icon: mdi:bathtub
+            heading_style: subtitle
+            heading: Badezimmer
+            badges:
+              - type: entity
+                entity: binary_sensor.fenstersensor_bad_dg_opening
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru0673595904_current_temperature
+          - type: tile
+            entity: cover.rollladen_bad_dg
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            features_position: bottom
+            vertical: false
+            features:
+              - type: cover-open-close
+          - type: heading
+            icon: mdi:home-roof
+            heading: Dachboden
+            heading_style: subtitle
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: sensor.feuchtigkeitssensor_humidity
+                tap_action:
+                  action: more-info
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: binary_sensor.tursensor_dachboden_tur
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.tursensor_dachboden_tur
+                    state: "on"
+          - type: tile
+            layout_options:
+              grid_columns: full
+            entity: light.dachboden_deckenlampe_dachboden
+            name: Deckenlampe
+            vertical: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+            icon_tap_action:
+              action: toggle
+            features_position: bottom
+          - type: entity
+            entity: sensor.ecu_216000266768_today_energy
+            name: Heutige Produktion
+          - type: entity
+            entity: sensor.ecu_216000266768_lifetime_energy
+            name: Gesamte Produktion
+          - type: custom:mini-graph-card
+            name: Aktuelle Produktion
+            entities:
+              - sensor.ecu_216000266768_current_power
+            points_per_hour: 4
+        column_span: 4
