@@ -1,0 +1,231 @@
+views:
+  - type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:bed-king
+            heading: Schlafzimmer
+            heading_style: title
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: binary_sensor.fenstersensor_schlafzimmer_opening
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_schlafzimmer_opening
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru3532674816_current_temperature
+          - type: tile
+            entity: light.ikea_of_sweden_tradfri_bulb_e27_ws_opal_980lm_light
+            name: Deckenlampe
+            icon: mdi:ceiling-light
+            icon_tap_action:
+              action: toggle
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.herzlampe
+            name: Herzlampe
+            icon: mdi:lamp
+            vertical: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+            icon_tap_action:
+              action: toggle
+            features_position: bottom
+          - type: tile
+            entity: light.nachtischlampe_laura_light_2
+            name: Laura
+            icon: mdi:lightbulb-night
+            icon_tap_action:
+              action: toggle
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: light.nachttischlampe_philipp_light_4
+            name: Philipp
+            icon: mdi:lightbulb-night
+            icon_tap_action:
+              action: toggle
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: tile
+            entity: switch.luftfilter
+            vertical: false
+            features_position: bottom
+          - features:
+              - type: cover-open-close
+            type: tile
+            entity: cover.rollladen_schlafzimmer
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            name: Rollladen
+          - type: heading
+            icon: mdi:chair-rolling
+            heading: Philipps Büro
+            heading_style: title
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: binary_sensor.fenstersensor_philipps_buro_opening
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_philipps_buro_opening
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru3678551808_current_temperature
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/buero
+          - type: tile
+            entity: cover.eve_shutter_switch_20eci1701
+            name: Rolladen
+            vertical: false
+            features:
+              - type: cover-open-close
+            features_position: bottom
+          - type: tile
+            layout_options:
+              grid_columns: 2
+              grid_rows: 2
+            entity: light.deckenlampe_philipps_buro
+            name: Deckenlampe
+            vertical: false
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+            icon_tap_action:
+              action: toggle
+            features:
+              - type: light-brightness
+            features_position: bottom
+          - type: tile
+            entity: switch.pc
+            layout_options:
+              grid_columns: 2
+              grid_rows: 1
+            vertical: false
+            hide_state: false
+            state_content:
+              - state
+              - last_changed
+          - type: tile
+            entity: light.awtrix_53f870_matrix
+          - type: heading
+            icon: mdi:shower-head
+            heading: Badezimmer
+            heading_style: title
+            badges:
+              - type: entity
+                show_state: true
+                show_icon: true
+                entity: binary_sensor.fenstersensor_bad_1_og_opening
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_bad_1_og_opening
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru2720481792_current_temperature
+          - type: tile
+            entity: light.spiegel_spiegel
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            name: Spiegel
+            state_content:
+              - state
+              - last_changed
+            tap_action:
+              action: toggle
+            icon_tap_action:
+              action: more-info
+          - type: tile
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            entity: cover.eve_shutter_switch_20eci1701_2
+            name: Rolladen
+            vertical: false
+            features:
+              - type: cover-open-close
+            features_position: bottom
+          - type: heading
+            icon: mdi:countertop-outline
+            heading: HWR
+            heading_style: title
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/hwr
+            badges:
+              - type: entity
+                entity: binary_sensor.bewegungsmelder_hwr_belegung
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.bewegungsmelder_hwr_belegung
+                    state: "on"
+          - type: tile
+            entity: light.deckenlampe
+            name: Deckenlampe
+            icon: mdi:ceiling-light-multiple
+            state_content:
+              - state
+              - last_changed
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            icon_tap_action:
+              action: toggle
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            double_tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.waschmaschine_verbleibende_zeit
+            state_color: false
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            visibility:
+              - condition: state
+                entity: >-
+                  sensor.bosch_wav28e43_68a40e944efa_bsh_common_status_operationstate
+                state: BSH.Common.EnumType.OperationState.Run
+            icon: mdi:washing-machine
+          - type: entity
+            entity: sensor.trockner_verbleibende_zeit
+            state_color: false
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+            visibility:
+              - condition: state
+                entity: sensor.434110536427092643_bsh_common_status_operationstate
+                state: BSH.Common.EnumType.OperationState.Run
+            icon: mdi:washing-machine
+        column_span: 4
