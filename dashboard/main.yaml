@@ -1,0 +1,1289 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    icon: mdi:home
+    type: sections
+    max_columns: 3
+    dense_section_placement: true
+    top_margin: false
+    header:
+      layout: center
+      badges_position: top
+    badges:
+      - type: entity
+        entity: person.laura_heimen
+        show_entity_picture: true
+      - type: entity
+        entity: person.philipp_kluter
+        show_entity_picture: true
+      - type: entity
+        entity: weather.forecast_home
+      - type: entity
+        entity: sensor.george_washington_strasse_146_68309_mannheim_temperatur
+      - type: entity
+        entity: sensor.george_washington_strasse_146_68309_mannheim_luftfeuchtigkeit
+      - type: entity
+        entity: >-
+          binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+        show_name: false
+        show_state: true
+        show_icon: true
+        color: red
+        name: Kühlschrank
+        icon: mdi:fridge-alert
+        visibility:
+          - condition: state
+            entity: >-
+              binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+            state: "on"
+      - type: entity
+        entity: >-
+          binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+        show_name: false
+        show_state: true
+        show_icon: true
+        color: red
+        name: Gefrierfach
+        icon: mdi:fridge-alert
+        visibility:
+          - condition: state
+            entity: >-
+              binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+            state: "on"
+      - type: entity
+        entity: binary_sensor.alle_turen
+        show_name: false
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: binary_sensor.alle_turen
+            state_not: "off"
+      - type: entity
+        entity: binary_sensor.alle_fenster
+        show_name: false
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: binary_sensor.alle_fenster
+            state_not: "off"
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:bench
+            heading: Diele
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.signify_netherlands_b_v_sml003_occupancy
+                show_state: true
+                show_icon: true
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.signify_netherlands_b_v_sml003_occupancy
+                    state: "on"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru4163584512_current_temperature
+              - type: entity
+                entity: lock.haustur
+          - type: tile
+            entity: light.deckenlampe_light
+            name: Deckenlampe
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: lock.haustur
+            name: Haustür
+            grid_options:
+              columns: full
+              rows: 1
+            features_position: inline
+            features:
+              - type: lock-commands
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:fridge
+            heading: Küche
+            heading_style: title
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/kuche
+            badges:
+              - type: entity
+                entity: binary_sensor.fenstersensor_kuche_opening
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_kuche_opening
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru2167095808_current_temperature
+              - type: entity
+                entity: climate.tado_smart_thermostat_ru2167095808
+                show_state: true
+                show_icon: true
+                state_content:
+                  - state
+                  - temperature
+                tap_action:
+                  action: more-info
+                visibility:
+                  - condition: state
+                    entity: sensor.heizung_kueche_current_action
+                    state_not: idle
+          - type: tile
+            entity: >-
+              binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+            name: Kühlschranktür
+            icon: mdi:fridge-alert
+            color: red
+            grid_options:
+              columns: 6
+              rows: 1
+            visibility:
+              - condition: state
+                entity: >-
+                  binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+                state: "on"
+          - type: tile
+            entity: >-
+              binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+            name: Gefrierfachtür
+            icon: mdi:fridge-alert
+            color: red
+            grid_options:
+              columns: 6
+              rows: 1
+            visibility:
+              - condition: state
+                entity: >-
+                  binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+                state: "on"
+          - type: tile
+            entity: sensor.dishwasher_verbleibende_zeit
+            name: Spülmaschine
+            icon: mdi:dishwasher
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: sensor.012080386789002428_bsh_common_status_operationstate
+                state: BSH.Common.EnumType.OperationState.Run
+          - type: tile
+            entity: light.arbeitsplatte_light
+            name: Arbeitsplatte
+            icon: mdi:wall-sconce-flat
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.philips_915005996401_light
+            name: Deckenlampe
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.barlampe
+            name: Barlampe
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: cover.rollladen_kuche
+            name: Rollladen
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: cover-open-close
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:silverware
+            heading: Esszimmer
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.tursensor_seitentur_opening
+                show_state: true
+                show_icon: true
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.tursensor_seitentur_opening
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru1244545536_current_temperature
+              - type: entity
+                entity: climate.tado_smart_thermostat_ru1244545536
+                show_state: true
+                show_icon: true
+                state_content:
+                  - hvac_action
+                  - temperature
+                tap_action:
+                  action: more-info
+                visibility:
+                  - condition: state
+                    entity: sensor.heizung_wohnzimmer_current_action
+                    state_not: idle
+              - type: entity
+                entity: binary_sensor.bewegungsmelder_esszimmer_belegung
+                show_state: true
+                show_icon: true
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.bewegungsmelder_esszimmer_belegung
+                    state: "on"
+          - type: tile
+            entity: light.esszimmer_unten_light
+            name: Unten
+            features:
+              - type: light-brightness
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.esszimmer_oben_light
+            name: Oben
+            features:
+              - type: light-brightness
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: cover.rollladen_seitentur
+            name: Rollladen Seitentür
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: cover-open-close
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:sofa
+            heading: Wohnzimmer
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.tursensor_terassentur_opening
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.tursensor_terassentur_opening
+                    state_not: "off"
+              - type: entity
+                entity: sensor.tado_smart_thermostat_ru1244545536_current_temperature
+              - type: entity
+                entity: climate.tado_smart_thermostat_ru1244545536
+                show_state: true
+                show_icon: true
+                state_content:
+                  - hvac_action
+                  - temperature
+                tap_action:
+                  action: more-info
+                visibility:
+                  - condition: state
+                    entity: sensor.heizung_wohnzimmer_current_action
+                    state_not: idle
+          - type: tile
+            entity: light.stehlampe
+            name: Stehlampe
+            features:
+              - type: light-brightness
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.deckenlampe_wohnzimmer_light
+            name: Deckenlampe
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: cover.rollladen_terrassentur
+            name: Rollladen Terrassentür
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: cover-open-close
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:server-network
+            heading: Technikraum
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.ikea_of_sweden_tradfri_motion_sensor_motion
+                show_state: true
+                show_icon: true
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.ikea_of_sweden_tradfri_motion_sensor_motion
+                    state: "on"
+          - type: tile
+            entity: light.wandlampe_light
+            name: Wandlampe
+            icon: mdi:wall-sconce
+            grid_options:
+              columns: full
+              rows: 1
+            state_content:
+              - state
+              - last_changed
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:stairs
+            heading: Treppenhaus
+            heading_style: title
+          - type: tile
+            entity: light.treppenhaus_eg_treppenhaus_eg
+            name: Treppenhaus EG
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:grass
+            heading: Garten
+            heading_style: title
+            badges:
+              - type: entity
+                entity: valve.rasenbewasserung_gross
+                name: Groß
+                show_state: true
+                show_icon: true
+                state_content: last_changed
+                visibility:
+                  - condition: state
+                    entity: valve.rasenbewasserung_gross
+                    state: open
+              - type: entity
+                entity: valve.rasenbewasserung_klein_switch
+                name: Klein
+                show_state: true
+                show_icon: true
+                state_content: last_changed
+                visibility:
+                  - condition: state
+                    entity: valve.rasenbewasserung_klein_switch
+                    state: open
+              - type: entity
+                entity: sensor.eve_weather_20ebs9901_temperatur
+              - type: entity
+                entity: timer.bewaesserung
+                name: Aus in
+                show_state: true
+                show_icon: true
+                icon: mdi:timer-sand
+                visibility:
+                  - condition: state
+                    entity: timer.bewaesserung
+                    state: active
+          - type: tile
+            entity: light.garten_garten_controller
+            name: Garten
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.eve_flare_7783
+            name: Flare 1
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.eve_flare_af38
+            name: Flare 2
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: valve.rasenbewasserung_gross
+            name: Bewässerung Groß
+            icon: mdi:sprinkler-variant
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: valve-open-close
+          - type: tile
+            entity: valve.rasenbewasserung_klein_switch
+            name: Bewässerung Klein
+            icon: mdi:sprinkler-variant
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: valve-open-close
+          - type: tile
+            entity: input_number.bewaesserung_dauer
+            name: Aus in
+            icon: mdi:timer-outline
+            grid_options:
+              columns: 6
+              rows: 2
+            features_position: bottom
+            features:
+              - type: numeric-input
+                style: buttons
+            visibility:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: valve.rasenbewasserung_gross
+                    state: open
+                  - condition: state
+                    entity: valve.rasenbewasserung_klein_switch
+                    state: open
+          - type: tile
+            entity: input_button.bewaesserung_timer_starten
+            name: Timer setzen
+            icon: mdi:timer-play-outline
+            grid_options:
+              columns: 6
+              rows: 2
+            tap_action:
+              action: perform-action
+              perform_action: input_button.press
+              target:
+                entity_id: input_button.bewaesserung_timer_starten
+            visibility:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: valve.rasenbewasserung_gross
+                    state: open
+                  - condition: state
+                    entity: valve.rasenbewasserung_klein_switch
+                    state: open
+          - type: tile
+            entity: timer.bewaesserung
+            name: Bewässerung endet in
+            icon: mdi:timer-sand
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: more-info
+            visibility:
+              - condition: state
+                entity: timer.bewaesserung
+                state: active
+  - title: Heizung
+    path: heizung
+    icon: mdi:home-thermometer
+    type: sections
+    max_columns: 3
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Erdgeschoss
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru4163584512
+            show_current_as_primary: true
+            name: Diele
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru2167095808
+            show_current_as_primary: true
+            name: Küche
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru1244545536
+            show_current_as_primary: true
+            name: Wohnzimmer
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+      - type: grid
+        cards:
+          - type: heading
+            heading: 1. OG
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru2720481792
+            show_current_as_primary: true
+            name: Bad 1.OG
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru3678551808
+            show_current_as_primary: true
+            name: Philipps Büro
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru3532674816
+            show_current_as_primary: true
+            name: Schlafzimmer
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+      - type: grid
+        cards:
+          - type: heading
+            heading: Dachgeschoss
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru0673595904
+            show_current_as_primary: true
+            name: Bad DG
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru0690373120
+            show_current_as_primary: true
+            name: Lauras Büro
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+          - type: thermostat
+            entity: climate.tado_smart_thermostat_ru0630216448
+            show_current_as_primary: true
+            name: Sportzimmer
+            features:
+              - type: climate-hvac-modes
+            layout_options:
+              grid_columns: 4
+              grid_rows: 5
+    cards: []
+  - title: Küche
+    path: kuche
+    icon: mdi:chef-hat
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Lampen
+          - type: tile
+            entity: light.barlampe
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            show_entity_picture: false
+            vertical: false
+            hide_state: false
+            state_content: last-changed
+          - type: tile
+            entity: light.arbeitsplatte_light
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            state_content: last-changed
+          - type: tile
+            entity: light.philips_915005996401_light
+            name: Deckenlampe
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            state_content: last-changed
+      - type: grid
+        cards:
+          - type: heading
+            heading: Küchengeräte
+            heading_style: title
+            icon: ""
+          - type: tile
+            entity: >-
+              sensor.siemens_ex877lx57e_68a40e85448b_bsh_common_status_operationstate
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            features_position: bottom
+            vertical: false
+            name: Herd Status
+            icon: mdi:power
+          - type: tile
+            entity: sensor.012080386789002428_bsh_common_option_remainingprogramtime
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+            name: Spülmaschine - verbleibende Zeit
+            visibility:
+              - condition: state
+                entity: sensor.012080386789002428_bsh_common_status_operationstate
+                state: Run
+          - type: history-graph
+            entities:
+              - entity: >-
+                  sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_setting_powerstate
+                name: Backofen
+              - entity: >-
+                  sensor.siemens_ex877lx57e_68a40e85448b_bsh_common_setting_powerstate
+                name: Herd
+            logarithmic_scale: false
+            hours_to_show: 168
+          - type: tile
+            entity: >-
+              sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_status_operationstate
+          - type: tile
+            entity: sensor.012080386789002428_bsh_common_status_operationstate
+    max_columns: 4
+    subview: true
+    cards: []
+  - title: Erdgeschoss
+    path: erdgeschoss
+    icon: mdi:sofa
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Diele
+          - features:
+              - type: light-brightness
+            type: tile
+            entity: light.deckenlampe_light
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: tile
+            entity: climate.tado_smart_thermostat_ru4163584512
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+      - type: grid
+        cards:
+          - type: heading
+            heading: Küche
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.fenstersensor_kuche_opening
+          - features:
+              - type: light-brightness
+            type: tile
+            entity: light.philips_915005996401_light
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - type: tile
+            entity: climate.tado_smart_thermostat_ru2167095808
+            layout_options:
+              grid_columns: 4
+              grid_rows: 1
+          - type: media-control
+            entity: media_player.kuche
+      - type: grid
+        cards:
+          - type: heading
+            heading: Esszimmer
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.tursensor_seitentur_opening
+          - features:
+              - type: light-brightness
+            type: tile
+            entity: light.esszimmer_unten_light
+            layout_options:
+              grid_columns: 2
+              grid_rows: 2
+            name: Unten
+          - features:
+              - type: light-brightness
+            type: tile
+            entity: light.esszimmer_oben_light
+            layout_options:
+              grid_columns: 2
+              grid_rows: 2
+            name: Oben
+          - type: tile
+            grid_options:
+              columns: 12
+              rows: 2
+            entity: cover.eve_shutter_switch_20eci1701
+            name: Seitentür
+            show_entity_picture: false
+            state_content:
+              - state
+              - current_position
+            vertical: false
+            features:
+              - type: cover-open-close
+            features_position: bottom
+      - type: grid
+        cards:
+          - type: heading
+            heading: Wohnzimmer
+            heading_style: title
+            badges:
+              - type: entity
+                entity: binary_sensor.tursensor_terassentur_opening
+          - type: tile
+            entity: light.stehlampe
+            features:
+              - type: light-brightness
+            layout_options:
+              grid_columns: 4
+              grid_rows: 2
+          - features:
+              - type: cover-open-close
+            type: tile
+            entity: cover.eve_shutter_switch_18b9
+            name: Terassentür
+            show_entity_picture: false
+            state_content:
+              - state
+              - current_position
+            grid_options:
+              columns: 12
+              rows: 2
+          - type: tile
+            entity: climate.tado_smart_thermostat_ru1244545536
+            vertical: false
+            features_position: bottom
+            grid_options:
+              columns: 12
+              rows: 1
+          - type: media-control
+            entity: media_player.sonos_move
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+          - type: media-control
+            entity: media_player.wohnzimmer
+            layout_options:
+              grid_columns: 2
+              grid_rows: 3
+    max_columns: 3
+    cards: []
+    subview: true
+  - title: Hauswirtschaftsraum
+    type: sections
+    max_columns: 4
+    path: hwr
+    icon: mdi:washing-machine
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Waschmaschine
+            heading_style: title
+          - type: tile
+            entity: >-
+              binary_sensor.bosch_wav28e43_68a40e944efa_bsh_common_option_remainingprogramtimeisestimated
+            features_position: bottom
+            vertical: false
+            name: Waschmaschine - verbleibende Zeit
+            grid_options:
+              columns: 12
+              rows: 1
+            visibility:
+              - condition: state
+                entity: >-
+                  sensor.bosch_wav28e43_68a40e944efa_bsh_common_status_operationstate
+                state: Run
+          - type: tile
+            entity: sensor.434110536427092643_bsh_common_status_operationstate
+            features_position: bottom
+            vertical: false
+            grid_options:
+              columns: 12
+              rows: 1
+          - type: tile
+            entity: switch.waschmaschine
+            vertical: false
+            features_position: bottom
+          - type: tile
+            entity: switch.trockner
+            vertical: false
+            features_position: bottom
+    subview: true
+    cards: []
+    header:
+      card:
+        type: markdown
+        text_only: true
+        content: "# Hauswirtschaftsraum"
+  - title: System
+    icon: mdi:cog-outline
+    type: sections
+    layout: {}
+    badges: []
+    cards: []
+    max_columns: 4
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            icon: mdi:wifi
+            heading: Guest-Wifi
+            heading_style: title
+          - type: picture
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+            image: /api/image/serve/90317dab48e12ed7a96389aa3582cce9/512x512
+          - type: tile
+            grid_options:
+              columns: 12
+              rows: 1
+            entity: switch.dream_machine
+            vertical: false
+            icon_tap_action:
+              action: more-info
+            features_position: bottom
+      - type: grid
+        cards:
+          - type: heading
+            heading: Home Assistant
+            heading_style: title
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.memory_use_percent
+                name: HA Memory Usage
+              - entity: sensor.nas_memory_usage_real
+                name: NAS Memory Usage
+                color: green
+            points_per_hour: 0.5
+            hours_to_show: 48
+            upper_bound: 100
+            lower_bound: 0
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.processor_use
+                name: HA CPU Usage
+              - entity: sensor.nas_cpu_utilization_total
+                name: NAS CPU Usage
+                color: green
+            points_per_hour: 4
+            hours_to_show: 12
+            upper_bound: 100
+            lower_bound: 0
+          - type: entities
+            entities:
+              - update.home_assistant_core_update
+              - update.home_assistant_operating_system_update
+              - update.home_assistant_supervisor_update
+      - type: grid
+        cards:
+          - type: heading
+            heading: NAS
+            heading_style: title
+          - type: custom:mini-graph-card
+            name: NAS Disk Usage
+            entities:
+              - sensor.nas_volume_3_volume_used
+            color_thresholds:
+              - value: 0
+                color: green
+              - value: 75
+                color: "#00ff00"
+              - value: 90
+                color: red
+            lower_bound: 0
+            upper_bound: 100
+            points_per_hour: 0.25
+            hour24: true
+            hours_to_show: 8640
+          - type: heading
+            heading: New section
+      - type: grid
+        cards:
+          - type: heading
+            heading: Einstellungen
+            heading_style: title
+          - type: entities
+            entities:
+              - input_boolean.urlaubsmodus
+  - title: Büro
+    icon: mdi:chair-school
+    type: sections
+    badges: []
+    cards: []
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Lauras Büro
+            heading_style: title
+          - type: tile
+            entity: light.philips_lwo001_light
+            name: Deckenlampe
+            icon: mdi:ceiling-light
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            features:
+              - type: light-brightness
+            grid_options:
+              columns: 12
+              rows: 2
+      - type: grid
+        cards:
+          - type: heading
+            heading_style: title
+            heading: Philipps Büro
+          - features:
+              - type: light-brightness
+            type: tile
+            entity: light.deckenlampe_philipp_s_buro_light_2
+            grid_options:
+              columns: 12
+              rows: 1
+            hold_action:
+              action: more-info
+            tap_action:
+              action: toggle
+            name: Deckenlampe
+            icon: mdi:ceiling-light
+          - type: heading
+            icon: mdi:lightning-bolt
+            heading: Strom
+            heading_style: subtitle
+          - type: entities
+            entities:
+              - entity: sensor.pc1_power_2
+                name: PC 1 - Aktuell
+              - entity: sensor.pc2_power
+                name: PC 2 - Aktuell
+              - entity: sensor.pc1_energy_2
+                name: PC 1 - Gesamt
+              - entity: sensor.pc2_energy
+                name: PC 2 - Gesamt
+              - entity: switch.pc
+            show_header_toggle: false
+          - type: tile
+            entity: switch.luftfilter_2
+    max_columns: 4
+    subview: true
+  - title: ÖPNV
+    path: opnv
+    icon: mdi:train-bus
+    cards: []
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Next Bike
+          - type: entities
+            entities:
+              - entity: sensor.vrn_nextbike_george_washington_strasse
+                name: George-Washington-Straße
+                icon: mdi:bicycle
+                secondary_info: last-changed
+              - entity: sensor.vrn_nextbike_bensheimer_strasse
+                name: Bensheimer Straße
+                icon: mdi:bicycle
+                secondary_info: last-changed
+            title: Verfügbare Räder
+  - title: Kamera
+    type: sections
+    max_columns: 4
+    path: kamera
+    icon: mdi:cctv
+    subview: false
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Garten
+            heading_style: title
+          - camera_view: auto
+            type: picture-glance
+            entities:
+              - binary_sensor.remote_ui
+              - sensor.sun_next_dawn
+            camera_image: camera.outdoor_kamera_fluent
+            title: Garten
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.outdoor_kamera_person
+                name: Person erkannt
+            hours_to_show: 12
+            logarithmic_scale: false
+    cards: []
+  - title: Garten
+    type: sections
+    max_columns: 2
+    path: garten
+    icon: mdi:flower-tulip-outline
+    header:
+      layout: center
+      badges_position: bottom
+      card:
+        type: markdown
+        text_only: true
+        content: |
+          # Garten
+          {% if is_state('valve.rasenbewasserung_gross', 'open')
+             or is_state('valve.rasenbewasserung_klein_switch', 'open') %}
+          Bewässerung läuft
+          {% else %}
+          Bewässerung aus
+          {% endif %}
+    badges:
+      - type: entity
+        entity: sensor.eve_weather_20ebs9901_temperatur
+        name: Außen
+        show_name: true
+        show_icon: true
+        show_state: true
+      - type: entity
+        entity: valve.rasenbewasserung_gross
+        name: Groß
+        icon: mdi:sprinkler-variant
+        show_name: true
+        state_content: last_changed
+        visibility:
+          - condition: state
+            entity: valve.rasenbewasserung_gross
+            state: open
+      - type: entity
+        entity: valve.rasenbewasserung_klein_switch
+        name: Klein
+        icon: mdi:sprinkler-variant
+        show_name: true
+        state_content: last_changed
+        visibility:
+          - condition: state
+            entity: valve.rasenbewasserung_klein_switch
+            state: open
+      - type: entity
+        entity: timer.bewaesserung
+        name: Aus in
+        icon: mdi:timer-sand
+        show_name: true
+        visibility:
+          - condition: state
+            entity: timer.bewaesserung
+            state: active
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Beleuchtung
+            icon: mdi:lightbulb-group-outline
+            heading_style: title
+          - type: tile
+            entity: light.garten_garten_controller
+            name: Hecke
+            icon: mdi:string-lights
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: light-brightness
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.eve_flare_7783
+            name: Flare 1
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+          - type: tile
+            entity: light.eve_flare_af38
+            name: Flare 2
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+      - type: grid
+        cards:
+          - type: heading
+            heading: Bewässerung
+            icon: mdi:sprinkler-variant
+            heading_style: title
+          - type: tile
+            entity: valve.rasenbewasserung_gross
+            name: Rasen groß
+            icon: mdi:grass
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: valve-open-close
+            icon_tap_action:
+              action: more-info
+          - type: tile
+            entity: valve.rasenbewasserung_klein_switch
+            name: Rasen klein
+            icon: mdi:grass
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: valve-open-close
+            icon_tap_action:
+              action: more-info
+          - type: tile
+            entity: input_button.rasenbewasserung_kurz
+            name: Kurz bewässern
+            icon: mdi:water-sync
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: perform-action
+              perform_action: input_button.press
+              target:
+                entity_id: input_button.rasenbewasserung_kurz
+          - type: heading
+            heading: Abschalt-Timer
+            icon: mdi:timer-outline
+            heading_style: subtitle
+            visibility:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: valve.rasenbewasserung_gross
+                    state: open
+                  - condition: state
+                    entity: valve.rasenbewasserung_klein_switch
+                    state: open
+          - type: tile
+            entity: input_number.bewaesserung_dauer
+            name: Aus in
+            icon: mdi:timer-edit-outline
+            grid_options:
+              columns: 6
+              rows: 2
+            features_position: bottom
+            features:
+              - type: numeric-input
+                style: buttons
+            visibility:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: valve.rasenbewasserung_gross
+                    state: open
+                  - condition: state
+                    entity: valve.rasenbewasserung_klein_switch
+                    state: open
+          - type: tile
+            entity: input_button.bewaesserung_timer_starten
+            name: Timer setzen
+            icon: mdi:timer-play-outline
+            grid_options:
+              columns: 6
+              rows: 2
+            tap_action:
+              action: perform-action
+              perform_action: input_button.press
+              target:
+                entity_id: input_button.bewaesserung_timer_starten
+            visibility:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: valve.rasenbewasserung_gross
+                    state: open
+                  - condition: state
+                    entity: valve.rasenbewasserung_klein_switch
+                    state: open
+          - type: tile
+            entity: timer.bewaesserung
+            name: Endet in
+            icon: mdi:timer-sand
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: more-info
+            visibility:
+              - condition: state
+                entity: timer.bewaesserung
+                state: active
+  - type: sections
+    max_columns: 4
+    title: Büro
+    path: buero
+    icon: mdi:chair-rolling
+    subview: true
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: New section
+          - type: tile
+            entity: sensor.current_work
+    header:
+      card:
+        type: markdown
+        content: "# Philipps Büro"
+        text_only: true
+  - type: sections
+    max_columns: 4
+    title: Stats
+    path: stats
+    sections:
+      - type: grid
+        cards: []
