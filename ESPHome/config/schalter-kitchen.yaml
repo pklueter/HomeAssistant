@@ -3,7 +3,7 @@ substitutions:
   friendly_name: Schalter Küche
   ota_password: !secret ota_password
   fallback_wifi_pwd: !secret fallback_wifi_pwd
-  light_entity: light.philips_915005996401_light
+  light_entity: light.kuche_deckenlampe
   bt_proxy: "true"
 
 packages:
