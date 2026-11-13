@@ -75,11 +75,12 @@ output:
     id: relay_1
 
 light:
+  # Relais versorgt die Smart-Lampe dauerhaft mit Strom – nie ausschalten
   - platform: binary
     id: light_1
     name: ${friendly_name}
     icon: mdi:ceiling-light-multiple-outline
-    restore_mode: restore_default_off
+    restore_mode: ALWAYS_ON
     output: relay_1
 
 binary_sensor:
@@ -90,8 +91,11 @@ binary_sensor:
       - invert:
       - delayed_off: 50ms
     on_press:
-      - light.toggle:
-          id: light_1
+      # Gerätetaste schaltet die Smart-Lampe, nicht das Relais
+      - homeassistant.action:
+          action: light.toggle
+          data:
+            entity_id: ${light_entity}
 
   - platform: gpio
     name: s1
@@ -101,8 +105,8 @@ binary_sensor:
       - invert:
       - delayed_off: 50ms
     on_press:
-      - homeassistant.service:
-          service: light.toggle
+      - homeassistant.action:
+          action: light.toggle
           data:
             entity_id: ${light_entity}
 

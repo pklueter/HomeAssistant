@@ -54,6 +54,14 @@ text_sensor:
       name: IP Address
     dns_address:
       name: DNS Address
+  # Grund des letzten Neustarts (z. B. Brownout = Spannungseinbruch)
+  - platform: debug
+    reset_reason:
+      name: ${friendly_name} Reset-Grund
+      entity_category: "diagnostic"
+
+debug:
+  update_interval: 60s
 
 status_led:
   pin:
