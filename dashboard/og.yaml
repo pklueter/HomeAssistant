@@ -105,7 +105,7 @@ views:
       hold_action:
         action: more-info
     - type: tile
-      entity: switch.pc
+      entity: switch.schreibtisch
       name: PC
       icon: mdi:desktop-tower-monitor
       state_content:
