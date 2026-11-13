@@ -93,6 +93,20 @@ LIGHT = {
     "bm": "fill:#f6f3ee;stroke:#c9c3b8;stroke-width:1.2", "bl": "fill:#c9a24e", "bll": "fill:none;stroke:#b08a3c;stroke-width:1.2",
     "pl": "fill:#6d529c",
     "lt": "fill:#c9ced5;stroke:#9aa1aa;stroke-width:1.2",
+    # EG: light grey sofa, light oak, grey-green velvet chairs, mustard stools, anthracite kitchen
+    "so": "fill:#d3d6da;stroke:#a9aeb5;stroke-width:1.4", "so2": "fill:#c2c6cc;stroke:#a9aeb5;stroke-width:1.2",
+    "ok": "fill:#dcb57f;stroke:#b78c55;stroke-width:1.4", "okb": "fill:#dcb57f;stroke:#33373d;stroke-width:2.6",
+    "vl": "fill:#aebdb7;stroke:#869891;stroke-width:1.3", "vlb": "fill:none;stroke:#869891;stroke-width:6;stroke-linecap:round",
+    "mu": "fill:#d6a640;stroke:#ae8229;stroke-width:1.3", "mub": "fill:none;stroke:#ae8229;stroke-width:5;stroke-linecap:round",
+    "ka": "fill:#585d64;stroke:#43474e;stroke-width:1.6", "kal": "fill:none;stroke:#6f747b;stroke-width:1.2",
+    "pd": "fill:#4a5d66", "rd": "fill:#b23a44",
+    # terrace lounge: anthracite frame and backrests, grey cushions
+    "lo": "fill:#4f5359;stroke:#3a3d42;stroke-width:1.4", "loc": "fill:#6a6f76;stroke:#4f5359;stroke-width:1.2",
+    # EG lamps as they look: black housings, white diffusers
+    "lb": "fill:#2c3035;stroke:#1d2024;stroke-width:1", "ldf": "fill:#fbfbfa;stroke:#2c3035;stroke-width:3.5",
+    "lbt": "fill:none;stroke:#2c3035;stroke-width:3.5;stroke-linecap:round",
+    "lbt2": "fill:none;stroke:#2c3035;stroke-width:2;stroke-linecap:round",
+    "ldl": "fill:none;stroke:#80878f;stroke-width:1.6;stroke-linecap:round",
     "sk": "fill:#d3d9de;stroke:#9aa3ad;stroke-width:1.4",
     "wf": "fill:#ffffff;stroke:#8a96a3;stroke-width:1.2",
     "gl": "fill:#a9d4f2", "wm": "fill:none;stroke:#8a96a3;stroke-width:1.4",
@@ -150,6 +164,17 @@ DARK = {
     "bm": "fill:#565b62;stroke:#6c7179;stroke-width:1.2", "bl": "fill:#8c7034", "bll": "fill:none;stroke:#735c2a;stroke-width:1.2",
     "pl": "fill:#4d3a70",
     "lt": "fill:#7a8089;stroke:#959ca5;stroke-width:1.2",
+    "so": "fill:#626870;stroke:#7d848d;stroke-width:1.4", "so2": "fill:#555b63;stroke:#737a83;stroke-width:1.2",
+    "ok": "fill:#735737;stroke:#93724a;stroke-width:1.4", "okb": "fill:#735737;stroke:#15171a;stroke-width:2.6",
+    "vl": "fill:#4f5d58;stroke:#687872;stroke-width:1.3", "vlb": "fill:none;stroke:#687872;stroke-width:6;stroke-linecap:round",
+    "mu": "fill:#8f6d2a;stroke:#a8843d;stroke-width:1.3", "mub": "fill:none;stroke:#a8843d;stroke-width:5;stroke-linecap:round",
+    "ka": "fill:#26292d;stroke:#42464d;stroke-width:1.6", "kal": "fill:none;stroke:#3b3f45;stroke-width:1.2",
+    "pd": "fill:#2c3a40", "rd": "fill:#7d2a31",
+    "lo": "fill:#26292d;stroke:#464b52;stroke-width:1.4", "loc": "fill:#3a3e44;stroke:#565c63;stroke-width:1.2",
+    "lb": "fill:#141619;stroke:#828a94;stroke-width:1.3", "ldf": "fill:#6f767f;stroke:#141619;stroke-width:3.5",
+    "lbt": "fill:none;stroke:#828a94;stroke-width:3.5;stroke-linecap:round",
+    "lbt2": "fill:none;stroke:#828a94;stroke-width:2;stroke-linecap:round",
+    "ldl": "fill:none;stroke:#5d646d;stroke-width:1.6;stroke-linecap:round",
     "sk": "fill:#5a6168;stroke:#7a828b;stroke-width:1.4",
     "wf": "fill:#5f6772;stroke:#8b939e;stroke-width:1.2",
     "gl": "fill:#4f86ad", "wm": "fill:none;stroke:#8b939e;stroke-width:1.4",
@@ -397,8 +422,143 @@ def buero_moebel():
          line("dkl", 346, 6, 346, 40),
          # air purifier grille
          '<circle class="fxi" cx="298" cy="20" r="11"/><circle class="sk" cx="298" cy="20" r="4"/>',
+         # HomePod mini on the desk under the window: fabric ball, glass top
+         '<circle class="sk" cx="%s" cy="%s" r="6" filter="url(#fs)"/>' % HOMEPOD,
+         '<circle class="lb" cx="%s" cy="%s" r="3.4"/>' % HOMEPOD,
          ]
     return s
+
+
+HOMEPOD = (132, 18)        # HomePod mini "Philipps Büro" on the desk, right of the PC
+
+
+def chair(x, y, rot, cls="vl", w=44, d=44):
+    """Shell chair seen from above; front towards -y before rotating (rot 90 faces +x, -90 faces -x)."""
+    hw, hd = w / 2, d / 2
+    return ('<g transform="translate(%s %s) rotate(%s)">' % (fmt(x), fmt(y), fmt(rot))
+            + r(cls, -hw, -hd, hw, hd, 9)
+            + '<path class="%sb" d="M%s,%s Q%s,%s 0,%s Q%s,%s %s,%s"/>' % (
+                cls, fmt(-hw + 4), fmt(-2), fmt(-hw + 3), fmt(hd - 3), fmt(hd - 2), fmt(hw - 3), fmt(hd - 3),
+                fmt(hw - 4), fmt(-2))
+            + "</g>")
+
+
+def plant(x, y, rad, leaves=8, pot=None):
+    """Potted plant from above: leaves radiating from the pot."""
+    s = ['<g transform="translate(%s %s)">' % (fmt(x), fmt(y))]
+    if pot:
+        s.append('<circle class="sk" r="%s"/>' % fmt(pot))
+    for i in range(leaves):
+        s.append('<ellipse class="hd" cx="%s" rx="%s" ry="%s" transform="rotate(%s)"/>' % (
+            fmt(rad * .5), fmt(rad * .5), fmt(rad * .17), fmt(i * 360 / leaves + 15)))
+    return "".join(s) + "</g>"
+
+
+def eg_moebel():
+    """Wohnen / Essen / Kueche from the user's photos.
+    Outer wall with the side door x=464, Haustrennwand x=0 (green TV wall), terrace door y=1150."""
+    return [
+        '<g filter="url(#fs)">',
+        # Essen: white table centred between the stair wall and the side door, velvet chairs
+        r("fx", 234.5, 545, 329.5, 725, 26),
+        chair(210, 595, 90), chair(210, 680, 90), chair(354, 595, -90), chair(354, 680, -90),
+        # Kueche: two mustard bar stools at the island
+        chair(292, 437, 0, "mu", 38, 36), chair(347, 437, 0, "mu", 38, 36),
+        # Wohnen: L sofa against the outer wall, chaise towards the terrace door
+        '<path class="so" d="M464,890H369V1026H304V1120H464Z"/>',
+        r("okb", 262, 915, 322, 1025, 2),                     # coffee table: oak top, black frame
+        # TV wall: white lowboard with oak shelf, glass cabinet next to the stair wall
+        r("fx", 0, 866, 44, 1066, 2), r("ok", 0, 900, 40, 1062, 1.5),
+        r("ok", 0, 736, 44, 796, 2),
+        "</g>",
+        # sofa: arms, back, seat cushions, cushions against the back
+        r("so2", 369, 890, 464, 906, 6), r("so2", 304, 1106, 464, 1120, 6), r("so2", 446, 906, 464, 1106, 3),
+        r("so", 371, 908, 444, 965, 6), r("so", 371, 967, 444, 1024, 6), r("so", 306, 1026, 444, 1104, 6),
+        r("pd", 425, 912, 443, 950, 6), r("bl", 425, 954, 443, 990, 6), r("pd", 425, 1060, 443, 1098, 6),
+        # TV, Sonos soundbar "Living Room" in front of it, Sonos Move 2 left of the TV (seen from the sofa)
+        r("ck", 8, 906, 14, 1026, 2),
+        r("lb", 22, 933.5, 32, 998.5, 4), line("ldl", 27, 941, 27, 991),
+        '<ellipse class="lb" cx="20" cy="1046" rx="8" ry="12"/>', line("ldl", 14.5, 1040, 14.5, 1052),
+        # cabinet glass front, basket with a red cushion
+        line("ckr", 41, 744, 41, 788),
+        '<circle class="sk" cx="22" cy="834" r="15"/><ellipse class="rd" cx="24" cy="830" rx="8" ry="12"/>',
+        # plants: palm in the corner by the terrace door, small one on the coffee table
+        plant(26, 1122, 44, 9, 14), plant(296, 1003, 20, 7),
+        # flower pots in front of the terrace door, behind the chaise
+        plant(355, 1134, 24, 7, 7), plant(329, 1137, 20, 6, 6),
+        # side door: monstera and a small pot plant in front of the fixed glazing (Flare in between)
+        plant(432, 638, 30, 7, 10), plant(447, 694, 14, 6, 6),
+        # Kueche: wall cupboards over the counter (dashed); oak wood panel with a floating oak shelf,
+        # a small plant and the Sonos Era 100 "Kueche" on it
+        r("da", 428, 2, 464, 232),
+        r("ok", 459, 236, 464, 340),
+        '<g filter="url(#fs)">', r("ok", 440, 240, 464, 336, 2), "</g>",
+        plant(451, 262, 16, 6, 5),
+        r("lb", 445, 310, 459, 324, 4.5), '<circle class="ldf" cx="448.5" cy="317" r="1.6" style="stroke-width:.8"/>',
+    ]
+
+
+CAMERA = (40, 1194)       # PTZ camera on the wood-clad terrace facade, left of the terrace door
+
+
+def terrasse_moebel():
+    """Terrace from the user's photos: privacy screen to the neighbour with a string of lights,
+    grey lounge sofa along it (backrests along the screen and at the facade end, i.e. back and right on screen),
+    wooden table with a black frame at the sofa end in front of the door, small bollard light next to the door,
+    PTZ camera on the facade."""
+    bulbs = "".join('<circle cx="-8" cy="%s" r="2.6" fill="#fbf3d5" stroke="#b9a66f" stroke-width=".8"/>' % y
+                    for y in range(1200, 1441, 24))
+    seats = [(1252, 1302), (1304, 1367), (1369, 1430)]
+    return [
+        r("gt", -19, 1186.5, -12, TER_Y1),
+        '<path d="M-8,1192' + "".join("Q-3,%s -8,%s" % (y + 12, y + 24) for y in range(1192, 1441, 24))
+        + '" fill="none" stroke="#8d949c" stroke-width="1"/>' + bulbs,
+        '<g filter="url(#fs)">', r("lo", -10, 1216, 80, 1432, 5), r("okb", 94, 1226, 144, 1276, 2), "</g>",
+        r("lo", -10, 1216, 10, 1432, 5), r("lo", -10, 1216, 80, 1236, 5),       # backrests (L)
+        r("loc", 24, 1238, 78, 1250, 5),                                          # corner back cushion
+        *[r("loc", 11, a, 23, b, 5) for a, b in [(1238, 1302)] + seats[1:]],     # back cushions
+        *[r("loc", 24, a, 78, b, 6) for a, b in seats],                           # seat cushions
+        line("dkl", 100, 1251, 138, 1251),                                        # table: board joint
+        '<circle class="gt" cx="80" cy="1198" r="6"/><circle class="fx" cx="80" cy="1198" r="3.5"/>',  # bollard
+        '<circle class="ck" cx="%s" cy="%s" r="7"/><circle class="sk" cx="%s" cy="%s" r="3"/>' % (
+            CAMERA[0], CAMERA[1], CAMERA[0], CAMERA[1] + 2),
+    ]
+
+
+def camera_device():
+    """Tap the camera on the facade: live picture (standard stream, light on the iPad)."""
+    x, y = CAMERA
+    return dict(entity="camera.outdoor_kamera_fluent", tap="more-info", hit=(x - 7, y - 7, x + 7, y + 7), states=[])
+
+
+def schlaf_moebel():
+    """Schlafzimmer (OG) from the user's photo. Headboard against the petrol accent wall x=464;
+    looking at the bed Laura sleeps left (towards the HWR wall), Philipp right (window side).
+    Window y=1150 with the armchair in front of it, mirrored sliding wardrobe along the Haustrennwand x=0,
+    dresser on the same wall next to the wardrobe (with a gap), not on the outer wall."""
+    def nightstand(y0):
+        return r("fx", 416, y0, 464, y0 + 40, 2)
+    return [
+        '<g filter="url(#fs)">',
+        r("fx", 258, 880, 464, 1072, 4),                     # white bed frame 180x200
+        nightstand(836), nightstand(1076),
+        r("fx", 2, 1046, 48, 1126, 2),                       # dresser (front towards the room)
+        r("fx", 0, 770, 62, 1020, 1),                        # wardrobe
+        r("fx", 96, 1048, 184, 1136, 10),                    # armchair (white cover)
+        "</g>",
+        r("pd", 266, 886, 452, 1066, 4),                     # navy fitted sheet
+        r("fx", 452, 880, 464, 1072, 2),                     # headboard
+        r("bm", 418, 892, 448, 968, 8), r("bm", 418, 984, 448, 1060, 8),           # pillows
+        r("vl", 300, 896, 404, 972, 12), r("vl", 286, 980, 398, 1060, 14),         # duvets
+        line("hl", 334, 900, 334, 968), line("hl", 330, 986, 330, 1054),
+        line("hl", 422, 840, 458, 840), line("hl", 422, 1080, 458, 1080),          # drawer handles
+        line("hl", 44, 1052, 44, 1120),
+        # sliding doors: black glass + mirror
+        r("ck", 56, 772, 62, 895, 1), r("sk", 56, 895, 62, 1018, 1), line("hl", 49, 772, 49, 1018),
+        # armchair: back towards the window, arms, seat cushion
+        r("fxi", 100, 1112, 180, 1132, 8), r("fxi", 100, 1056, 116, 1112, 6), r("fxi", 164, 1056, 180, 1112, 6),
+        r("fxi", 118, 1058, 162, 1110, 6),
+    ]
 
 
 BLUR = "<filter id='b' x='-50%' y='-50%' width='200%' height='200%'><feGaussianBlur stdDeviation='3'/></filter>"
@@ -471,18 +631,109 @@ def buero_geraete():
     ]
 
 
+MUSIC = "#8b5cf6"
+
+
+def sound_waves(cx, cy, facing, r0, spread=40, step=7):
+    """Three arcs in front of a speaker, lighting up one after another while it plays."""
+    out = ["<circle cx='%s' cy='%s' r='%s' fill='%s' opacity='.9'/>" % (fmt(cx), fmt(cy), 2.6, MUSIC)]
+    for i in range(3):
+        rad = r0 + i * step
+        a0, a1 = math.radians(facing - spread), math.radians(facing + spread)
+        out.append("<path d='M%s,%sA%s %s 0 0 1 %s,%s' fill='none' stroke='%s' stroke-width='3.5' "
+                   "stroke-linecap='round' opacity='.4'><animate attributeName='opacity' values='.4;1;.4' "
+                   "dur='1.2s' begin='%ss' repeatCount='indefinite'/></path>" % (
+                       fmt(cx + rad * math.cos(a0)), fmt(cy + rad * math.sin(a0)), fmt(rad), fmt(rad),
+                       fmt(cx + rad * math.cos(a1)), fmt(cy + rad * math.sin(a1)), MUSIC, fmt(i * .25)))
+    return "".join(out)
+
+
+def play_pause(entity):
+    return {"action": "perform-action", "perform_action": "media_player.media_play_pause",
+            "target": {"entity_id": entity}}
+
+
+def eg_geraete():
+    """Sonos speakers drawn by eg_moebel(): tap = play/pause, hold = media dialog (volume, source, grouping).
+    Playing = violet sound waves in front of the speaker."""
+    def playing(entity):
+        return [{"condition": "state", "entity": entity, "state": "playing"}]
+
+    kueche, living, move = ("media_player.unnamed_room_unnamed_room", "media_player.unnamed_room_unnamed_room_3",
+                            "media_player.sonos_move")
+    return [
+        dict(entity=kueche, tap=play_pause(kueche), hit=(445, 310, 459, 324),
+             states=[(playing(kueche), sound_waves(452, 317, 180, 14, 45, 8), (412, 284, 464, 350))]),
+        dict(entity=living, tap=play_pause(living), hit=(22, 933.5, 32, 998.5),
+             states=[(playing(living), sound_waves(27, 966, 0, 14, 50, 9), (0, 930, 66, 1002))]),
+        dict(entity=move, tap=play_pause(move), hit=(12, 1034, 28, 1058),
+             states=[(playing(move), sound_waves(20, 1046, 0, 14, 40, 8), (0, 1018, 56, 1074))]),
+    ]
+
+
+def bad_sonos():
+    """Sonos Era 100 "Badezimmer" on the pre-wall, right of the mirror; waves into the bathroom."""
+    e = "media_player.unnamed_room_unnamed_room_2"
+    return [dict(entity=e, tap=play_pause(e), hit=(420, 371, 432, 384),
+                 states=[([{"condition": "state", "entity": e, "state": "playing"}],
+                          sound_waves(426, 377.5, 90, 14, 45, 8), (400, 362, 452, 414))])]
+
+
+def homepod():
+    """HomePod mini on Philipp's desk: tap = play/pause, hold = media dialog. Playing = glowing top + waves."""
+    e, (x, y) = "media_player.philipps_buro", HOMEPOD
+    top = ("<circle cx='%s' cy='%s' r='3.4' fill='%s'><animate attributeName='fill-opacity' values='1;.45;1' "
+           "dur='1.6s' repeatCount='indefinite'/></circle>" % (x, y, MUSIC))
+    return [dict(entity=e, tap=play_pause(e), hit=(x - 6, y - 6, x + 6, y + 6),
+                 states=[([{"condition": "state", "entity": e, "state": "playing"}],
+                          top + sound_waves(x, y, 90, 13, 45, 7), (x - 28, y - 8, x + 28, y + 36))])]
+
+
+def hwr_geraete():
+    """Washer (right on screen) and dryer (left on screen) drawn by laundry(). Tap = details of the smart plug
+    (never toggled from the plan: it would cut a running programme). Running = spinning drum ring + glow;
+    the remaining time is shown as a pill (see "timers")."""
+    def run(cx, cy, color):
+        return (ring_glow(cx, cy, 44, color, .45)
+                + "<circle cx='%s' cy='%s' r='17' fill='none' stroke='%s' stroke-width='3.5' "
+                  "stroke-dasharray='6.7 4.0'>%s</circle>" % (cx, cy, color, spin(cx, cy, 1.6)))
+
+    def on(entity):
+        return [{"condition": "state", "entity": entity, "state": "on"}]
+
+    return [
+        dict(entity="switch.waschmaschine", tap="more-info", hit=(398, 690, 458, 750),
+             states=[(on("binary_sensor.waschmaschine_lauft"), run(428, 723, "#3b82f6"), (380, 677, 476, 769))]),
+        dict(entity="switch.trockner", tap="more-info", hit=(398, 755, 458, 815),
+             states=[(on("binary_sensor.trockner_lauft"), run(428, 788, "#f97316"), (380, 742, 476, 834))]),
+    ]
+
+
 def bathtub(x0, y0, x1, y1):
     return ('<g filter="url(#fs)">' + r("fx", x0, y0, x1, y1, 8) + "</g>"
             + r("fxi", x0 + 7, y0 + 7, x1 - 7, y1 - 7, 22)
             + '<circle class="sk" cx="%s" cy="%s" r="4"/>' % (fmt(x1 - 22), fmt((y0 + y1) / 2)))
 
 
-def washer(x0, y0, s=60):
+def washer(x0, y0, s=60, kind=None):
+    """Front-loader; kind 'washer' shows water in the drum, 'dryer' tumbling laundry."""
     cx, cy = x0 + s / 2, y0 + s / 2 + 3
+    inner = ""
+    if kind == "washer":
+        d = 11.8
+        inner = ('<path d="M%s,%sQ%s,%s %s,%sT%s,%sA12 12 0 0 1 %s,%sZ" fill="#3b82f6" fill-opacity=".45"/>' % (
+            fmt(cx - d), fmt(cy + 2), fmt(cx - d / 2), fmt(cy - 1.5), fmt(cx), fmt(cy + 2),
+            fmt(cx + d), fmt(cy + 2), fmt(cx - d), fmt(cy + 2)))
+    elif kind == "dryer":
+        inner = ('<ellipse class="rd" cx="%s" cy="%s" rx="5.5" ry="3.4" transform="rotate(25 %s %s)"/>'
+                 '<ellipse class="mu" cx="%s" cy="%s" rx="5" ry="3.2" transform="rotate(-30 %s %s)"/>'
+                 '<ellipse class="pd" cx="%s" cy="%s" rx="4.2" ry="2.8"/>' % (
+                     fmt(cx - 4), fmt(cy + 5), fmt(cx - 4), fmt(cy + 5), fmt(cx + 5), fmt(cy + 4),
+                     fmt(cx + 5), fmt(cy + 4), fmt(cx + 1), fmt(cy - 5)))
     return ('<g filter="url(#fs)">' + r("fx", x0, y0, x0 + s, y0 + s, 4) + "</g>"
             + '<circle class="fxi" cx="%s" cy="%s" r="20"/><circle class="sk" cx="%s" cy="%s" r="13"/>' % (
                 fmt(cx), fmt(cy), fmt(cx), fmt(cy))
-            + line("hl", x0 + 6, y0 + 9, x0 + s - 6, y0 + 9))
+            + inner + line("hl", x0 + 6, y0 + 9, x0 + s - 6, y0 + 9))
 
 
 def stair(x0, y0, x1, y1, steps=14):
@@ -637,6 +888,7 @@ def outdoor(detail=True):
         poly("", rect(*TERRACE), ' fill="url(#stone)"'),
         poly("", rect(100, -150, 240, -36.5), ' fill="url(#stone)"'),
         r("gt", -19, 1186.5, -12, BACK_Y1),                     # privacy screens to the neighbour
+    ] + terrasse_moebel() + [
         hedge(SIDE_X1, 30, HEDGE_X1, BACK_Y1),                  # side hedge
         hedge(548, 30, SIDE_X1 + 10, 110),                      # front hedge
         hedge(*BACK_HEDGE),
@@ -680,13 +932,28 @@ def lamp_kind(l):
 
 
 def lamp_box(l):
+    """Area the invisible button has to cover (padded to the minimum tap size by elements())."""
     x, y = l[1], l[2]
     k = lamp_kind(l)
     if k[0] == "strip":
         return min(k[1], k[3]), min(k[2], k[4]), max(k[1], k[3]), max(k[2], k[4])
     if k[0] == "spots":
         return bbox([k[1]])
+    if k[0] == "bar":                            # one channel of a linear pendant: its half of the bar
+        return k[1], k[5], k[1], k[6]
+    if k[0] == "track":
+        return k[1], k[3], k[2], k[3]
+    if k[0] == "downlights":
+        return bbox([k[1]])
     return x, y, x, y
+
+
+def lamp_boxes(l):
+    """Tap areas of a lamp: one per recessed spot (the room between them stays free), else lamp_box()."""
+    k = lamp_kind(l)
+    if k[0] == "downlights":
+        return [(sx - 7, sy - 7, sx + 7, sy + 7) for sx, sy in k[1]]
+    return [lamp_box(l)]
 
 
 def halo(x, y, rad):
@@ -718,12 +985,16 @@ def lamp_svg(l, lit=False):
                 + seg + "stroke='%s' stroke-width='9'/>" % LAMP_ON_EDGE
                 + seg + "stroke='%s' stroke-width='6'/>" % LAMP_ON
                 + seg + "stroke='%s' stroke-width='2.5'/>" % LAMP_CORE)
+    if k[0] in ("flush", "bar", "track", "floor", "drum", "table", "globe", "downlights"):
+        return real_lamp_svg(x, y, k, lit)
     if k[0] == "heart":
-        g = '<g transform="translate(%s %s) rotate(-90)">' % (fmt(x), fmt(y))
+        sc = k[1] if len(k) > 1 else 1
+        g = '<g transform="translate(%s %s) rotate(-90) scale(%s)">' % (fmt(x), fmt(y), fmt(sc))
         if not lit:
-            return g + '<path class="lp" d="%s" filter="url(#fs)"/></g>' % HEART
-        return (halo(x, y, 34) + g.replace('"', "'")
-                + "<path d='%s' fill='%s' stroke='%s' stroke-width='2'/></g>" % (HEART, LAMP_ON, LAMP_ON_EDGE))
+            return g + '<path class="ldf" d="%s" style="stroke-width:%s"/></g>' % (HEART, fmt(2 / sc))
+        return (bright_halo(x, y, 40 * sc + 14) + g.replace('"', "'")
+                + "<path d='%s' fill='%s' stroke='%s' stroke-width='%s'/></g>" % (
+                    HEART, LAMP_ON, LAMP_ON_EDGE, fmt(2.5 / sc)))
     rad = k[1]
     c = (fmt(x), fmt(y))
     if not lit:
@@ -732,6 +1003,110 @@ def lamp_svg(l, lit=False):
     return (halo(x, y, rad * 2.3)
             + "<circle cx='%s' cy='%s' r='%s' fill='%s' stroke='%s' stroke-width='2'/>" % (*c, rad, LAMP_ON, LAMP_ON_EDGE)
             + "<circle cx='%s' cy='%s' r='%s' fill='%s'/>" % (*c, fmt(rad * .55), LAMP_CORE))
+
+
+LAMP_BODY = "#2c3035"      # black lamp housings in the lit drawings (overlays carry fixed colours)
+
+
+def bright_halo(x, y, rad):
+    """Strong, almost white light pool, so a lit lamp stands out from the room glow and from wood below it."""
+    return ("<radialGradient id='lf'><stop offset='.25' stop-color='#fffbea'/>"
+            "<stop offset='.55' stop-color='#ffe9a0' stop-opacity='.8'/>"
+            "<stop offset='1' stop-color='#ffd54f' stop-opacity='0'/></radialGradient>"
+            "<circle cx='%s' cy='%s' r='%s' fill='url(#lf)'/>" % (fmt(x), fmt(y), fmt(rad)))
+
+
+def real_lamp_svg(x, y, k, lit):
+    """Lamps drawn as they really look (EG, from the photos), flat like the furniture.
+    flush  ("flush", r)                               ceiling light: white diffuser in a black rim
+    bar    ("bar", x, y0, y1, "up"|"down", hy0, hy1)  linear pendant, one entry per channel;
+                                                      the down channel draws the bar, hy0..hy1 is the button half
+    track  ("track", x0, x1, y, [pendant x, ...])     ceiling track with small pendants
+    floor  ("floor", [(dx, dy), ...])                 tree floor lamp: base and heads on short arms"""
+    def circ(cx, cy, rad, attrs):
+        return "<circle cx='%s' cy='%s' r='%s' %s/>" % (fmt(cx), fmt(cy), fmt(rad), attrs)
+
+    kind = k[0]
+    if kind == "downlights":                     # recessed ceiling spots ("downlights", [(x, y), ...]), one light
+        if not lit:
+            return "".join('<circle class="ldf" cx="%s" cy="%s" r="7" style="stroke-width:2.5"/>' % (
+                fmt(sx), fmt(sy)) for sx, sy in k[1])
+        return ("".join(bright_halo(sx, sy, 30) for sx, sy in k[1])
+                + "".join(circ(sx, sy, 7, "fill='%s' stroke='%s' stroke-width='2'" % (LAMP_ON, LAMP_ON_EDGE))
+                          + circ(sx, sy, 3, "fill='%s'" % LAMP_CORE) for sx, sy in k[1]))
+    if kind == "drum":                           # fabric drum pendant: grey shade ring, diffuser inside
+        rad = k[1]
+        if not lit:
+            return ('<circle class="so" cx="%s" cy="%s" r="%s" style="stroke-width:2.5"/>' % (fmt(x), fmt(y), fmt(rad))
+                    + '<circle class="ldf" cx="%s" cy="%s" r="%s" style="stroke-width:1.5"/>' % (
+                        fmt(x), fmt(y), fmt(rad * .72)))
+        return (bright_halo(x, y, rad * 3.2)
+                + circ(x, y, rad, "fill='#d9c9a3' stroke='%s' stroke-width='3'" % LAMP_ON_EDGE)
+                + circ(x, y, rad * .72, "fill='%s'" % LAMP_ON) + circ(x, y, rad * .4, "fill='%s'" % LAMP_CORE))
+    if kind == "globe":                          # Eve Flare: white glowing ball standing on the floor
+        rad = k[1]
+        if not lit:
+            return ('<circle class="fx" cx="%s" cy="%s" r="%s" filter="url(#fs)"/>' % (fmt(x), fmt(y), fmt(rad))
+                    + '<circle cx="%s" cy="%s" r="%s" fill="#fff" fill-opacity=".8"/>' % (
+                        fmt(x - rad * .3), fmt(y - rad * .3), fmt(rad * .35)))
+        return (bright_halo(x, y, rad * 4.5)
+                + circ(x, y, rad, "fill='%s' stroke='%s' stroke-width='2'" % (LAMP_ON, LAMP_ON_EDGE))
+                + circ(x, y, rad * .55, "fill='%s'" % LAMP_CORE))
+    if kind == "table":                          # bedside lamp seen from above: round shade, finial
+        rad = k[1]
+        if not lit:
+            return ('<circle class="ldf" cx="%s" cy="%s" r="%s" style="stroke-width:2"/>' % (fmt(x), fmt(y), fmt(rad))
+                    + '<circle class="lb" cx="%s" cy="%s" r="%s"/>' % (fmt(x), fmt(y), fmt(rad * .3)))
+        return (bright_halo(x, y, rad * 3.6)
+                + circ(x, y, rad, "fill='%s' stroke='%s' stroke-width='2.5'" % (LAMP_ON, LAMP_ON_EDGE))
+                + circ(x, y, rad * .45, "fill='%s'" % LAMP_CORE))
+    if kind == "flush":
+        rad = k[1]
+        if not lit:
+            return '<circle class="ldf" cx="%s" cy="%s" r="%s"/>' % (fmt(x), fmt(y), fmt(rad))
+        return (bright_halo(x, y, rad * 3.2)
+                + circ(x, y, rad, "fill='%s' stroke='%s' stroke-width='3'" % (LAMP_ON, LAMP_ON_EDGE))
+                + circ(x, y, rad * .62, "fill='%s'" % LAMP_CORE))
+    if kind == "bar":
+        bx, y0, y1, role = k[1:5]
+        if not lit:
+            if role != "down":
+                return ""
+            return r("lb", bx - 4.5, y0, bx + 4.5, y1, 4.5) + line("ldl", bx, y0 + 7, bx, y1 - 7)
+        body = "<rect x='%s' y='%s' width='9' height='%s' rx='4.5' fill='%s'/>" % (
+            fmt(bx - 4.5), fmt(y0), fmt(y1 - y0), LAMP_BODY)
+        seg = "<line x1='%s' y1='%s' x2='%s' y2='%s' stroke-linecap='round' " % (
+            fmt(bx), fmt(y0 + 7), fmt(bx), fmt(y1 - 7))
+        if role == "up":                         # up light: soft wash on the ceiling around the bar
+            return ("<radialGradient id='lu'><stop offset='.2' stop-color='#ffe9a8' stop-opacity='.9'/>"
+                    "<stop offset='1' stop-color='#ffe9a8' stop-opacity='0'/></radialGradient>"
+                    "<ellipse cx='%s' cy='%s' rx='38' ry='%s' fill='url(#lu)'/>" % (
+                        fmt(bx), fmt((y0 + y1) / 2), fmt((y1 - y0) / 2 + 34))
+                    + body.replace("/>", " stroke='%s' stroke-width='2.5'/>" % LAMP_ON_EDGE))
+        return (body + seg + "stroke='%s' stroke-width='4.5'/>" % LAMP_ON
+                + seg + "stroke='%s' stroke-width='1.8'/>" % LAMP_CORE)
+    if kind == "track":
+        x0, x1, ty, pend = k[1:5]
+        if not lit:
+            return (line("lbt", x0, ty, x1, ty)
+                    + "".join('<circle class="lb" cx="%s" cy="%s" r="6.5"/>' % (fmt(px), fmt(ty)) for px in pend))
+        return ("".join(bright_halo(px, ty, 30) for px in pend)
+                + "<line x1='%s' y1='%s' x2='%s' y2='%s' stroke='%s' stroke-width='3.5' stroke-linecap='round'/>" % (
+                    fmt(x0), fmt(ty), fmt(x1), fmt(ty), LAMP_BODY)
+                + "".join(circ(px, ty, 6.5, "fill='%s' stroke='%s' stroke-width='2'" % (LAMP_ON, LAMP_ON_EDGE))
+                          + circ(px, ty, 3, "fill='%s'" % LAMP_CORE) for px in pend))
+    # floor lamp
+    heads = [(x + dx, y + dy) for dx, dy in k[1]]
+    if not lit:
+        return ("".join(line("lbt2", x, y, hx, hy) for hx, hy in heads)
+                + '<circle class="lb" cx="%s" cy="%s" r="8"/>' % (fmt(x), fmt(y))
+                + "".join('<circle class="lb" cx="%s" cy="%s" r="5"/>' % (fmt(hx), fmt(hy)) for hx, hy in heads))
+    return (bright_halo(x, y, 50)
+            + "".join("<line x1='%s' y1='%s' x2='%s' y2='%s' stroke='%s' stroke-width='2' stroke-linecap='round'/>" % (
+                fmt(x), fmt(y), fmt(hx), fmt(hy), LAMP_BODY) for hx, hy in heads)
+            + circ(x, y, 8, "fill='%s'" % LAMP_BODY)
+            + "".join(circ(hx, hy, 5, "fill='%s' stroke='%s' stroke-width='1.5'" % (LAMP_ON, LAMP_ON_EDGE))
+                      for hx, hy in heads))
 
 
 # --------------------------------------------------------------------------
@@ -764,14 +1139,14 @@ def eg():
         rect(92, 478, 100, 628),
         rect(0, 717.5, 100, 732.5),
     ]
-    under = surroundings() + [poly("", rect(0, 0, IN_W, IN_H), ' fill="url(#t60)"')]
+    under = surroundings() + terrasse_moebel() + [poly("", rect(0, 0, IN_W, IN_H), ' fill="url(#t60)"')]
     fixtures = [
         '<g filter="url(#fs)">',
-        r("cab", 239, 0, 299, 190),
+        r("ka", 239, 0, 299, 190),               # anthracite tall cupboards
         r("ct", 404, 0, 464, 309),
         r("ct", 239, 309, 464, 415),
         "</g>",
-        line("ckr", 239, 63, 299, 63), line("ckr", 239, 126, 299, 126),
+        line("kal", 239, 63, 299, 63), line("kal", 239, 126, 299, 126),
         line("ckr", 404, 60, 464, 60),
         r("sk", 411, 136, 457, 184, 6), r("sk", 411, 190, 457, 224, 6),
         '<circle class="sk" cx="452" cy="187" r="3"/>',
@@ -779,7 +1154,7 @@ def eg():
         '<circle class="ckr" cx="316" cy="332" r="9"/><circle class="ckr" cx="346" cy="331" r="11"/>'
         '<circle class="ckr" cx="317" cy="355" r="10"/><circle class="ckr" cx="347" cy="356" r="8"/>',
         toilet(0, 338, -90),
-    ]
+    ] + eg_moebel()
     doors = [
         door(226.5, 0, 100, 180, 90),             # Haustür
         door(133, 278, 80, 225, 315),             # WC
@@ -788,7 +1163,7 @@ def eg():
         ("Diele", "5,26 m²", 35, 95),
         ("WC", "2,17 m²", 45, 270),
         ("Küche", "8,50 m²", 318, 235),
-        ("Essen", None, 215, 556),
+        ("Essen", None, 200, 478),
         ("Wohnzimmer", "Wohnen/Essen 35,17 m²", 175, 840),
         ("Terrasse", "15,84 m²", 195, 1340),
     ]
@@ -797,17 +1172,22 @@ def eg():
     entities = {
         "lights": [
             # entity, chip x/y, glow x/y, radius, clip rooms
-            ("light.deckenlampe_light", 138, 100, 115, 92, 220, ["diele"]),
-            ("light.schalter_gaste_wc_schalter_gaste_wc", 104, 330, 70, 300, 170, ["wc"]),
-            ("light.kuche_deckenlampe", 325, 116, 349, 161, 270, ["kueche"]),
+            ("light.deckenlampe_light", 138, 100, 115, 92, 220, ["diele"], ("flush", 16)),
+            ("light.schalter_gaste_wc_schalter_gaste_wc", 104, 330, 70, 300, 170, ["wc"], ("flush", 13)),
+            ("light.kuche_deckenlampe", 325, 116, 349, 161, 270, ["kueche"], ("flush", 18)),
             ("light.arbeitsplatte_light", 459, 156, 434, 160, 190, ["kueche"], ("strip", 459, 14, 459, 298)),
-            ("light.barlampe", 349, 393, 349, 393, 210, ["kueche", "ess"]),
-            ("light.esszimmer_oben_light", 305, 556, 349, 556, 260, ["ess"]),
-            ("light.esszimmer_unten_light", 385, 556, 349, 556, 230, ["ess"]),
-            ("light.treppenhaus_eg_treppenhaus_eg", 60, 506, 81, 514, 190, ["treppe"]),
-            ("light.wandlampe_light", 44, 655, 44, 655, 120, ["treppe"], ("round", 12)),
-            ("light.deckenlampe_wohnzimmer_light", 300, 941, 238, 941, 320, ["wohn"]),
-            ("light.stehlampe", 52, 1098, 52, 1098, 210, ["wohn"], ("round", 13)),
+            ("light.barlampe", 349, 393, 349, 393, 210, ["kueche", "ess"], ("track", 297, 401, 393, [312, 386])),
+            # linear pendant over the dining table (along the table): one bar, two channels;
+            # the kitchen half of the bar is the button for the up light, the living room half for the down light
+            ("light.esszimmer_oben_light", 282, 605, 282, 635, 260, ["ess"], ("bar", 282, 575, 695, "up", 575, 635)),
+            ("light.esszimmer_unten_light", 282, 665, 282, 635, 210, ["ess"], ("bar", 282, 575, 695, "down", 635, 695)),
+            ("light.treppenhaus_eg_treppenhaus_eg", 60, 506, 81, 514, 190, ["treppe"], ("flush", 15)),
+            ("light.wandlampe_light", 44, 655, 44, 655, 120, ["treppe"], ("flush", 8)),
+            ("light.deckenlampe_wohnzimmer_light", 300, 941, 238, 941, 320, ["wohn"], ("flush", 21)),
+            ("light.stehlampe", 446, 1134, 446, 1134, 210, ["wohn"], ("floor", [(-16, -7), (-6, -17), (-19, 5)])),  # sofa corner
+            # Eve Flare balls on the floor: among the plants at the side door, next to the palm at the terrace door
+            ("light.eve_flare_7783", 444, 668, 444, 668, 170, ["ess"], ("globe", 12)),
+            ("light.eve_flare_af38", 64, 1130, 64, 1130, 170, ["wohn"], ("globe", 12)),
         ],
         # the whole terrace is an invisible button to the garden view
         "buttons": [(TERRACE, GARDEN_PATH)],
@@ -838,6 +1218,7 @@ def eg():
             ("sensor.eve_weather_20ebs9901_temperatur", None, 250, 1340),
         ],
         "lock": ("lock.haustur", "top", 112.5, 226.5),
+        "devices": eg_geraete() + [camera_device()],
     }
     return dict(key="eg", title="Erdgeschoss", viewbox=HOUSE_VB, rooms=rooms,
                 openings=openings, walls_in=walls_in, under=under, fixtures=fixtures,
@@ -879,10 +1260,11 @@ def og():
         r("vw", 216, 367.5, 464, 387),
         toilet(268, 387, 0),
         basin(367, 387, 0, 62, 46),
+        r("lb", 420, 371, 432, 384, 4.5), '<circle class="ldf" cx="426" cy="374" r="1.6" style="stroke-width:.8"/>',  # Sonos
         '<rect x="436" y="513" width="28" height="94" fill="url(#hatch)"/>' + r("hl", 436, 513, 464, 607),
-        washer(398, 690),
-        washer(398, 755),
-    ] + buero_moebel()
+        washer(398, 690, kind="washer"),         # right on screen: Waschmaschine
+        washer(398, 755, kind="dryer"),          # left on screen: Trockner
+    ] + buero_moebel() + schlaf_moebel()
     doors = [
         door(199, 381, 89, 180, 270),     # Büro
         door(216, 527, 76, 90, 0),        # Bad
@@ -892,7 +1274,7 @@ def og():
     labels = [
         ("Philipps Büro", "17,08 m²", 125, 189),
         ("Flur", "3,63 m²", 155, 450),
-        ("Bad", "6,25 m²", 262, 488, "rnw"),
+        ("Bad", "6,25 m²", 306, 472, "rnw"),          # between the two rows of spots
         ("HWR", "3,70 m²", 290, 784, "rnw"),
         ("Schlafzimmer", "16,87 m²", 115, 890),
     ]
@@ -901,11 +1283,15 @@ def og():
             ("light.deckenlampe_philipps_buro", 232, 189, 231, 189, 320, ["buero"]),
             ("light.liane_light", 46, 555, 46, 555, 230, ["treppe", "flur"]),
             ("light.spiegel_spiegel", 367, 373, 367, 400, 210, ["bad"], ("strip", 340, 373, 394, 373)),
+            # 5 recessed spots in two rows along the room: 3 on the door side, 2 on the outer-wall side,
+            # which end before the walk-in shower (no spot above the shower)
+            ("light.deckenlampe_bad", 340, 515, 340, 515, 300, ["bad"],
+             ("downlights", [(278, 430), (278, 515), (278, 600), (402, 430), (402, 515)])),
             ("light.hwr_deckenlampe", 340, 749, 340, 749, 200, ["hwr"]),
-            ("light.schlafzimmer_deckenlampe", 232, 991, 232, 991, 320, ["schlaf"]),
-            ("light.nachttischlampe_laura", 78, 1000, 78, 1000, 150, ["schlaf"], ("round", 12)),
-            ("light.nachttischlampe_philipp", 386, 1000, 386, 1000, 150, ["schlaf"], ("round", 12)),
-            ("light.herzlampe", 232, 1082, 232, 1082, 150, ["schlaf"], ("heart",)),
+            ("light.schlafzimmer_deckenlampe", 232, 991, 232, 991, 320, ["schlaf"], ("drum", 24)),   # grey fabric drum
+            ("light.nachttischlampe_laura", 440, 856, 440, 856, 170, ["schlaf"], ("table", 10)),
+            ("light.nachttischlampe_philipp", 440, 1096, 440, 1096, 170, ["schlaf"], ("table", 10)),
+            ("light.herzlampe", 172, 1142, 172, 1120, 150, ["schlaf"], ("heart", .55)),            # on the windowsill
         ],
         "covers": [
             ("cover.rollladen_philipps_buro", "top", 110, 400.5),
@@ -920,12 +1306,17 @@ def og():
         "motion": [
             ("binary_sensor.bewegungsmelder_hwr_belegung", ["hwr"]),
         ],
-        "devices": buero_geraete(),
+        "devices": buero_geraete() + homepod() + hwr_geraete() + bad_sonos(),
+        # remaining programme time, shown while the machine runs: running sensor, time sensor, x, y
+        "timers": [
+            ("binary_sensor.waschmaschine_lauft", "sensor.waschmaschine_verbleibende_zeit", 383, 720, "#3b82f6"),
+            ("binary_sensor.trockner_lauft", "sensor.trockner_verbleibende_zeit", 383, 785, "#f97316"),
+        ],
         "climate": [
             ("sensor.tado_smart_thermostat_ru3678551808_current_temperature",
              "sensor.tado_smart_thermostat_ru3678551808_current_humidity", 170, 189),
             ("sensor.tado_smart_thermostat_ru2720481792_current_temperature",
-             "sensor.tado_smart_thermostat_ru2720481792_current_humidity", 312, 490),
+             "sensor.tado_smart_thermostat_ru2720481792_current_humidity", 354, 472),
             ("sensor.tado_smart_thermostat_ru3532674816_current_temperature",
              "sensor.tado_smart_thermostat_ru3532674816_current_humidity", 162, 890),
         ],
@@ -1111,6 +1502,7 @@ def garten():
         "motion": [("binary_sensor.outdoor_kamera_person", ["garten"])],
         "climate": [("sensor.eve_weather_20ebs9901_temperatur", None, 290, 1340)],
         "buttons": [(bbox([HOUSE]), EG_PATH)],
+        "devices": [camera_device()],
     }
     tiles = [
         ("light.garten_garten_controller", "Heckenspots", "mdi:spotlight-beam"),
@@ -1254,9 +1646,11 @@ def contact_svg(p):
             + SVG_TAIL)
 
 
-def shutter_svg(p, vertical):
+def shutter_svg(p, vertical, half=False):
     box = overlay_box([p])
     x0, y0, x1, y1 = box
+    if half:
+        return svg_head(box) + half_shutter(box, vertical) + SVG_TAIL
     if vertical:
         lines = "".join('<path d="M%s %sV%s" stroke="#1f2937" stroke-opacity=".5" stroke-width="1.6"/>' % (
             fmt(x), fmt(y0), fmt(y1)) for x in frange(x0 + 4, x1, 5))
@@ -1265,6 +1659,24 @@ def shutter_svg(p, vertical):
             fmt(x0), fmt(y), fmt(x1)) for y in frange(y0 + 4, y1, 5))
     return (svg_head(box) + '<rect x="%s" y="%s" width="%s" height="%s" rx="2" fill="#6b7280" fill-opacity=".92"/>%s' % (
         fmt(x0), fmt(y0), fmt(x1 - x0), fmt(y1 - y0), lines) + SVG_TAIL)
+
+
+def half_shutter(box, vertical):
+    """Shutter between open and closed (1..60 %): the grey slatted shutter over the whole window length,
+    but only half the wall thickness, centred in the wall like the window itself."""
+    x0, y0, x1, y1 = box
+    if vertical:                                   # right wall: thickness along x
+        q = (x1 - x0) / 4
+        x0, x1 = x0 + q, x1 - q
+        lines = "".join('<path d="M%s %sV%s" stroke="#1f2937" stroke-opacity=".5" stroke-width="1.6"/>' % (
+            fmt(x), fmt(y0), fmt(y1)) for x in frange(x0 + 4, x1, 5))
+    else:                                          # top/bottom wall (and roof window): thickness along y
+        q = (y1 - y0) / 4
+        y0, y1 = y0 + q, y1 - q
+        lines = "".join('<path d="M%s %sH%s" stroke="#1f2937" stroke-opacity=".5" stroke-width="1.6"/>' % (
+            fmt(x0), fmt(y), fmt(x1)) for y in frange(y0 + 4, y1, 5))
+    return ('<rect x="%s" y="%s" width="%s" height="%s" rx="2" fill="#6b7280" fill-opacity=".92"/>' % (
+        fmt(x0), fmt(y0), fmt(x1 - x0), fmt(y1 - y0)) + lines)
 
 
 def frange(a, b, step):
@@ -1307,16 +1719,16 @@ CHIP = {
     "border-radius": "50%",
     "box-shadow": "0 1px 4px rgba(0,0,0,.3)",
 }
-PILL = {
-    "background-color": "var(--card-background-color)",
-    "border-radius": "9px",
-    "padding": "1px 7px",
-    "font-size": "11px",
-    "font-weight": "600",
-    "line-height": "16px",
-    "white-space": "nowrap",
-    "box-shadow": "0 1px 3px rgba(0,0,0,.25)",
-}
+HALO = ", ".join("0 0 %s var(--card-background-color)" % b for b in ("1px", "2px", "3px", "6px"))
+LABEL = {"padding": "0", "font-weight": "600", "white-space": "nowrap", "text-shadow": HALO}
+
+
+def climate_of(temp):
+    """tado thermostat: sensor.tado_smart_thermostat_<id>_current_temperature -> climate.tado_smart_thermostat_<id>"""
+    pre, post = "sensor.tado_smart_thermostat_", "_current_temperature"
+    if temp.startswith(pre) and temp.endswith(post):
+        return "climate." + temp[len("sensor."):-len(post)]
+    return None
 
 
 def cond(entity, state=None, state_not=None):
@@ -1370,6 +1782,9 @@ def elements(fl):
         if side == "roof":
             vertical = False
         ov.append(overlay(cond(entity, "closed"), shutter_svg(p, vertical), overlay_box([p])))
+        # 1..60 % open: half-open shutter (HA position: 100 = open, 0 = closed)
+        ov.append(overlay([{"condition": "numeric_state", "entity": entity, "attribute": "current_position",
+                            "above": 0, "below": 61}], shutter_svg(p, vertical, half=True), overlay_box([p])))
     # 4) open windows / doors
     for c in ents.get("contacts", []):
         entity, side = c[0], c[1]
@@ -1404,10 +1819,12 @@ def elements(fl):
         style = place(fl, box)
         del style["pointer-events"]
         return {"type": "image", "entity": entity, "image": data_uri(svg_head(box) + SVG_TAIL),
-                "tap_action": {"action": tap}, "hold_action": {"action": "more-info"}, "style": style}
+                "tap_action": tap if isinstance(tap, dict) else {"action": tap},
+                "hold_action": {"action": "more-info"}, "style": style}
 
     for l in ents["lights"]:
-        els.append(target(l[0], lamp_box(l), "toggle"))
+        for box in lamp_boxes(l):
+            els.append(target(l[0], box, "toggle"))
     # devices: the drawn furniture is the button, like the lamps
     for d in ents.get("devices", []):
         els.append(target(d["entity"], d["hit"], d["tap"]))
@@ -1426,20 +1843,29 @@ def elements(fl):
         left, top = pct(fl, (x0 + x1) / 2 - 30, (y0 + y1) / 2)
         els.append({"type": "state-icon", "entity": entity, "tap_action": {"action": "more-info"},
                     "style": {"left": left, "top": top, **CHIP}})
-    # pills: temperature + humidity
+    # room climate: temperature over humidity as plain text with a halo (no boxes);
+    # tapping either opens the room's thermostat (target temperature, heating on/off)
     for temp, hum, x, y in ents.get("climate", []):
         left, top = pct(fl, x, y)
+        clim = climate_of(temp)
+        tap = {"action": "more-info", "entity": clim} if clim else {"action": "more-info"}
+        els.append({"type": "state-label", "entity": temp, "tap_action": tap,
+                    "style": {"left": left, "top": top,
+                              "transform": "translate(-50%,-9px)" if hum else "translate(-50%,-50%)",
+                              "color": "var(--primary-text-color)", "font-size": "15px", "line-height": "17px",
+                              **LABEL}})
         if hum:
-            els.append({"type": "state-label", "entity": temp, "tap_action": {"action": "more-info"},
-                        "style": {"left": left, "top": top, "transform": "translate(calc(-100% - 2px),-50%)",
-                                  "color": "var(--primary-text-color)", **PILL}})
-            els.append({"type": "state-label", "entity": hum, "tap_action": {"action": "more-info"},
-                        "style": {"left": left, "top": top, "transform": "translate(2px,-50%)",
-                                  "color": "var(--secondary-text-color)", **PILL}})
-        else:
-            els.append({"type": "state-label", "entity": temp, "tap_action": {"action": "more-info"},
-                        "style": {"left": left, "top": top, "transform": "translate(-50%,-50%)",
-                                  "color": "var(--primary-text-color)", **PILL}})
+            els.append({"type": "state-label", "entity": hum, "tap_action": tap,
+                        "style": {"left": left, "top": top, "transform": "translate(-50%,9px)",
+                                  "color": "var(--secondary-text-color)", "font-size": "11px", "line-height": "13px",
+                                  **LABEL}})
+    # remaining programme time of a running machine, in the machine's colour
+    for running, remaining, x, y, color in ents.get("timers", []):
+        left, top = pct(fl, x, y)
+        els.append({"type": "conditional", "conditions": cond(running, "on"),
+                    "elements": [{"type": "state-label", "entity": remaining, "tap_action": {"action": "more-info"},
+                                  "style": {"left": left, "top": top, "transform": "translate(-50%,-50%)",
+                                            "color": color, "font-size": "14px", "line-height": "16px", **LABEL}}]})
     return els
 
 

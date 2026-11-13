@@ -9,7 +9,7 @@ views:
   - type: vertical-stack
     cards:
     - type: picture-elements
-      image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1210 -128.4 1270 738.4'><defs><style>text{font-family:-apple-system,system-ui,Roboto,'Segoe UI',Helvetica,Arial,sans-serif;text-anchor:middle}.ft{fill:%23eeece8}.fg{fill:none;stroke:%23dedad3;stroke-width:1.3}.fb{fill:%23e7ebee}.fbg{fill:none;stroke:%23d5dbe0;stroke-width:1}.fw{fill:%23e5c79d}.fw2{fill:%23e0c095}.fw3{fill:%23e9cca4}.fw4{fill:%23ddbc90}.fwl{fill:none;stroke:%23cba679;stroke-width:1}.fwg{fill:none;stroke:%23cfa97a;stroke-opacity:.4;stroke-width:1}.td{fill:%2350555c}.tdg{fill:none;stroke:%23686d74;stroke-width:1.2}.mz{fill:%236c7178}.mz1{fill:%23464b52}.mz2{fill:%234e535a}.gls{fill:none;stroke:%23bfe0f5;stroke-width:3;stroke-linecap:round}.fs{fill:%23dcd7ce}.fsl{fill:none;stroke:%23cbc4b8;stroke-width:1.4}.fl{fill:%23c3dcac}.fld{fill:%23b2d198}.hd{fill:%237fa968;stroke:%236b9556;stroke-width:1}.hdb{fill:%236a9554}.hdr{fill:%23c9372c}.hde{fill:url(%23hedge);stroke:%23557f42;stroke-width:2}.gv{fill:%2370767d}.gvd{fill:%238b9198}.gh{fill:%2350565e;stroke:%233a3f45;stroke-width:1.5}.ghl{fill:none;stroke:%236b727b;stroke-width:1.2}.gt{fill:%233a3f46}.bd{fill:%238b6a4b;stroke:%23b8864f;stroke-width:5}.tr{fill:%23d4eabf;fill-opacity:.9;stroke:%239cc47f;stroke-width:2}.trk{fill:%238d6e47}.spt{fill:%232f343a;stroke:%23f5c04a;stroke-width:2.5}.lp{fill:%23ffffff;stroke:%23a3abb5;stroke-width:2}.lpi{fill:none;stroke:%23c5cbd2;stroke-width:2}.lps{fill:none;stroke:%23a3abb5;stroke-width:9;stroke-linecap:round}.lpc{fill:none;stroke:%23ffffff;stroke-width:4;stroke-linecap:round}.st{fill:%23e2c99f}.stl{fill:none;stroke:%23b8956a;stroke-width:1.6}.wl{fill:none;stroke:%238d6e47;stroke-width:1.6}.wla{fill:%238d6e47}.we{fill:%23363b43}.wi{fill:%234a505a}.wg{fill:%23a3a9b1}.vw{fill:%23d5d9de;stroke:%23b8bec6;stroke-width:1}.fx{fill:%23ffffff;stroke:%239aa3ad;stroke-width:1.6}.fxi{fill:%23eef2f5;stroke:%23a9b1ba;stroke-width:1.2}.ct{fill:%23f7f6f3;stroke:%23b5b0a6;stroke-width:1.6}.cab{fill:%23e9e6e0;stroke:%23b5b0a6;stroke-width:1.6}.ck{fill:%232c3035}.ckr{fill:none;stroke:%236b737c;stroke-width:1.6}.dk{fill:%238d6b51;stroke:%236b4f3a;stroke-width:1.6}.dkl{fill:none;stroke:%23a07e63;stroke-width:1}.bm{fill:%23f6f3ee;stroke:%23c9c3b8;stroke-width:1.2}.bl{fill:%23c9a24e}.bll{fill:none;stroke:%23b08a3c;stroke-width:1.2}.pl{fill:%236d529c}.lt{fill:%23c9ced5;stroke:%239aa1aa;stroke-width:1.2}.sk{fill:%23d3d9de;stroke:%239aa3ad;stroke-width:1.4}.wf{fill:%23ffffff;stroke:%238a96a3;stroke-width:1.2}.gl{fill:%23a9d4f2}.wm{fill:none;stroke:%238a96a3;stroke-width:1.4}.thr{fill:%23cfc9bf}.dl{fill:none;stroke:%237c8792;stroke-width:2.2}.da{fill:none;stroke:%239aa4af;stroke-width:1.4;stroke-dasharray:5 5}.rw{fill:%23a9d4f2;fill-opacity:.55;stroke:%236aa6d6;stroke-width:2;stroke-dasharray:7 5}.hl{fill:none;stroke:%239aa4af;stroke-width:1.2}.hz{fill:url(%23hatch)}.hh{fill:none;stroke:%238a7556;stroke-opacity:.5;stroke-width:1.6}.lh{fill:none;stroke:%238e98a3;stroke-width:1.5;stroke-dasharray:10 8}.sp{fill:none;stroke:%237c8792;stroke-width:2;stroke-dasharray:7 5}.rn{fill:%233d4450;font-size:21px;font-weight:600}.rn2{fill:%233d4450;font-size:17px;font-weight:600}.ra{fill:%237d8692;font-size:15px}.rs{fill:%237d8692;font-size:12px}.rsw{fill:%23eef0f2;font-size:12px}.rnw{fill:%23f3f4f6;font-size:21px;font-weight:600}.raw{fill:%23c3c8ce;font-size:15px}.gnw{fill:%23f3f4f6;fill-opacity:.9;font-size:34px;font-weight:600}.gn{fill:%233d4450;font-size:34px;font-weight:600}.gn2{fill:%233d4450;font-size:27px;font-weight:600}.gs{fill:%235d6672;font-size:22px}.gsw{fill:%23eef0f2;font-size:21px}@media (prefers-color-scheme:dark){.ft{fill:%2334373c}.fg{fill:none;stroke:%232b2e32;stroke-width:1.3}.fb{fill:%2330353a}.fbg{fill:none;stroke:%23272b30;stroke-width:1}.fw{fill:%234d3d2b}.fw2{fill:%23473828}.fw3{fill:%23524130}.fw4{fill:%23443526}.fwl{fill:none;stroke:%2334291d;stroke-width:1}.fwg{fill:none;stroke:%233b2f22;stroke-opacity:.6;stroke-width:1}.td{fill:%232b2e33}.tdg{fill:none;stroke:%233a3e44;stroke-width:1.2}.mz{fill:%233a3e44}.mz1{fill:%2325282c}.mz2{fill:%232c3035}.gls{fill:none;stroke:%237fb3d6;stroke-width:3;stroke-linecap:round}.fs{fill:%233a3833}.fsl{fill:none;stroke:%232f2d29;stroke-width:1.4}.fl{fill:%232c3d26}.fld{fill:%2326361f}.hd{fill:%23355a2b;stroke:%232b4a23;stroke-width:1}.hdb{fill:%232a4423}.hdr{fill:%239a2f26}.hde{fill:url(%23hedge);stroke:%2324391e;stroke-width:2}.gv{fill:%232b2f34}.gvd{fill:%233c4147}.gh{fill:%2359606a;stroke:%237a828c;stroke-width:1.5}.ghl{fill:none;stroke:%23737b85;stroke-width:1.2}.gt{fill:%239aa2ad}.bd{fill:%234a3a2b;stroke:%238d6a43;stroke-width:5}.tr{fill:%236f8f5c;fill-opacity:.9;stroke:%238fb07a;stroke-width:2}.trk{fill:%23c9a877}.spt{fill:%2315171a;stroke:%23f5c04a;stroke-width:2.5}.lp{fill:%235b626c;stroke:%2380888f;stroke-width:2}.lpi{fill:none;stroke:%23454b53;stroke-width:2}.lps{fill:none;stroke:%2380888f;stroke-width:9;stroke-linecap:round}.lpc{fill:none;stroke:%235b626c;stroke-width:4;stroke-linecap:round}.st{fill:%235b4a34}.stl{fill:none;stroke:%237a6446;stroke-width:1.6}.wl{fill:none;stroke:%23c9a877;stroke-width:1.6}.wla{fill:%23c9a877}.we{fill:%23858d98}.wi{fill:%236c7480}.wg{fill:%235b626b}.vw{fill:%23474d55;stroke:%235c636c;stroke-width:1}.fx{fill:%234b5159;stroke:%236f7781;stroke-width:1.6}.fxi{fill:%233b4047;stroke:%23626a73;stroke-width:1.2}.ct{fill:%2341454b;stroke:%235f656d;stroke-width:1.6}.cab{fill:%23383c42;stroke:%235f656d;stroke-width:1.6}.ck{fill:%2315171a}.ckr{fill:none;stroke:%234c535b;stroke-width:1.6}.dk{fill:%235c4535;stroke:%237b5f48;stroke-width:1.6}.dkl{fill:none;stroke:%236c523f;stroke-width:1}.bm{fill:%23565b62;stroke:%236c7179;stroke-width:1.2}.bl{fill:%238c7034}.bll{fill:none;stroke:%23735c2a;stroke-width:1.2}.pl{fill:%234d3a70}.lt{fill:%237a8089;stroke:%23959ca5;stroke-width:1.2}.sk{fill:%235a6168;stroke:%237a828b;stroke-width:1.4}.wf{fill:%235f6772;stroke:%238b939e;stroke-width:1.2}.gl{fill:%234f86ad}.wm{fill:none;stroke:%238b939e;stroke-width:1.4}.thr{fill:%2355524c}.dl{fill:none;stroke:%23a6aeb8;stroke-width:2.2}.da{fill:none;stroke:%237f8791;stroke-width:1.4;stroke-dasharray:5 5}.rw{fill:%234f86ad;fill-opacity:.3;stroke:%236ea3c9;stroke-width:2;stroke-dasharray:7 5}.hl{fill:none;stroke:%235c646d;stroke-width:1.2}.hz{fill:url(%23hatch)}.hh{fill:none;stroke:%23d9c49c;stroke-opacity:.35;stroke-width:1.6}.lh{fill:none;stroke:%236c757f;stroke-width:1.5;stroke-dasharray:10 8}.sp{fill:none;stroke:%23a6aeb8;stroke-width:2;stroke-dasharray:7 5}.rn{fill:%23dfe3e8;font-size:21px;font-weight:600}.rn2{fill:%23dfe3e8;font-size:17px;font-weight:600}.ra{fill:%239aa3ad;font-size:15px}.rs{fill:%239aa3ad;font-size:12px}.rsw{fill:%23f1f3f5;font-size:12px}.rnw{fill:%23f3f4f6;font-size:21px;font-weight:600}.raw{fill:%23c3c8ce;font-size:15px}.gnw{fill:%23f3f4f6;fill-opacity:.9;font-size:34px;font-weight:600}.gn{fill:%23f1ece4;font-size:34px;font-weight:600}.gn2{fill:%23dfe3e8;font-size:27px;font-weight:600}.gs{fill:%23aab2bc;font-size:22px}.gsw{fill:%23f1f3f5;font-size:21px}%23sh feDropShadow,%23fs feDropShadow{flood-opacity:.6}}</style><pattern id='t60' width='60' height='60' patternUnits='userSpaceOnUse'><rect class='ft' width='60' height='60'/><path class='fg' d='M0 .6H60M.6 0V60'/></pattern><pattern id='t30' width='30' height='30' patternUnits='userSpaceOnUse'><rect class='fb' width='30' height='30'/><path class='fbg' d='M0 .5H30M.5 0V30'/></pattern><pattern id='wood' width='240' height='75' patternUnits='userSpaceOnUse' patternTransform='rotate(90)'><rect class='fw' x='0' y='0' width='150' height='15'/><rect class='fw2' x='150' y='0' width='90' height='15'/><rect class='fw3' x='0' y='15' width='60' height='15'/><rect class='fw' x='60' y='15' width='150' height='15'/><rect class='fw3' x='210' y='15' width='30' height='15'/><rect class='fw4' x='0' y='30' width='20' height='15'/><rect class='fw3' x='20' y='30' width='110' height='15'/><rect class='fw4' x='130' y='30' width='110' height='15'/><rect class='fw2' x='0' y='45' width='90' height='15'/><rect class='fw4' x='90' y='45' width='110' height='15'/><rect class='fw2' x='200' y='45' width='40' height='15'/><rect class='fw' x='0' y='60' width='40' height='15'/><rect class='fw2' x='40' y='60' width='130' height='15'/><rect class='fw' x='170' y='60' width='70' height='15'/><path class='fwg' d='M25 5.5H95M185 10.5H240M85 20.5H155M5 25.5H60M45 35.5H115M165 40.5H220M115 50.5H185M235 55.5H240M65 65.5H135M205 70.5H240'/><path class='fwl' d='M0 0.5H240M0.5 0V15M150.5 0V15M0 15.5H240M60.5 15V30M210.5 15V30M0 30.5H240M20.5 30V45M130.5 30V45M0 45.5H240M90.5 45V60M200.5 45V60M0 60.5H240M40.5 60V75M170.5 60V75'/></pattern><pattern id='t60d' width='60' height='60' patternUnits='userSpaceOnUse'><rect class='td' width='60' height='60'/><path class='tdg' d='M0 .6H60M.6 0V60'/></pattern><pattern id='mosaic' width='10' height='10' patternUnits='userSpaceOnUse'><rect class='mz' width='10' height='10'/><rect class='mz1' x='.6' y='.6' width='3.9' height='3.9'/><rect class='mz2' x='5.6' y='.6' width='3.9' height='3.9'/><rect class='mz2' x='.6' y='5.6' width='3.9' height='3.9'/><rect class='mz1' x='5.6' y='5.6' width='3.9' height='3.9'/></pattern><pattern id='stone' width='80' height='40' patternUnits='userSpaceOnUse'><rect class='fs' width='80' height='40'/><path class='fsl' d='M0 .7H80M0 20.7H80M.7 0V20M40.7 20V40'/></pattern><pattern id='lawn' width='26' height='26' patternUnits='userSpaceOnUse'><rect class='fl' width='26' height='26'/><circle class='fld' cx='6' cy='7' r='2.2'/><circle class='fld' cx='19' cy='17' r='2.2'/><circle class='fld' cx='14' cy='4' r='1.4'/></pattern><pattern id='hedge' width='44' height='44' patternUnits='userSpaceOnUse'><rect class='hdb' width='44' height='44'/><circle class='hd' cx='8' cy='9' r='9'/><circle class='hd' cx='29' cy='6' r='9'/><circle class='hd' cx='20' cy='24' r='11'/><circle class='hd' cx='4' cy='33' r='8'/><circle class='hd' cx='39' cy='29' r='10'/><circle class='hd' cx='16' cy='41' r='7'/><circle class='hdr' cx='10' cy='6' r='3.2'/><circle class='hdr' cx='31' cy='26' r='3.6'/><circle class='hdr' cx='21' cy='19' r='2.6'/><circle class='hdr' cx='41' cy='8' r='3'/><circle class='hdr' cx='6' cy='30' r='2.8'/><circle class='hdr' cx='17' cy='38' r='2.4'/></pattern><pattern id='gravel' width='16' height='16' patternUnits='userSpaceOnUse'><rect class='gv' width='16' height='16'/><ellipse class='gvd' cx='4' cy='4' rx='2.4' ry='1.6'/><ellipse class='gvd' cx='11' cy='7' rx='2' ry='1.4'/><ellipse class='gvd' cx='6' cy='12' rx='1.8' ry='1.3'/><ellipse class='gvd' cx='13' cy='14' rx='2.2' ry='1.5'/></pattern><pattern id='hatch' width='12' height='12' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'><path class='hh' d='M0 0V12'/></pattern><filter id='sh' x='-5%25' y='-5%25' width='110%25' height='110%25'><feDropShadow dx='2' dy='0' stdDeviation='2.5' flood-color='%23000' flood-opacity='.35'/></filter><filter id='fs' x='-10%25' y='-10%25' width='120%25' height='120%25'><feDropShadow dx='1.5' dy='0' stdDeviation='1.6' flood-color='%23000' flood-opacity='.22'/></filter></defs><g transform='rotate(90)'><polygon class='' points='0,0 464,0 464,359.5 208,359.5 208,377 0,377' fill='url(%23wood)'/><polygon class='' points='92,377 208,377 208,732.5 92,732.5' fill='url(%23wood)'/><polygon class='' points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23wood)'/><polygon class='' points='216,359.5 464,359.5 464,831.5 216,831.5' fill='url(%23t60d)'/><polygon class='' points='340,527 436,527 436,671 340,671' fill='url(%23mosaic)'/><rect class='sk' x='380' y='604' width='16' height='16' rx='2'/><line class='hl' x1='383' y1='609' x2='393' y2='609'/><line class='hl' x1='383' y1='615' x2='393' y2='615'/><g filter='url(%23fs)'><circle class='fx' cx='418' cy='648' r='13'/></g><circle class='fxi' cx='418' cy='648' r='8'/><line class='gls' x1='340' y1='571' x2='340' y2='671'/><rect class='st' x='0' y='392.5' width='92' height='325'/><line class='stl' x1='92' y1='640.5' x2='50.9' y2='717.5'/><line class='stl' x1='92' y1='640.5' x2='0' y2='702.2'/><line class='stl' x1='92' y1='640.5' x2='0' y2='649.8'/><line class='stl' x1='0' y1='622.6' x2='92' y2='622.6'/><line class='stl' x1='0' y1='600.1' x2='92' y2='600.1'/><line class='stl' x1='0' y1='577.5' x2='92' y2='577.5'/><line class='stl' x1='0' y1='555' x2='92' y2='555'/><line class='stl' x1='0' y1='532.5' x2='92' y2='532.5'/><line class='stl' x1='0' y1='509.9' x2='92' y2='509.9'/><line class='stl' x1='0' y1='487.4' x2='92' y2='487.4'/><line class='stl' x1='92' y1='469.5' x2='0' y2='460.2'/><line class='stl' x1='92' y1='469.5' x2='0' y2='407.8'/><line class='stl' x1='92' y1='469.5' x2='50.9' y2='392.5'/><polyline class='wl' points='92,686.5 84.2,685.8 76.5,683.8 69.4,680.5 62.9,676.1 57.2,670.6 52.6,664.2 49.1,657.2 46.9,649.6 46,641.8 46,633.9 46,626 46,618.1 46,610.2 46,602.3 46,594.4 46,586.6 46,578.7 46,570.8 46,562.9 46,555 46,547.1 46,539.2 46,531.3 46,523.4 46,515.6 46,507.7 46,499.8 46,491.9 46,484 46,476.1 46,468.2 46.9,460.4 49.1,452.8 52.6,445.8 57.2,439.4 62.9,433.9 69.4,429.5 76.5,426.2 84.2,424.2 84,423.5'/><circle class='wla' cx='92' cy='686.5' r='4'/><polygon class='wla' points='93,423.5 81,416.5 81,430.5'/><rect class='vw' x='216' y='367.5' width='248' height='19.5'/><g transform='translate(268 387) rotate(0)' filter='url(%23fs)'><rect class='fx' x='-19' y='0' width='38' height='17' rx='4'/><path class='fx' d='M-16,17 C-17,48 -9,62 0,62 C9,62 17,48 16,17 Z'/><ellipse class='fxi' cx='0' cy='37' rx='9.5' ry='15'/></g><g transform='translate(367 387) rotate(0)' filter='url(%23fs)'><rect class='fx' x='-31' y='0' width='62' height='46' rx='5'/><ellipse class='fxi' cx='0' cy='26' rx='23' ry='14'/><circle class='sk' cx='0' cy='7' r='3'/></g><rect x='436' y='513' width='28' height='94' fill='url(%23hatch)'/><rect class='hl' x='436' y='513' width='28' height='94'/><g filter='url(%23fs)'><rect class='fx' x='398' y='690' width='60' height='60' rx='4'/></g><circle class='fxi' cx='428' cy='723' r='20'/><circle class='sk' cx='428' cy='723' r='13'/><line class='hl' x1='404' y1='699' x2='452' y2='699'/><g filter='url(%23fs)'><rect class='fx' x='398' y='755' width='60' height='60' rx='4'/></g><circle class='fxi' cx='428' cy='788' r='20'/><circle class='sk' cx='428' cy='788' r='13'/><line class='hl' x1='404' y1='764' x2='452' y2='764'/><g filter='url(%23fs)'><path class='dk' d='M0,0H208V75H130A55,55 0 0 0 75,130V188H0Z'/><rect class='fx' x='0' y='227' width='58' height='150'/><rect class='dk' x='208' y='307' width='100' height='52.5'/><rect class='fx' x='317' y='320.5' width='147' height='39'/><rect class='fx' x='370' y='0' width='94' height='207' rx='4'/><rect class='dk' x='326' y='3' width='40' height='40' rx='3'/><rect class='fx' x='450' y='247' width='14' height='36' rx='3'/><rect class='fx' x='282' y='4' width='32' height='32' rx='7'/><circle class='ck' cx='432' cy='265' r='17'/></g><rect class='ck' x='9' y='58' width='6' height='42' rx='1.5'/><rect class='ck' x='9' y='103' width='6' height='42' rx='1.5'/><rect class='ck' x='3' y='33' width='6' height='14' rx='1.5'/><rect class='lt' x='12' y='25' width='22' height='30' rx='2.5'/><line class='hl' x1='15' y1='27' x2='15' y2='53'/><rect class='fx' x='5' y='150' width='45' height='31' rx='2'/><line class='hl' x1='12' y1='155' x2='12' y2='176'/><rect class='fx' x='38' y='4' width='66' height='21' rx='2'/><line class='hl' x1='44' y1='10' x2='98' y2='10'/><line class='hl' x1='0' y1='302' x2='58' y2='302'/><line class='hl' x1='52' y1='227' x2='52' y2='377'/><line class='hl' x1='353.8' y1='320.5' x2='353.8' y2='359.5'/><line class='hl' x1='390.5' y1='320.5' x2='390.5' y2='359.5'/><line class='hl' x1='427.2' y1='320.5' x2='427.2' y2='359.5'/><rect class='ck' x='220' y='318' width='30' height='32' rx='3'/><circle class='ckr' cx='235' cy='334' r='6'/><circle class='fx' cx='270' cy='333' r='6'/><rect class='bm' x='376' y='6' width='82' height='195' rx='6'/><rect class='bl' x='376' y='64' width='82' height='137' rx='6'/><line class='bll' x1='376' y1='72' x2='458' y2='72'/><rect class='pl' x='436' y='10' width='20' height='46' rx='7'/><rect class='pl' x='436' y='60' width='20' height='44' rx='7'/><circle class='fx' cx='426' cy='265' r='6'/><line class='hl' x1='446' y1='255' x2='446' y2='275'/><line class='dkl' x1='346' y1='6' x2='346' y2='40'/><circle class='fxi' cx='298' cy='20' r='11'/><circle class='sk' cx='298' cy='20' r='4'/><g filter='url(%23sh)'><polygon class='we' points='-19,-36.5 110,-36.5 110,0 -19,0'/><polygon class='we' points='400.5,-36.5 500.5,-36.5 500.5,0 400.5,0'/><polygon class='we' points='-19,1150 85,1150 85,1186.5 -19,1186.5'/><polygon class='we' points='375.5,1150 500.5,1150 500.5,1186.5 375.5,1186.5'/><polygon class='we' points='464,0 500.5,0 500.5,387.5 464,387.5'/><polygon class='we' points='464,467.5 500.5,467.5 500.5,1150 464,1150'/><polygon class='we' points='-19,0 0,0 0,1150 -19,1150'/><polygon class='wi' points='208,359.5 464,359.5 464,367.5 208,367.5'/><polygon class='wi' points='0,377 100,377 100,392.5 0,392.5'/><polygon class='wi' points='100,377 110,377 110,385 100,385'/><polygon class='wi' points='199,377 208,377 208,385 199,385'/><polygon class='wi' points='208,359.5 216,359.5 216,527 208,527'/><polygon class='wi' points='208,603 216,603 216,831.5 208,831.5'/><polygon class='wi' points='216,671 232,671 232,679 216,679'/><polygon class='wi' points='308,671 464,671 464,679 308,679'/><polygon class='wi' points='216,823.5 464,823.5 464,831.5 216,831.5'/><polygon class='wi' points='0,717.5 100,717.5 100,732.5 0,732.5'/><polygon class='wi' points='100,724 110,724 110,732.5 100,732.5'/><polygon class='wi' points='198,724 208,724 208,732.5 198,732.5'/><polygon class='wi' points='92,483 100,483 100,627 92,627'/></g><rect class='wf' x='110' y='-24.2' width='290.5' height='12'/><rect class='gl' x='112.5' y='-20.8' width='285.5' height='5'/><line class='wm' x1='206.8' y1='-24.2' x2='206.8' y2='-12.2'/><line class='wm' x1='303.7' y1='-24.2' x2='303.7' y2='-12.2'/><rect class='wf' x='85' y='1162.2' width='290.5' height='12'/><rect class='gl' x='87.5' y='1165.8' width='285.5' height='5'/><line class='wm' x1='181.8' y1='1162.2' x2='181.8' y2='1174.2'/><line class='wm' x1='278.7' y1='1162.2' x2='278.7' y2='1174.2'/><rect class='wf' x='476.2' y='387.5' width='12' height='80'/><rect class='gl' x='479.8' y='390' width='5' height='75'/><path class='da' d='M110,381 A89,89 0 0 1 199,292'/><line class='dl' x1='199' y1='381' x2='199' y2='292'/><path class='da' d='M216,603 A76,76 0 0 0 292,527'/><line class='dl' x1='216' y1='527' x2='292' y2='527'/><path class='da' d='M308,675 A76,76 0 0 1 232,751'/><line class='dl' x1='232' y1='675' x2='232' y2='751'/><path class='da' d='M110,728 A88,88 0 0 0 198,816'/><line class='dl' x1='198' y1='728' x2='198' y2='816'/><circle class='lp' cx='232' cy='189' r='17' filter='url(%23fs)'/><circle class='lpi' cx='232' cy='189' r='9.4'/><circle class='lp' cx='46' cy='555' r='17' filter='url(%23fs)'/><circle class='lpi' cx='46' cy='555' r='9.4'/><line class='lps' x1='340' y1='373' x2='394' y2='373'/><line class='lpc' x1='340' y1='373' x2='394' y2='373'/><circle class='lp' cx='340' cy='749' r='17' filter='url(%23fs)'/><circle class='lpi' cx='340' cy='749' r='9.4'/><circle class='lp' cx='232' cy='991' r='17' filter='url(%23fs)'/><circle class='lpi' cx='232' cy='991' r='9.4'/><circle class='lp' cx='78' cy='1000' r='12' filter='url(%23fs)'/><circle class='lpi' cx='78' cy='1000' r='6.6'/><circle class='lp' cx='386' cy='1000' r='12' filter='url(%23fs)'/><circle class='lpi' cx='386' cy='1000' r='6.6'/><g transform='translate(232 1082) rotate(-90)'><path class='lp' d='M0 13C-20 0 -17 -15 -8.5 -15C-3.5 -15 0 -11 0 -8C0 -11 3.5 -15 8.5 -15C17 -15 20 0 0 13Z' filter='url(%23fs)'/></g></g><text class='rn' x='-189' y='125'>Philipps Büro</text><text class='ra' x='-189' y='145'>17,08 m²</text><text class='rn' x='-450' y='155'>Flur</text><text class='ra' x='-450' y='175'>3,63 m²</text><text class='rnw' x='-488' y='262'>Bad</text><text class='raw' x='-488' y='282'>6,25 m²</text><text class='rnw' x='-784' y='290'>HWR</text><text class='raw' x='-784' y='310'>3,70 m²</text><text class='rn' x='-890' y='115'>Schlafzimmer</text><text class='ra' x='-890' y='135'>16,87 m²</text></svg>
+      image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1210 -128.4 1270 738.4'><defs><style>text{font-family:-apple-system,system-ui,Roboto,'Segoe UI',Helvetica,Arial,sans-serif;text-anchor:middle}.ft{fill:%23eeece8}.fg{fill:none;stroke:%23dedad3;stroke-width:1.3}.fb{fill:%23e7ebee}.fbg{fill:none;stroke:%23d5dbe0;stroke-width:1}.fw{fill:%23e5c79d}.fw2{fill:%23e0c095}.fw3{fill:%23e9cca4}.fw4{fill:%23ddbc90}.fwl{fill:none;stroke:%23cba679;stroke-width:1}.fwg{fill:none;stroke:%23cfa97a;stroke-opacity:.4;stroke-width:1}.td{fill:%2350555c}.tdg{fill:none;stroke:%23686d74;stroke-width:1.2}.mz{fill:%236c7178}.mz1{fill:%23464b52}.mz2{fill:%234e535a}.gls{fill:none;stroke:%23bfe0f5;stroke-width:3;stroke-linecap:round}.fs{fill:%23dcd7ce}.fsl{fill:none;stroke:%23cbc4b8;stroke-width:1.4}.fl{fill:%23c3dcac}.fld{fill:%23b2d198}.hd{fill:%237fa968;stroke:%236b9556;stroke-width:1}.hdb{fill:%236a9554}.hdr{fill:%23c9372c}.hde{fill:url(%23hedge);stroke:%23557f42;stroke-width:2}.gv{fill:%2370767d}.gvd{fill:%238b9198}.gh{fill:%2350565e;stroke:%233a3f45;stroke-width:1.5}.ghl{fill:none;stroke:%236b727b;stroke-width:1.2}.gt{fill:%233a3f46}.bd{fill:%238b6a4b;stroke:%23b8864f;stroke-width:5}.tr{fill:%23d4eabf;fill-opacity:.9;stroke:%239cc47f;stroke-width:2}.trk{fill:%238d6e47}.spt{fill:%232f343a;stroke:%23f5c04a;stroke-width:2.5}.lp{fill:%23ffffff;stroke:%23a3abb5;stroke-width:2}.lpi{fill:none;stroke:%23c5cbd2;stroke-width:2}.lps{fill:none;stroke:%23a3abb5;stroke-width:9;stroke-linecap:round}.lpc{fill:none;stroke:%23ffffff;stroke-width:4;stroke-linecap:round}.st{fill:%23e2c99f}.stl{fill:none;stroke:%23b8956a;stroke-width:1.6}.wl{fill:none;stroke:%238d6e47;stroke-width:1.6}.wla{fill:%238d6e47}.we{fill:%23363b43}.wi{fill:%234a505a}.wg{fill:%23a3a9b1}.vw{fill:%23d5d9de;stroke:%23b8bec6;stroke-width:1}.fx{fill:%23ffffff;stroke:%239aa3ad;stroke-width:1.6}.fxi{fill:%23eef2f5;stroke:%23a9b1ba;stroke-width:1.2}.ct{fill:%23f7f6f3;stroke:%23b5b0a6;stroke-width:1.6}.cab{fill:%23e9e6e0;stroke:%23b5b0a6;stroke-width:1.6}.ck{fill:%232c3035}.ckr{fill:none;stroke:%236b737c;stroke-width:1.6}.dk{fill:%238d6b51;stroke:%236b4f3a;stroke-width:1.6}.dkl{fill:none;stroke:%23a07e63;stroke-width:1}.bm{fill:%23f6f3ee;stroke:%23c9c3b8;stroke-width:1.2}.bl{fill:%23c9a24e}.bll{fill:none;stroke:%23b08a3c;stroke-width:1.2}.pl{fill:%236d529c}.lt{fill:%23c9ced5;stroke:%239aa1aa;stroke-width:1.2}.so{fill:%23d3d6da;stroke:%23a9aeb5;stroke-width:1.4}.so2{fill:%23c2c6cc;stroke:%23a9aeb5;stroke-width:1.2}.ok{fill:%23dcb57f;stroke:%23b78c55;stroke-width:1.4}.okb{fill:%23dcb57f;stroke:%2333373d;stroke-width:2.6}.vl{fill:%23aebdb7;stroke:%23869891;stroke-width:1.3}.vlb{fill:none;stroke:%23869891;stroke-width:6;stroke-linecap:round}.mu{fill:%23d6a640;stroke:%23ae8229;stroke-width:1.3}.mub{fill:none;stroke:%23ae8229;stroke-width:5;stroke-linecap:round}.ka{fill:%23585d64;stroke:%2343474e;stroke-width:1.6}.kal{fill:none;stroke:%236f747b;stroke-width:1.2}.pd{fill:%234a5d66}.rd{fill:%23b23a44}.lo{fill:%234f5359;stroke:%233a3d42;stroke-width:1.4}.loc{fill:%236a6f76;stroke:%234f5359;stroke-width:1.2}.lb{fill:%232c3035;stroke:%231d2024;stroke-width:1}.ldf{fill:%23fbfbfa;stroke:%232c3035;stroke-width:3.5}.lbt{fill:none;stroke:%232c3035;stroke-width:3.5;stroke-linecap:round}.lbt2{fill:none;stroke:%232c3035;stroke-width:2;stroke-linecap:round}.ldl{fill:none;stroke:%2380878f;stroke-width:1.6;stroke-linecap:round}.sk{fill:%23d3d9de;stroke:%239aa3ad;stroke-width:1.4}.wf{fill:%23ffffff;stroke:%238a96a3;stroke-width:1.2}.gl{fill:%23a9d4f2}.wm{fill:none;stroke:%238a96a3;stroke-width:1.4}.thr{fill:%23cfc9bf}.dl{fill:none;stroke:%237c8792;stroke-width:2.2}.da{fill:none;stroke:%239aa4af;stroke-width:1.4;stroke-dasharray:5 5}.rw{fill:%23a9d4f2;fill-opacity:.55;stroke:%236aa6d6;stroke-width:2;stroke-dasharray:7 5}.hl{fill:none;stroke:%239aa4af;stroke-width:1.2}.hz{fill:url(%23hatch)}.hh{fill:none;stroke:%238a7556;stroke-opacity:.5;stroke-width:1.6}.lh{fill:none;stroke:%238e98a3;stroke-width:1.5;stroke-dasharray:10 8}.sp{fill:none;stroke:%237c8792;stroke-width:2;stroke-dasharray:7 5}.rn{fill:%233d4450;font-size:21px;font-weight:600}.rn2{fill:%233d4450;font-size:17px;font-weight:600}.ra{fill:%237d8692;font-size:15px}.rs{fill:%237d8692;font-size:12px}.rsw{fill:%23eef0f2;font-size:12px}.rnw{fill:%23f3f4f6;font-size:21px;font-weight:600}.raw{fill:%23c3c8ce;font-size:15px}.gnw{fill:%23f3f4f6;fill-opacity:.9;font-size:34px;font-weight:600}.gn{fill:%233d4450;font-size:34px;font-weight:600}.gn2{fill:%233d4450;font-size:27px;font-weight:600}.gs{fill:%235d6672;font-size:22px}.gsw{fill:%23eef0f2;font-size:21px}@media (prefers-color-scheme:dark){.ft{fill:%2334373c}.fg{fill:none;stroke:%232b2e32;stroke-width:1.3}.fb{fill:%2330353a}.fbg{fill:none;stroke:%23272b30;stroke-width:1}.fw{fill:%234d3d2b}.fw2{fill:%23473828}.fw3{fill:%23524130}.fw4{fill:%23443526}.fwl{fill:none;stroke:%2334291d;stroke-width:1}.fwg{fill:none;stroke:%233b2f22;stroke-opacity:.6;stroke-width:1}.td{fill:%232b2e33}.tdg{fill:none;stroke:%233a3e44;stroke-width:1.2}.mz{fill:%233a3e44}.mz1{fill:%2325282c}.mz2{fill:%232c3035}.gls{fill:none;stroke:%237fb3d6;stroke-width:3;stroke-linecap:round}.fs{fill:%233a3833}.fsl{fill:none;stroke:%232f2d29;stroke-width:1.4}.fl{fill:%232c3d26}.fld{fill:%2326361f}.hd{fill:%23355a2b;stroke:%232b4a23;stroke-width:1}.hdb{fill:%232a4423}.hdr{fill:%239a2f26}.hde{fill:url(%23hedge);stroke:%2324391e;stroke-width:2}.gv{fill:%232b2f34}.gvd{fill:%233c4147}.gh{fill:%2359606a;stroke:%237a828c;stroke-width:1.5}.ghl{fill:none;stroke:%23737b85;stroke-width:1.2}.gt{fill:%239aa2ad}.bd{fill:%234a3a2b;stroke:%238d6a43;stroke-width:5}.tr{fill:%236f8f5c;fill-opacity:.9;stroke:%238fb07a;stroke-width:2}.trk{fill:%23c9a877}.spt{fill:%2315171a;stroke:%23f5c04a;stroke-width:2.5}.lp{fill:%235b626c;stroke:%2380888f;stroke-width:2}.lpi{fill:none;stroke:%23454b53;stroke-width:2}.lps{fill:none;stroke:%2380888f;stroke-width:9;stroke-linecap:round}.lpc{fill:none;stroke:%235b626c;stroke-width:4;stroke-linecap:round}.st{fill:%235b4a34}.stl{fill:none;stroke:%237a6446;stroke-width:1.6}.wl{fill:none;stroke:%23c9a877;stroke-width:1.6}.wla{fill:%23c9a877}.we{fill:%23858d98}.wi{fill:%236c7480}.wg{fill:%235b626b}.vw{fill:%23474d55;stroke:%235c636c;stroke-width:1}.fx{fill:%234b5159;stroke:%236f7781;stroke-width:1.6}.fxi{fill:%233b4047;stroke:%23626a73;stroke-width:1.2}.ct{fill:%2341454b;stroke:%235f656d;stroke-width:1.6}.cab{fill:%23383c42;stroke:%235f656d;stroke-width:1.6}.ck{fill:%2315171a}.ckr{fill:none;stroke:%234c535b;stroke-width:1.6}.dk{fill:%235c4535;stroke:%237b5f48;stroke-width:1.6}.dkl{fill:none;stroke:%236c523f;stroke-width:1}.bm{fill:%23565b62;stroke:%236c7179;stroke-width:1.2}.bl{fill:%238c7034}.bll{fill:none;stroke:%23735c2a;stroke-width:1.2}.pl{fill:%234d3a70}.lt{fill:%237a8089;stroke:%23959ca5;stroke-width:1.2}.so{fill:%23626870;stroke:%237d848d;stroke-width:1.4}.so2{fill:%23555b63;stroke:%23737a83;stroke-width:1.2}.ok{fill:%23735737;stroke:%2393724a;stroke-width:1.4}.okb{fill:%23735737;stroke:%2315171a;stroke-width:2.6}.vl{fill:%234f5d58;stroke:%23687872;stroke-width:1.3}.vlb{fill:none;stroke:%23687872;stroke-width:6;stroke-linecap:round}.mu{fill:%238f6d2a;stroke:%23a8843d;stroke-width:1.3}.mub{fill:none;stroke:%23a8843d;stroke-width:5;stroke-linecap:round}.ka{fill:%2326292d;stroke:%2342464d;stroke-width:1.6}.kal{fill:none;stroke:%233b3f45;stroke-width:1.2}.pd{fill:%232c3a40}.rd{fill:%237d2a31}.lo{fill:%2326292d;stroke:%23464b52;stroke-width:1.4}.loc{fill:%233a3e44;stroke:%23565c63;stroke-width:1.2}.lb{fill:%23141619;stroke:%23828a94;stroke-width:1.3}.ldf{fill:%236f767f;stroke:%23141619;stroke-width:3.5}.lbt{fill:none;stroke:%23828a94;stroke-width:3.5;stroke-linecap:round}.lbt2{fill:none;stroke:%23828a94;stroke-width:2;stroke-linecap:round}.ldl{fill:none;stroke:%235d646d;stroke-width:1.6;stroke-linecap:round}.sk{fill:%235a6168;stroke:%237a828b;stroke-width:1.4}.wf{fill:%235f6772;stroke:%238b939e;stroke-width:1.2}.gl{fill:%234f86ad}.wm{fill:none;stroke:%238b939e;stroke-width:1.4}.thr{fill:%2355524c}.dl{fill:none;stroke:%23a6aeb8;stroke-width:2.2}.da{fill:none;stroke:%237f8791;stroke-width:1.4;stroke-dasharray:5 5}.rw{fill:%234f86ad;fill-opacity:.3;stroke:%236ea3c9;stroke-width:2;stroke-dasharray:7 5}.hl{fill:none;stroke:%235c646d;stroke-width:1.2}.hz{fill:url(%23hatch)}.hh{fill:none;stroke:%23d9c49c;stroke-opacity:.35;stroke-width:1.6}.lh{fill:none;stroke:%236c757f;stroke-width:1.5;stroke-dasharray:10 8}.sp{fill:none;stroke:%23a6aeb8;stroke-width:2;stroke-dasharray:7 5}.rn{fill:%23dfe3e8;font-size:21px;font-weight:600}.rn2{fill:%23dfe3e8;font-size:17px;font-weight:600}.ra{fill:%239aa3ad;font-size:15px}.rs{fill:%239aa3ad;font-size:12px}.rsw{fill:%23f1f3f5;font-size:12px}.rnw{fill:%23f3f4f6;font-size:21px;font-weight:600}.raw{fill:%23c3c8ce;font-size:15px}.gnw{fill:%23f3f4f6;fill-opacity:.9;font-size:34px;font-weight:600}.gn{fill:%23f1ece4;font-size:34px;font-weight:600}.gn2{fill:%23dfe3e8;font-size:27px;font-weight:600}.gs{fill:%23aab2bc;font-size:22px}.gsw{fill:%23f1f3f5;font-size:21px}%23sh feDropShadow,%23fs feDropShadow{flood-opacity:.6}}</style><pattern id='t60' width='60' height='60' patternUnits='userSpaceOnUse'><rect class='ft' width='60' height='60'/><path class='fg' d='M0 .6H60M.6 0V60'/></pattern><pattern id='t30' width='30' height='30' patternUnits='userSpaceOnUse'><rect class='fb' width='30' height='30'/><path class='fbg' d='M0 .5H30M.5 0V30'/></pattern><pattern id='wood' width='240' height='75' patternUnits='userSpaceOnUse' patternTransform='rotate(90)'><rect class='fw' x='0' y='0' width='150' height='15'/><rect class='fw2' x='150' y='0' width='90' height='15'/><rect class='fw3' x='0' y='15' width='60' height='15'/><rect class='fw' x='60' y='15' width='150' height='15'/><rect class='fw3' x='210' y='15' width='30' height='15'/><rect class='fw4' x='0' y='30' width='20' height='15'/><rect class='fw3' x='20' y='30' width='110' height='15'/><rect class='fw4' x='130' y='30' width='110' height='15'/><rect class='fw2' x='0' y='45' width='90' height='15'/><rect class='fw4' x='90' y='45' width='110' height='15'/><rect class='fw2' x='200' y='45' width='40' height='15'/><rect class='fw' x='0' y='60' width='40' height='15'/><rect class='fw2' x='40' y='60' width='130' height='15'/><rect class='fw' x='170' y='60' width='70' height='15'/><path class='fwg' d='M25 5.5H95M185 10.5H240M85 20.5H155M5 25.5H60M45 35.5H115M165 40.5H220M115 50.5H185M235 55.5H240M65 65.5H135M205 70.5H240'/><path class='fwl' d='M0 0.5H240M0.5 0V15M150.5 0V15M0 15.5H240M60.5 15V30M210.5 15V30M0 30.5H240M20.5 30V45M130.5 30V45M0 45.5H240M90.5 45V60M200.5 45V60M0 60.5H240M40.5 60V75M170.5 60V75'/></pattern><pattern id='t60d' width='60' height='60' patternUnits='userSpaceOnUse'><rect class='td' width='60' height='60'/><path class='tdg' d='M0 .6H60M.6 0V60'/></pattern><pattern id='mosaic' width='10' height='10' patternUnits='userSpaceOnUse'><rect class='mz' width='10' height='10'/><rect class='mz1' x='.6' y='.6' width='3.9' height='3.9'/><rect class='mz2' x='5.6' y='.6' width='3.9' height='3.9'/><rect class='mz2' x='.6' y='5.6' width='3.9' height='3.9'/><rect class='mz1' x='5.6' y='5.6' width='3.9' height='3.9'/></pattern><pattern id='stone' width='80' height='40' patternUnits='userSpaceOnUse'><rect class='fs' width='80' height='40'/><path class='fsl' d='M0 .7H80M0 20.7H80M.7 0V20M40.7 20V40'/></pattern><pattern id='lawn' width='26' height='26' patternUnits='userSpaceOnUse'><rect class='fl' width='26' height='26'/><circle class='fld' cx='6' cy='7' r='2.2'/><circle class='fld' cx='19' cy='17' r='2.2'/><circle class='fld' cx='14' cy='4' r='1.4'/></pattern><pattern id='hedge' width='44' height='44' patternUnits='userSpaceOnUse'><rect class='hdb' width='44' height='44'/><circle class='hd' cx='8' cy='9' r='9'/><circle class='hd' cx='29' cy='6' r='9'/><circle class='hd' cx='20' cy='24' r='11'/><circle class='hd' cx='4' cy='33' r='8'/><circle class='hd' cx='39' cy='29' r='10'/><circle class='hd' cx='16' cy='41' r='7'/><circle class='hdr' cx='10' cy='6' r='3.2'/><circle class='hdr' cx='31' cy='26' r='3.6'/><circle class='hdr' cx='21' cy='19' r='2.6'/><circle class='hdr' cx='41' cy='8' r='3'/><circle class='hdr' cx='6' cy='30' r='2.8'/><circle class='hdr' cx='17' cy='38' r='2.4'/></pattern><pattern id='gravel' width='16' height='16' patternUnits='userSpaceOnUse'><rect class='gv' width='16' height='16'/><ellipse class='gvd' cx='4' cy='4' rx='2.4' ry='1.6'/><ellipse class='gvd' cx='11' cy='7' rx='2' ry='1.4'/><ellipse class='gvd' cx='6' cy='12' rx='1.8' ry='1.3'/><ellipse class='gvd' cx='13' cy='14' rx='2.2' ry='1.5'/></pattern><pattern id='hatch' width='12' height='12' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'><path class='hh' d='M0 0V12'/></pattern><filter id='sh' x='-5%25' y='-5%25' width='110%25' height='110%25'><feDropShadow dx='2' dy='0' stdDeviation='2.5' flood-color='%23000' flood-opacity='.35'/></filter><filter id='fs' x='-10%25' y='-10%25' width='120%25' height='120%25'><feDropShadow dx='1.5' dy='0' stdDeviation='1.6' flood-color='%23000' flood-opacity='.22'/></filter></defs><g transform='rotate(90)'><polygon class='' points='0,0 464,0 464,359.5 208,359.5 208,377 0,377' fill='url(%23wood)'/><polygon class='' points='92,377 208,377 208,732.5 92,732.5' fill='url(%23wood)'/><polygon class='' points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23wood)'/><polygon class='' points='216,359.5 464,359.5 464,831.5 216,831.5' fill='url(%23t60d)'/><polygon class='' points='340,527 436,527 436,671 340,671' fill='url(%23mosaic)'/><rect class='sk' x='380' y='604' width='16' height='16' rx='2'/><line class='hl' x1='383' y1='609' x2='393' y2='609'/><line class='hl' x1='383' y1='615' x2='393' y2='615'/><g filter='url(%23fs)'><circle class='fx' cx='418' cy='648' r='13'/></g><circle class='fxi' cx='418' cy='648' r='8'/><line class='gls' x1='340' y1='571' x2='340' y2='671'/><rect class='st' x='0' y='392.5' width='92' height='325'/><line class='stl' x1='92' y1='640.5' x2='50.9' y2='717.5'/><line class='stl' x1='92' y1='640.5' x2='0' y2='702.2'/><line class='stl' x1='92' y1='640.5' x2='0' y2='649.8'/><line class='stl' x1='0' y1='622.6' x2='92' y2='622.6'/><line class='stl' x1='0' y1='600.1' x2='92' y2='600.1'/><line class='stl' x1='0' y1='577.5' x2='92' y2='577.5'/><line class='stl' x1='0' y1='555' x2='92' y2='555'/><line class='stl' x1='0' y1='532.5' x2='92' y2='532.5'/><line class='stl' x1='0' y1='509.9' x2='92' y2='509.9'/><line class='stl' x1='0' y1='487.4' x2='92' y2='487.4'/><line class='stl' x1='92' y1='469.5' x2='0' y2='460.2'/><line class='stl' x1='92' y1='469.5' x2='0' y2='407.8'/><line class='stl' x1='92' y1='469.5' x2='50.9' y2='392.5'/><polyline class='wl' points='92,686.5 84.2,685.8 76.5,683.8 69.4,680.5 62.9,676.1 57.2,670.6 52.6,664.2 49.1,657.2 46.9,649.6 46,641.8 46,633.9 46,626 46,618.1 46,610.2 46,602.3 46,594.4 46,586.6 46,578.7 46,570.8 46,562.9 46,555 46,547.1 46,539.2 46,531.3 46,523.4 46,515.6 46,507.7 46,499.8 46,491.9 46,484 46,476.1 46,468.2 46.9,460.4 49.1,452.8 52.6,445.8 57.2,439.4 62.9,433.9 69.4,429.5 76.5,426.2 84.2,424.2 84,423.5'/><circle class='wla' cx='92' cy='686.5' r='4'/><polygon class='wla' points='93,423.5 81,416.5 81,430.5'/><rect class='vw' x='216' y='367.5' width='248' height='19.5'/><g transform='translate(268 387) rotate(0)' filter='url(%23fs)'><rect class='fx' x='-19' y='0' width='38' height='17' rx='4'/><path class='fx' d='M-16,17 C-17,48 -9,62 0,62 C9,62 17,48 16,17 Z'/><ellipse class='fxi' cx='0' cy='37' rx='9.5' ry='15'/></g><g transform='translate(367 387) rotate(0)' filter='url(%23fs)'><rect class='fx' x='-31' y='0' width='62' height='46' rx='5'/><ellipse class='fxi' cx='0' cy='26' rx='23' ry='14'/><circle class='sk' cx='0' cy='7' r='3'/></g><rect class='lb' x='420' y='371' width='12' height='13' rx='4.5'/><circle class='ldf' cx='426' cy='374' r='1.6' style='stroke-width:.8'/><rect x='436' y='513' width='28' height='94' fill='url(%23hatch)'/><rect class='hl' x='436' y='513' width='28' height='94'/><g filter='url(%23fs)'><rect class='fx' x='398' y='690' width='60' height='60' rx='4'/></g><circle class='fxi' cx='428' cy='723' r='20'/><circle class='sk' cx='428' cy='723' r='13'/><path d='M416.2,725Q422.1,721.5 428,725T439.8,725A12 12 0 0 1 416.2,725Z' fill='%233b82f6' fill-opacity='.45'/><line class='hl' x1='404' y1='699' x2='452' y2='699'/><g filter='url(%23fs)'><rect class='fx' x='398' y='755' width='60' height='60' rx='4'/></g><circle class='fxi' cx='428' cy='788' r='20'/><circle class='sk' cx='428' cy='788' r='13'/><ellipse class='rd' cx='424' cy='793' rx='5.5' ry='3.4' transform='rotate(25 424 793)'/><ellipse class='mu' cx='433' cy='792' rx='5' ry='3.2' transform='rotate(-30 433 792)'/><ellipse class='pd' cx='429' cy='783' rx='4.2' ry='2.8'/><line class='hl' x1='404' y1='764' x2='452' y2='764'/><g filter='url(%23fs)'><path class='dk' d='M0,0H208V75H130A55,55 0 0 0 75,130V188H0Z'/><rect class='fx' x='0' y='227' width='58' height='150'/><rect class='dk' x='208' y='307' width='100' height='52.5'/><rect class='fx' x='317' y='320.5' width='147' height='39'/><rect class='fx' x='370' y='0' width='94' height='207' rx='4'/><rect class='dk' x='326' y='3' width='40' height='40' rx='3'/><rect class='fx' x='450' y='247' width='14' height='36' rx='3'/><rect class='fx' x='282' y='4' width='32' height='32' rx='7'/><circle class='ck' cx='432' cy='265' r='17'/></g><rect class='ck' x='9' y='58' width='6' height='42' rx='1.5'/><rect class='ck' x='9' y='103' width='6' height='42' rx='1.5'/><rect class='ck' x='3' y='33' width='6' height='14' rx='1.5'/><rect class='lt' x='12' y='25' width='22' height='30' rx='2.5'/><line class='hl' x1='15' y1='27' x2='15' y2='53'/><rect class='fx' x='5' y='150' width='45' height='31' rx='2'/><line class='hl' x1='12' y1='155' x2='12' y2='176'/><rect class='fx' x='38' y='4' width='66' height='21' rx='2'/><line class='hl' x1='44' y1='10' x2='98' y2='10'/><line class='hl' x1='0' y1='302' x2='58' y2='302'/><line class='hl' x1='52' y1='227' x2='52' y2='377'/><line class='hl' x1='353.8' y1='320.5' x2='353.8' y2='359.5'/><line class='hl' x1='390.5' y1='320.5' x2='390.5' y2='359.5'/><line class='hl' x1='427.2' y1='320.5' x2='427.2' y2='359.5'/><rect class='ck' x='220' y='318' width='30' height='32' rx='3'/><circle class='ckr' cx='235' cy='334' r='6'/><circle class='fx' cx='270' cy='333' r='6'/><rect class='bm' x='376' y='6' width='82' height='195' rx='6'/><rect class='bl' x='376' y='64' width='82' height='137' rx='6'/><line class='bll' x1='376' y1='72' x2='458' y2='72'/><rect class='pl' x='436' y='10' width='20' height='46' rx='7'/><rect class='pl' x='436' y='60' width='20' height='44' rx='7'/><circle class='fx' cx='426' cy='265' r='6'/><line class='hl' x1='446' y1='255' x2='446' y2='275'/><line class='dkl' x1='346' y1='6' x2='346' y2='40'/><circle class='fxi' cx='298' cy='20' r='11'/><circle class='sk' cx='298' cy='20' r='4'/><circle class='sk' cx='132' cy='18' r='6' filter='url(%23fs)'/><circle class='lb' cx='132' cy='18' r='3.4'/><g filter='url(%23fs)'><rect class='fx' x='258' y='880' width='206' height='192' rx='4'/><rect class='fx' x='416' y='836' width='48' height='40' rx='2'/><rect class='fx' x='416' y='1076' width='48' height='40' rx='2'/><rect class='fx' x='2' y='1046' width='46' height='80' rx='2'/><rect class='fx' x='0' y='770' width='62' height='250' rx='1'/><rect class='fx' x='96' y='1048' width='88' height='88' rx='10'/></g><rect class='pd' x='266' y='886' width='186' height='180' rx='4'/><rect class='fx' x='452' y='880' width='12' height='192' rx='2'/><rect class='bm' x='418' y='892' width='30' height='76' rx='8'/><rect class='bm' x='418' y='984' width='30' height='76' rx='8'/><rect class='vl' x='300' y='896' width='104' height='76' rx='12'/><rect class='vl' x='286' y='980' width='112' height='80' rx='14'/><line class='hl' x1='334' y1='900' x2='334' y2='968'/><line class='hl' x1='330' y1='986' x2='330' y2='1054'/><line class='hl' x1='422' y1='840' x2='458' y2='840'/><line class='hl' x1='422' y1='1080' x2='458' y2='1080'/><line class='hl' x1='44' y1='1052' x2='44' y2='1120'/><rect class='ck' x='56' y='772' width='6' height='123' rx='1'/><rect class='sk' x='56' y='895' width='6' height='123' rx='1'/><line class='hl' x1='49' y1='772' x2='49' y2='1018'/><rect class='fxi' x='100' y='1112' width='80' height='20' rx='8'/><rect class='fxi' x='100' y='1056' width='16' height='56' rx='6'/><rect class='fxi' x='164' y='1056' width='16' height='56' rx='6'/><rect class='fxi' x='118' y='1058' width='44' height='52' rx='6'/><g filter='url(%23sh)'><polygon class='we' points='-19,-36.5 110,-36.5 110,0 -19,0'/><polygon class='we' points='400.5,-36.5 500.5,-36.5 500.5,0 400.5,0'/><polygon class='we' points='-19,1150 85,1150 85,1186.5 -19,1186.5'/><polygon class='we' points='375.5,1150 500.5,1150 500.5,1186.5 375.5,1186.5'/><polygon class='we' points='464,0 500.5,0 500.5,387.5 464,387.5'/><polygon class='we' points='464,467.5 500.5,467.5 500.5,1150 464,1150'/><polygon class='we' points='-19,0 0,0 0,1150 -19,1150'/><polygon class='wi' points='208,359.5 464,359.5 464,367.5 208,367.5'/><polygon class='wi' points='0,377 100,377 100,392.5 0,392.5'/><polygon class='wi' points='100,377 110,377 110,385 100,385'/><polygon class='wi' points='199,377 208,377 208,385 199,385'/><polygon class='wi' points='208,359.5 216,359.5 216,527 208,527'/><polygon class='wi' points='208,603 216,603 216,831.5 208,831.5'/><polygon class='wi' points='216,671 232,671 232,679 216,679'/><polygon class='wi' points='308,671 464,671 464,679 308,679'/><polygon class='wi' points='216,823.5 464,823.5 464,831.5 216,831.5'/><polygon class='wi' points='0,717.5 100,717.5 100,732.5 0,732.5'/><polygon class='wi' points='100,724 110,724 110,732.5 100,732.5'/><polygon class='wi' points='198,724 208,724 208,732.5 198,732.5'/><polygon class='wi' points='92,483 100,483 100,627 92,627'/></g><rect class='wf' x='110' y='-24.2' width='290.5' height='12'/><rect class='gl' x='112.5' y='-20.8' width='285.5' height='5'/><line class='wm' x1='206.8' y1='-24.2' x2='206.8' y2='-12.2'/><line class='wm' x1='303.7' y1='-24.2' x2='303.7' y2='-12.2'/><rect class='wf' x='85' y='1162.2' width='290.5' height='12'/><rect class='gl' x='87.5' y='1165.8' width='285.5' height='5'/><line class='wm' x1='181.8' y1='1162.2' x2='181.8' y2='1174.2'/><line class='wm' x1='278.7' y1='1162.2' x2='278.7' y2='1174.2'/><rect class='wf' x='476.2' y='387.5' width='12' height='80'/><rect class='gl' x='479.8' y='390' width='5' height='75'/><path class='da' d='M110,381 A89,89 0 0 1 199,292'/><line class='dl' x1='199' y1='381' x2='199' y2='292'/><path class='da' d='M216,603 A76,76 0 0 0 292,527'/><line class='dl' x1='216' y1='527' x2='292' y2='527'/><path class='da' d='M308,675 A76,76 0 0 1 232,751'/><line class='dl' x1='232' y1='675' x2='232' y2='751'/><path class='da' d='M110,728 A88,88 0 0 0 198,816'/><line class='dl' x1='198' y1='728' x2='198' y2='816'/><circle class='lp' cx='232' cy='189' r='17' filter='url(%23fs)'/><circle class='lpi' cx='232' cy='189' r='9.4'/><circle class='lp' cx='46' cy='555' r='17' filter='url(%23fs)'/><circle class='lpi' cx='46' cy='555' r='9.4'/><line class='lps' x1='340' y1='373' x2='394' y2='373'/><line class='lpc' x1='340' y1='373' x2='394' y2='373'/><circle class='ldf' cx='278' cy='430' r='7' style='stroke-width:2.5'/><circle class='ldf' cx='278' cy='515' r='7' style='stroke-width:2.5'/><circle class='ldf' cx='278' cy='600' r='7' style='stroke-width:2.5'/><circle class='ldf' cx='402' cy='430' r='7' style='stroke-width:2.5'/><circle class='ldf' cx='402' cy='515' r='7' style='stroke-width:2.5'/><circle class='lp' cx='340' cy='749' r='17' filter='url(%23fs)'/><circle class='lpi' cx='340' cy='749' r='9.4'/><circle class='so' cx='232' cy='991' r='24' style='stroke-width:2.5'/><circle class='ldf' cx='232' cy='991' r='17.3' style='stroke-width:1.5'/><circle class='ldf' cx='440' cy='856' r='10' style='stroke-width:2'/><circle class='lb' cx='440' cy='856' r='3'/><circle class='ldf' cx='440' cy='1096' r='10' style='stroke-width:2'/><circle class='lb' cx='440' cy='1096' r='3'/><g transform='translate(172 1142) rotate(-90) scale(0.6)'><path class='ldf' d='M0 13C-20 0 -17 -15 -8.5 -15C-3.5 -15 0 -11 0 -8C0 -11 3.5 -15 8.5 -15C17 -15 20 0 0 13Z' style='stroke-width:3.6'/></g></g><text class='rn' x='-189' y='125'>Philipps Büro</text><text class='ra' x='-189' y='145'>17,08 m²</text><text class='rn' x='-450' y='155'>Flur</text><text class='ra' x='-450' y='175'>3,63 m²</text><text class='rnw' x='-472' y='306'>Bad</text><text class='raw' x='-472' y='326'>6,25 m²</text><text class='rnw' x='-784' y='290'>HWR</text><text class='raw' x='-784' y='310'>3,70 m²</text><text class='rn' x='-890' y='115'>Schlafzimmer</text><text class='ra' x='-890' y='135'>16,87 m²</text></svg>
       elements:
       - type: conditional
         conditions:
@@ -53,6 +53,19 @@ views:
       - type: conditional
         conditions:
         - condition: state
+          entity: light.deckenlampe_bad
+          state: "on"
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-671 216 303.5 248'><g transform='rotate(90)'><radialGradient id='g' cx='340' cy='515' r='300' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='216,367.5 464,367.5 464,671 216,671' fill='url(%23g)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='278' cy='430' r='30' fill='url(%23lf)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='278' cy='515' r='30' fill='url(%23lf)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='278' cy='600' r='30' fill='url(%23lf)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='402' cy='430' r='30' fill='url(%23lf)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='402' cy='515' r='30' fill='url(%23lf)'/><circle cx='278' cy='430' r='7' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='278' cy='430' r='3' fill='%23fff7d6'/><circle cx='278' cy='515' r='7' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='278' cy='515' r='3' fill='%23fff7d6'/><circle cx='278' cy='600' r='7' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='278' cy='600' r='3' fill='%23fff7d6'/><circle cx='402' cy='430' r='7' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='402' cy='430' r='3' fill='%23fff7d6'/><circle cx='402' cy='515' r='7' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='402' cy='515' r='3' fill='%23fff7d6'/></g></svg>
+          style:
+            left: 54.4%
+            top: 63.4%
+            width: 23.9%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
+        - condition: state
           entity: light.hwr_deckenlampe
           state: "on"
         elements:
@@ -70,7 +83,7 @@ views:
           state: "on"
         elements:
         - type: image
-          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='232' cy='991' r='320' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lh'><stop offset='.35' stop-color='%23ffe9a8' stop-opacity='.95'/><stop offset='1' stop-color='%23ffe9a8' stop-opacity='0'/></radialGradient><circle cx='232' cy='991' r='39.1' fill='url(%23lh)'/><circle cx='232' cy='991' r='17' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='232' cy='991' r='9.4' fill='%23fff7d6'/></g></svg>
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='232' cy='991' r='320' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='232' cy='991' r='76.8' fill='url(%23lf)'/><circle cx='232' cy='991' r='24' fill='%23d9c9a3' stroke='%23f0a800' stroke-width='3'/><circle cx='232' cy='991' r='17.3' fill='%23ffd54f'/><circle cx='232' cy='991' r='9.6' fill='%23fff7d6'/></g></svg>
           style:
             left: 21.2%
             top: 48.8%
@@ -83,7 +96,7 @@ views:
           state: "on"
         elements:
         - type: image
-          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='78' cy='1000' r='150' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lh'><stop offset='.35' stop-color='%23ffe9a8' stop-opacity='.95'/><stop offset='1' stop-color='%23ffe9a8' stop-opacity='0'/></radialGradient><circle cx='78' cy='1000' r='27.6' fill='url(%23lh)'/><circle cx='78' cy='1000' r='12' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='78' cy='1000' r='6.6' fill='%23fff7d6'/></g></svg>
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='440' cy='856' r='170' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='440' cy='856' r='36' fill='url(%23lf)'/><circle cx='440' cy='856' r='10' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2.5'/><circle cx='440' cy='856' r='4.5' fill='%23fff7d6'/></g></svg>
           style:
             left: 21.2%
             top: 48.8%
@@ -96,7 +109,7 @@ views:
           state: "on"
         elements:
         - type: image
-          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='386' cy='1000' r='150' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lh'><stop offset='.35' stop-color='%23ffe9a8' stop-opacity='.95'/><stop offset='1' stop-color='%23ffe9a8' stop-opacity='0'/></radialGradient><circle cx='386' cy='1000' r='27.6' fill='url(%23lh)'/><circle cx='386' cy='1000' r='12' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/><circle cx='386' cy='1000' r='6.6' fill='%23fff7d6'/></g></svg>
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='440' cy='1096' r='170' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='440' cy='1096' r='36' fill='url(%23lf)'/><circle cx='440' cy='1096' r='10' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2.5'/><circle cx='440' cy='1096' r='4.5' fill='%23fff7d6'/></g></svg>
           style:
             left: 21.2%
             top: 48.8%
@@ -109,7 +122,7 @@ views:
           state: "on"
         elements:
         - type: image
-          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='232' cy='1082' r='150' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lh'><stop offset='.35' stop-color='%23ffe9a8' stop-opacity='.95'/><stop offset='1' stop-color='%23ffe9a8' stop-opacity='0'/></radialGradient><circle cx='232' cy='1082' r='34' fill='url(%23lh)'/><g transform='translate(232 1082) rotate(-90)'><path d='M0 13C-20 0 -17 -15 -8.5 -15C-3.5 -15 0 -11 0 -8C0 -11 3.5 -15 8.5 -15C17 -15 20 0 0 13Z' fill='%23ffd54f' stroke='%23f0a800' stroke-width='2'/></g></g></svg>
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1150 0 417.5 464'><g transform='rotate(90)'><radialGradient id='g' cx='172' cy='1120' r='150' gradientUnits='userSpaceOnUse'><stop offset='0' stop-color='%23ffc65c' stop-opacity='.72'/><stop offset='.45' stop-color='%23ffc65c' stop-opacity='.34'/><stop offset='1' stop-color='%23ffc65c' stop-opacity='0'/></radialGradient><polygon points='0,732.5 208,732.5 208,831.5 464,831.5 464,1150 0,1150' fill='url(%23g)'/><radialGradient id='lf'><stop offset='.25' stop-color='%23fffbea'/><stop offset='.55' stop-color='%23ffe9a0' stop-opacity='.8'/><stop offset='1' stop-color='%23ffd54f' stop-opacity='0'/></radialGradient><circle cx='172' cy='1142' r='36' fill='url(%23lf)'/><g transform='translate(172 1142) rotate(-90) scale(0.6)'><path d='M0 13C-20 0 -17 -15 -8.5 -15C-3.5 -15 0 -11 0 -8C0 -11 3.5 -15 8.5 -15C17 -15 20 0 0 13Z' fill='%23ffd54f' stroke='%23f0a800' stroke-width='4.5'/></g></g></svg>
           style:
             left: 21.2%
             top: 48.8%
@@ -198,6 +211,58 @@ views:
       - type: conditional
         conditions:
         - condition: state
+          entity: media_player.philipps_buro
+          state: playing
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-54 104 44 56'><g transform='rotate(90)'><circle cx='132' cy='18' r='3.4' fill='%238b5cf6'><animate attributeName='fill-opacity' values='1;.45;1' dur='1.6s' repeatCount='indefinite'/></circle><circle cx='132' cy='18' r='2.6' fill='%238b5cf6' opacity='.9'/><path d='M141.2,27.2A13 13 0 0 1 122.8,27.2' fill='none' stroke='%238b5cf6' stroke-width='3.5' stroke-linecap='round' opacity='.4'><animate attributeName='opacity' values='.4;1;.4' dur='1.2s' begin='0s' repeatCount='indefinite'/></path><path d='M146.1,32.1A20 20 0 0 1 117.9,32.1' fill='none' stroke='%238b5cf6' stroke-width='3.5' stroke-linecap='round' opacity='.4'><animate attributeName='opacity' values='.4;1;.4' dur='1.2s' begin='0.2s' repeatCount='indefinite'/></path><path d='M151.1,37.1A27 27 0 0 1 112.9,37.1' fill='none' stroke='%238b5cf6' stroke-width='3.5' stroke-linecap='round' opacity='.4'><animate attributeName='opacity' values='.4;1;.4' dur='1.2s' begin='0.5s' repeatCount='indefinite'/></path></g></svg>
+          style:
+            left: 92.8%
+            top: 35.3%
+            width: 3.5%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
+        - condition: state
+          entity: binary_sensor.waschmaschine_lauft
+          state: "on"
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-769 380 92 96'><g transform='rotate(90)'><radialGradient id='rg'><stop offset='0' stop-color='%233b82f6' stop-opacity='0'/><stop offset='0.45' stop-color='%233b82f6' stop-opacity='0'/><stop offset='0.55' stop-color='%233b82f6' stop-opacity='.5'/><stop offset='1' stop-color='%233b82f6' stop-opacity='0'/></radialGradient><circle cx='428' cy='723' r='44' fill='url(%23rg)'/><circle cx='428' cy='723' r='17' fill='none' stroke='%233b82f6' stroke-width='3.5' stroke-dasharray='6.7 4.0'><animateTransform attributeName='transform' type='rotate' from='0 428 723' to='360 428 723' dur='1.6s' repeatCount='indefinite'/></circle></g></svg>
+          style:
+            left: 38.3%
+            top: 75.4%
+            width: 7.2%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
+        - condition: state
+          entity: binary_sensor.trockner_lauft
+          state: "on"
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-834 380 92 96'><g transform='rotate(90)'><radialGradient id='rg'><stop offset='0' stop-color='%23f97316' stop-opacity='0'/><stop offset='0.45' stop-color='%23f97316' stop-opacity='0'/><stop offset='0.55' stop-color='%23f97316' stop-opacity='.5'/><stop offset='1' stop-color='%23f97316' stop-opacity='0'/></radialGradient><circle cx='428' cy='788' r='44' fill='url(%23rg)'/><circle cx='428' cy='788' r='17' fill='none' stroke='%23f97316' stroke-width='3.5' stroke-dasharray='6.7 4.0'><animateTransform attributeName='transform' type='rotate' from='0 428 788' to='360 428 788' dur='1.6s' repeatCount='indefinite'/></circle></g></svg>
+          style:
+            left: 33.2%
+            top: 75.4%
+            width: 7.2%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
+        - condition: state
+          entity: media_player.unnamed_room_unnamed_room_2
+          state: playing
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-414 400 52 52'><g transform='rotate(90)'><circle cx='426' cy='377.5' r='2.6' fill='%238b5cf6' opacity='.9'/><path d='M435.9,387.4A14 14 0 0 1 416.1,387.4' fill='none' stroke='%238b5cf6' stroke-width='3.5' stroke-linecap='round' opacity='.4'><animate attributeName='opacity' values='.4;1;.4' dur='1.2s' begin='0s' repeatCount='indefinite'/></path><path d='M441.6,393.1A22 22 0 0 1 410.4,393.1' fill='none' stroke='%238b5cf6' stroke-width='3.5' stroke-linecap='round' opacity='.4'><animate attributeName='opacity' values='.4;1;.4' dur='1.2s' begin='0.2s' repeatCount='indefinite'/></path><path d='M447.2,398.7A30 30 0 0 1 404.8,398.7' fill='none' stroke='%238b5cf6' stroke-width='3.5' stroke-linecap='round' opacity='.4'><animate attributeName='opacity' values='.4;1;.4' dur='1.2s' begin='0.5s' repeatCount='indefinite'/></path></g></svg>
+          style:
+            left: 64.7%
+            top: 75.1%
+            width: 4.1%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
+        - condition: state
           entity: binary_sensor.bewegungsmelder_hwr_belegung
           state: "on"
         elements:
@@ -223,6 +288,21 @@ views:
             pointer-events: "none"
       - type: conditional
         conditions:
+        - condition: numeric_state
+          entity: cover.rollladen_philipps_buro
+          attribute: current_position
+          above: 0
+          below: 61
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 110 36.5 290.5'><g transform='rotate(90)'><rect x='110' y='-27.4' width='290.5' height='18.2' rx='2' fill='%236b7280' fill-opacity='.92'/><path d='M110 -23.4H400.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M110 -18.4H400.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M110 -13.4H400.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/></g></svg>
+          style:
+            left: 96.7%
+            top: 52%
+            width: 2.9%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
         - condition: state
           entity: cover.rollladen_bad_1_og
           state: closed
@@ -236,12 +316,42 @@ views:
             pointer-events: "none"
       - type: conditional
         conditions:
+        - condition: numeric_state
+          entity: cover.rollladen_bad_1_og
+          attribute: current_position
+          above: 0
+          below: 61
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-467.5 464 80 36.5'><g transform='rotate(90)'><rect x='473.1' y='387.5' width='18.2' height='80' rx='2' fill='%236b7280' fill-opacity='.92'/><path d='M477.1 387.5V467.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M482.1 387.5V467.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M487.1 387.5V467.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/></g></svg>
+          style:
+            left: 61.6%
+            top: 82.7%
+            width: 6.3%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
         - condition: state
           entity: cover.rollladen_schlafzimmer
           state: closed
         elements:
         - type: image
           image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1186.5 85 36.5 290.5'><g transform='rotate(90)'><rect x='85' y='1150' width='290.5' height='36.5' rx='2' fill='%236b7280' fill-opacity='.92'/><path d='M85 1154H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1159H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1164H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1169H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1174H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1179H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1184H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/></g></svg>
+          style:
+            left: 3.3%
+            top: 48.6%
+            width: 2.9%
+            pointer-events: "none"
+      - type: conditional
+        conditions:
+        - condition: numeric_state
+          entity: cover.rollladen_schlafzimmer
+          attribute: current_position
+          above: 0
+          below: 61
+        elements:
+        - type: image
+          image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1186.5 85 36.5 290.5'><g transform='rotate(90)'><rect x='85' y='1159.1' width='290.5' height='18.2' rx='2' fill='%236b7280' fill-opacity='.92'/><path d='M85 1163.1H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1168.1H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/><path d='M85 1173.1H375.5' stroke='%231f2937' stroke-opacity='.5' stroke-width='1.6'/></g></svg>
           style:
             left: 3.3%
             top: 48.6%
@@ -320,6 +430,61 @@ views:
           top: 67.1%
           width: 4.1%
       - type: image
+        entity: light.deckenlampe_bad
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-455.9 252.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          left: 61.4%
+          top: 55%
+          width: 4.1%
+      - type: image
+        entity: light.deckenlampe_bad
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-540.9 252.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          left: 54.7%
+          top: 55%
+          width: 4.1%
+      - type: image
+        entity: light.deckenlampe_bad
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-625.9 252.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          left: 48%
+          top: 55%
+          width: 4.1%
+      - type: image
+        entity: light.deckenlampe_bad
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-455.9 376.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          left: 61.4%
+          top: 71.8%
+          width: 4.1%
+      - type: image
+        entity: light.deckenlampe_bad
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-540.9 376.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        style:
+          left: 54.7%
+          top: 71.8%
+          width: 4.1%
+      - type: image
         entity: light.hwr_deckenlampe
         image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-774.9 314.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
         tap_action:
@@ -343,36 +508,36 @@ views:
           width: 4.1%
       - type: image
         entity: light.nachttischlampe_laura
-        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1025.9 52.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-881.9 414.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
         tap_action:
           action: toggle
         hold_action:
           action: more-info
         style:
-          left: 16.5%
-          top: 28%
+          left: 27.9%
+          top: 77%
           width: 4.1%
       - type: image
         entity: light.nachttischlampe_philipp
-        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1025.9 360.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1121.9 414.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
         tap_action:
           action: toggle
         hold_action:
           action: more-info
         style:
-          left: 16.5%
-          top: 69.7%
+          left: 9%
+          top: 77%
           width: 4.1%
       - type: image
         entity: light.herzlampe
-        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1107.9 206.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-1167.9 146.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
         tap_action:
           action: toggle
         hold_action:
           action: more-info
         style:
-          left: 10.1%
-          top: 48.8%
+          left: 5.4%
+          top: 40.7%
           width: 4.1%
       - type: image
         entity: switch.luftfilter
@@ -429,6 +594,56 @@ views:
           left: 74.4%
           top: 75.9%
           width: 4.1%
+      - type: image
+        entity: media_player.philipps_buro
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-43.9 106.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: perform-action
+          perform_action: media_player.media_play_pause
+          target:
+            entity_id: media_player.philipps_buro
+        hold_action:
+          action: more-info
+        style:
+          left: 93.9%
+          top: 35.3%
+          width: 4.1%
+      - type: image
+        entity: switch.waschmaschine
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-750 398 60 60'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        style:
+          left: 38.6%
+          top: 75.4%
+          width: 4.7%
+      - type: image
+        entity: switch.trockner
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-815 398 60 60'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        style:
+          left: 33.5%
+          top: 75.4%
+          width: 4.7%
+      - type: image
+        entity: media_player.unnamed_room_unnamed_room_2
+        image: data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-403.4 400.1 51.7 51.7'><g transform='rotate(90)'></g></svg>
+        tap_action:
+          action: perform-action
+          perform_action: media_player.media_play_pause
+          target:
+            entity_id: media_player.unnamed_room_unnamed_room_2
+        hold_action:
+          action: more-info
+        style:
+          left: 65.6%
+          top: 75.1%
+          width: 4.1%
       - type: state-icon
         entity: cover.rollladen_philipps_buro
         tap_action:
@@ -469,104 +684,140 @@ views:
         entity: sensor.tado_smart_thermostat_ru3678551808_current_temperature
         tap_action:
           action: more-info
+          entity: climate.tado_smart_thermostat_ru3678551808
         style:
           left: 80.4%
           top: 40.4%
-          transform: translate(calc(-100% - 2px),-50%)
+          transform: translate(-50%,-9px)
           color: var(--primary-text-color)
-          background-color: var(--card-background-color)
-          border-radius: 9px
-          padding: 1px 7px
-          font-size: 11px
+          font-size: 15px
+          line-height: 17px
+          padding: "0"
           font-weight: "600"
-          line-height: 16px
           white-space: nowrap
-          box-shadow: 0 1px 3px rgba(0,0,0,.25)
+          text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
       - type: state-label
         entity: sensor.tado_smart_thermostat_ru3678551808_current_humidity
         tap_action:
           action: more-info
+          entity: climate.tado_smart_thermostat_ru3678551808
         style:
           left: 80.4%
           top: 40.4%
-          transform: translate(2px,-50%)
+          transform: translate(-50%,9px)
           color: var(--secondary-text-color)
-          background-color: var(--card-background-color)
-          border-radius: 9px
-          padding: 1px 7px
           font-size: 11px
+          line-height: 13px
+          padding: "0"
           font-weight: "600"
-          line-height: 16px
           white-space: nowrap
-          box-shadow: 0 1px 3px rgba(0,0,0,.25)
+          text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
       - type: state-label
         entity: sensor.tado_smart_thermostat_ru2720481792_current_temperature
         tap_action:
           action: more-info
+          entity: climate.tado_smart_thermostat_ru2720481792
         style:
-          left: 56.7%
-          top: 59.6%
-          transform: translate(calc(-100% - 2px),-50%)
+          left: 58.1%
+          top: 65.3%
+          transform: translate(-50%,-9px)
           color: var(--primary-text-color)
-          background-color: var(--card-background-color)
-          border-radius: 9px
-          padding: 1px 7px
-          font-size: 11px
+          font-size: 15px
+          line-height: 17px
+          padding: "0"
           font-weight: "600"
-          line-height: 16px
           white-space: nowrap
-          box-shadow: 0 1px 3px rgba(0,0,0,.25)
+          text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
       - type: state-label
         entity: sensor.tado_smart_thermostat_ru2720481792_current_humidity
         tap_action:
           action: more-info
+          entity: climate.tado_smart_thermostat_ru2720481792
         style:
-          left: 56.7%
-          top: 59.6%
-          transform: translate(2px,-50%)
+          left: 58.1%
+          top: 65.3%
+          transform: translate(-50%,9px)
           color: var(--secondary-text-color)
-          background-color: var(--card-background-color)
-          border-radius: 9px
-          padding: 1px 7px
           font-size: 11px
+          line-height: 13px
+          padding: "0"
           font-weight: "600"
-          line-height: 16px
           white-space: nowrap
-          box-shadow: 0 1px 3px rgba(0,0,0,.25)
+          text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
       - type: state-label
         entity: sensor.tado_smart_thermostat_ru3532674816_current_temperature
         tap_action:
           action: more-info
+          entity: climate.tado_smart_thermostat_ru3532674816
         style:
           left: 25.2%
           top: 39.3%
-          transform: translate(calc(-100% - 2px),-50%)
+          transform: translate(-50%,-9px)
           color: var(--primary-text-color)
-          background-color: var(--card-background-color)
-          border-radius: 9px
-          padding: 1px 7px
-          font-size: 11px
+          font-size: 15px
+          line-height: 17px
+          padding: "0"
           font-weight: "600"
-          line-height: 16px
           white-space: nowrap
-          box-shadow: 0 1px 3px rgba(0,0,0,.25)
+          text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
       - type: state-label
         entity: sensor.tado_smart_thermostat_ru3532674816_current_humidity
         tap_action:
           action: more-info
+          entity: climate.tado_smart_thermostat_ru3532674816
         style:
           left: 25.2%
           top: 39.3%
-          transform: translate(2px,-50%)
+          transform: translate(-50%,9px)
           color: var(--secondary-text-color)
-          background-color: var(--card-background-color)
-          border-radius: 9px
-          padding: 1px 7px
           font-size: 11px
+          line-height: 13px
+          padding: "0"
           font-weight: "600"
-          line-height: 16px
           white-space: nowrap
-          box-shadow: 0 1px 3px rgba(0,0,0,.25)
+          text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
+      - type: conditional
+        conditions:
+        - condition: state
+          entity: binary_sensor.waschmaschine_lauft
+          state: "on"
+        elements:
+        - type: state-label
+          entity: sensor.waschmaschine_verbleibende_zeit
+          tap_action:
+            action: more-info
+          style:
+            left: 38.6%
+            top: 69.3%
+            transform: translate(-50%,-50%)
+            color: "#3b82f6"
+            font-size: 14px
+            line-height: 16px
+            padding: "0"
+            font-weight: "600"
+            white-space: nowrap
+            text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
+      - type: conditional
+        conditions:
+        - condition: state
+          entity: binary_sensor.trockner_lauft
+          state: "on"
+        elements:
+        - type: state-label
+          entity: sensor.trockner_verbleibende_zeit
+          tap_action:
+            action: more-info
+          style:
+            left: 33.5%
+            top: 69.3%
+            transform: translate(-50%,-50%)
+            color: "#f97316"
+            font-size: 14px
+            line-height: 16px
+            padding: "0"
+            font-weight: "600"
+            white-space: nowrap
+            text-shadow: 0 0 1px var(--card-background-color), 0 0 2px var(--card-background-color), 0 0 3px var(--card-background-color), 0 0 6px var(--card-background-color)
     - type: custom:navbar-card
       desktop:
         show_labels: true

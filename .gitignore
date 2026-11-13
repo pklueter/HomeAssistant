@@ -1,1 +1,4 @@
 venv
+
+# local iPad previews rendered by the floorplan generator (outdated after every change)
+dashboard/floorplan/preview_*.png
