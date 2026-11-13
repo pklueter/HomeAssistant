@@ -1,225 +1,1078 @@
 title: 1. Obergeschoss
 views:
-- title: 1. Obergeschoss
-  path: og
-  icon: mdi:home-floor-1
-  type: sections
-  max_columns: 2
-  dense_section_placement: true
-  header:
-    layout: center
-    card:
-      type: markdown
-      text_only: true
-      content: |
-        # 1. Obergeschoss
-        [Erdgeschoss](/dashboard-eg/eg) · [Dachgeschoss](/dashboard-dg/dg)
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:bed-king
-      heading: Schlafzimmer
-      heading_style: title
-      badges:
+  - title: 1. Obergeschoss
+    path: og
+    icon: mdi:home-floor-1
+    type: sections
+    max_columns: 3
+    dense_section_placement: false
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Schlafzimmer
+            icon: mdi:bed-king
+            sub_button:
+              main:
+                - entity: binary_sensor.fenstersensor_schlafzimmer_opening
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.fenstersensor_schlafzimmer_opening
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru3532674816_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#schlafzimmer"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.schlafzimmer_deckenlampe
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: light.herzlampe
+            name: Herzlampe
+            icon: mdi:lamp
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.nachttischlampe_laura
+            name: Laura
+            icon: mdi:lightbulb-night
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.nachttischlampe_philipp
+            name: Philipp
+            icon: mdi:lightbulb-night-outline
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.rollladen_schlafzimmer
+            name: Rollladen
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru3532674816
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: custom:bubble-card
+            card_type: media-player
+            entity: media_player.schlafzimmer
+            name: HomePod
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: DASDING
+            icon: mdi:radio
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: perform-action
+                perform_action: script.dasding_abspielen
+                data:
+                  player: media_player.schlafzimmer
+            tap_action:
+              action: perform-action
+              perform_action: script.dasding_abspielen
+              data:
+                player: media_player.schlafzimmer
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Philipps Büro
+            icon: mdi:chair-rolling
+            sub_button:
+              main:
+                - entity: binary_sensor.fenstersensor_philipps_buro_opening
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.fenstersensor_philipps_buro_opening
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru3678551808_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#philipps-buero"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.deckenlampe_philipps_buro
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: full
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.awtrix_53f870_matrix
+            name: Awtrix
+            icon: mdi:dots-grid
+            grid_options:
+              columns: 4
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: switch.schreibtisch
+            name: PC
+            icon: mdi:desktop-tower-monitor
+            grid_options:
+              columns: 4
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: switch.luftfilter
+            name: Luftfilter
+            icon: mdi:air-filter
+            grid_options:
+              columns: 4
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.rollladen_philipps_buro
+            name: Rollladen
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru3678551808
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: custom:bubble-card
+            card_type: media-player
+            entity: media_player.philipps_buro
+            name: HomePod
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: DASDING
+            icon: mdi:radio
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: perform-action
+                perform_action: script.dasding_abspielen
+                data:
+                  player: media_player.philipps_buro
+            tap_action:
+              action: perform-action
+              perform_action: script.dasding_abspielen
+              data:
+                player: media_player.philipps_buro
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Badezimmer
+            icon: mdi:shower-head
+            sub_button:
+              main:
+                - entity: binary_sensor.fenstersensor_bad_1_og_opening
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.fenstersensor_bad_1_og_opening
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru2720481792_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#bad-og"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: light.spiegel_spiegel
+            name: Spiegel
+            icon: mdi:mirror-rectangle
+            grid_options:
+              columns: full
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.rollladen_bad_1_og
+            name: Rollladen
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru2720481792
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: HWR
+            icon: mdi:washing-machine
+            sub_button:
+              main:
+                - entity: binary_sensor.bewegungsmelder_hwr_belegung
+                  icon: mdi:motion-sensor
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.bewegungsmelder_hwr_belegung
+                      state: "on"
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#hwr"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.hwr_deckenlampe
+            name: Decke
+            icon: mdi:ceiling-light-multiple
+            grid_options:
+              columns: full
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.bosch_wav28e43_68a40e944efa_bsh_common_status_operationstate
+            name: Waschmaschine
+            icon: mdi:washing-machine
+            grid_options:
+              columns: 6
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.434110536427092643_bsh_common_status_operationstate
+            name: Trockner
+            icon: mdi:tumble-dryer
+            grid_options:
+              columns: 6
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.waschmaschine_verbleibende_zeit
+            name: Waschmaschine fertig in
+            icon: mdi:timer-sand
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: binary_sensor.waschmaschine_lauft
+                state: "on"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.trockner_verbleibende_zeit
+            name: Trockner fertig in
+            icon: mdi:timer-sand
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: binary_sensor.trockner_lauft
+                state: "on"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Haushalt
+            icon: mdi:home-assistant
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: vacuum.robo
+            name: Robo
+            icon: mdi:robot-vacuum
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: vacuum-commands
+                commands:
+                  - start_pause
+                  - return_home
+            tap_action:
+              action: more-info
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: Haushaltsgeräte
+            icon: mdi:washing-machine
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#haushalt"
+            tap_action:
+              action: navigate
+              navigation_path: "#haushalt"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#schlafzimmer"
+            name: Schlafzimmer
+            icon: mdi:bed-king
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Musik
+                icon: mdi:speaker
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: media-player
+                entity: media_player.schlafzimmer
+                name: HomePod
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: name
+                name: DASDING
+                icon: mdi:radio
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: perform-action
+                    perform_action: script.dasding_abspielen
+                    data:
+                      player: media_player.schlafzimmer
+                tap_action:
+                  action: perform-action
+                  perform_action: script.dasding_abspielen
+                  data:
+                    player: media_player.schlafzimmer
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Rollladen & Heizung
+                icon: mdi:window-shutter
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: cover
+                entity: cover.rollladen_schlafzimmer
+                name: Rollladen
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru3532674816
+                name: Heizung
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                tap_action:
+                  action: more-info
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_schlafzimmer_opening
+                name: Fenster
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#philipps-buero"
+            name: Philipps Büro
+            icon: mdi:chair-rolling
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Musik
+                icon: mdi:speaker
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: media-player
+                entity: media_player.philipps_buro
+                name: HomePod
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: name
+                name: DASDING
+                icon: mdi:radio
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: perform-action
+                    perform_action: script.dasding_abspielen
+                    data:
+                      player: media_player.philipps_buro
+                tap_action:
+                  action: perform-action
+                  perform_action: script.dasding_abspielen
+                  data:
+                    player: media_player.philipps_buro
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Rollladen & Heizung
+                icon: mdi:window-shutter
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: cover
+                entity: cover.rollladen_philipps_buro
+                name: Rollladen
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru3678551808
+                name: Heizung
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                tap_action:
+                  action: more-info
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_philipps_buro_opening
+                name: Fenster
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#bad-og"
+            name: Badezimmer
+            icon: mdi:shower-head
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Rollladen & Heizung
+                icon: mdi:window-shutter
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: cover
+                entity: cover.rollladen_bad_1_og
+                name: Rollladen
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru2720481792
+                name: Heizung
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                tap_action:
+                  action: more-info
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_bad_1_og_opening
+                name: Fenster
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#hwr"
+            name: HWR
+            icon: mdi:washing-machine
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Wäsche
+                icon: mdi:washing-machine
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.bosch_wav28e43_68a40e944efa_bsh_common_status_operationstate
+                name: Waschmaschine
+                icon: mdi:washing-machine
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.waschmaschine_verbleibende_zeit
+                name: Waschmaschine – Restzeit
+                icon: mdi:timer-sand
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.434110536427092643_bsh_common_status_operationstate
+                name: Trockner
+                icon: mdi:tumble-dryer
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.trockner_verbleibende_zeit
+                name: Trockner – Restzeit
+                icon: mdi:timer-sand
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.bewegungsmelder_hwr_belegung
+                name: Anwesenheit
+                icon: mdi:motion-sensor
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#haushalt"
+            name: Haushaltsgeräte
+            icon: mdi:washing-machine
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Erdgeschoss
+                icon: mdi:home-floor-0
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: tile
+                entity: vacuum.rocky
+                name: Rocky
+                icon: mdi:robot-vacuum
+                grid_options:
+                  columns: full
+                  rows: 2
+                features_position: bottom
+                features:
+                  - type: vacuum-commands
+                    commands:
+                      - start_pause
+                      - return_home
+                tap_action:
+                  action: more-info
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.012080386789002428_bsh_common_status_operationstate
+                name: Spülmaschine
+                icon: mdi:dishwasher
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.dishwasher_verbleibende_zeit
+                name: Restzeit
+                icon: mdi:timer-sand
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: 1. OG
+                icon: mdi:home-floor-1
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: tile
+                entity: vacuum.robo
+                name: Robo
+                icon: mdi:robot-vacuum
+                grid_options:
+                  columns: full
+                  rows: 2
+                features_position: bottom
+                features:
+                  - type: vacuum-commands
+                    commands:
+                      - start_pause
+                      - return_home
+                tap_action:
+                  action: more-info
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.waschmaschine_verbleibende_zeit
+                name: Waschmaschine
+                icon: mdi:washing-machine
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.trockner_verbleibende_zeit
+                name: Trockner
+                icon: mdi:tumble-dryer
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Dachgeschoss
+                icon: mdi:home-floor-2
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.roborock_dyad_pro_combo_status
+                name: Dyad Pro Combo
+                icon: mdi:broom
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:navbar-card
+            desktop:
+              show_labels: true
+            mobile:
+              show_labels: true
+            routes:
+              - url: /lovelace/uebersicht
+                icon: mdi:home-outline
+                icon_selected: mdi:home
+                label: Zuhause
+              - url: /dashboard-eg/eg
+                icon: mdi:home-floor-0
+                label: EG
+              - url: /dashboard-og/og
+                icon: mdi:home-floor-1
+                label: 1. OG
+              - url: /dashboard-dg/dg
+                icon: mdi:home-floor-2
+                label: DG
+              - url: /lovelace/medien
+                icon: mdi:speaker
+                label: Medien
+            styles: ".navbar { --navbar-primary-color: #FFB300; }"
+    badges:
       - type: entity
-        entity: binary_sensor.fenstersensor_schlafzimmer_opening
+        entity: person.philipp_kluter
+        show_entity_picture: true
+      - type: entity
+        entity: person.laura_heimen
+        show_entity_picture: true
+      - type: entity
+        entity: weather.forecast_home
+      - type: entity
+        entity: sensor.waschmaschine_verbleibende_zeit
+        name: Waschmaschine
+        icon: mdi:washing-machine
+        show_name: true
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: binary_sensor.fenstersensor_schlafzimmer_opening
-          state: 'on'
+          - condition: state
+            entity: binary_sensor.waschmaschine_lauft
+            state: "on"
       - type: entity
-        entity: sensor.tado_smart_thermostat_ru3532674816_current_temperature
-    - type: tile
-      entity: light.schlafzimmer_deckenlampe
-      name: Deckenlampe
-      icon: mdi:ceiling-light
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.herzlampe
-      name: Herzlampe
-      icon: mdi:lamp
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.nachttischlampe_laura
-      name: Laura
-      icon: mdi:lightbulb-night
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.nachttischlampe_philipp
-      name: Philipp
-      icon: mdi:lightbulb-night
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: cover.rollladen_schlafzimmer
-      name: Rollladen
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:chair-rolling
-      heading: Philipps Büro
-      heading_style: title
-      badges:
-      - type: entity
-        entity: binary_sensor.fenstersensor_philipps_buro_opening
+        entity: sensor.trockner_verbleibende_zeit
+        name: Trockner
+        icon: mdi:tumble-dryer
+        show_name: true
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: binary_sensor.fenstersensor_philipps_buro_opening
-          state: 'on'
+          - condition: state
+            entity: binary_sensor.trockner_lauft
+            state: "on"
       - type: entity
-        entity: sensor.tado_smart_thermostat_ru3678551808_current_temperature
-    - type: tile
-      entity: light.deckenlampe_philipps_buro
-      name: Deckenlampe
-      icon: mdi:ceiling-light
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: light-brightness
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: switch.schreibtisch
-      name: PC
-      icon: mdi:desktop-tower-monitor
-      state_content:
-      - state
-      - last_changed
-    - type: tile
-      entity: light.awtrix_53f870_matrix
-      name: Awtrix
-      icon: mdi:dots-grid
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: switch.luftfilter
-      name: Luftfilter
-      icon: mdi:air-filter
-      grid_options:
-        columns: full
-        rows: 1
-    - type: tile
-      entity: cover.rollladen_philipps_buro
-      name: Rollladen
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:shower-head
-      heading: Badezimmer
-      heading_style: title
-      badges:
-      - type: entity
-        entity: binary_sensor.fenstersensor_bad_1_og_opening
+        entity: vacuum.robo
+        name: Robo
+        icon: mdi:robot-vacuum
+        show_name: true
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: binary_sensor.fenstersensor_bad_1_og_opening
-          state: 'on'
-      - type: entity
-        entity: sensor.tado_smart_thermostat_ru2720481792_current_temperature
-    - type: tile
-      entity: light.spiegel_spiegel
-      name: Spiegel
-      icon: mdi:mirror-rectangle
-      grid_options:
-        columns: full
-        rows: 1
-      state_content:
-      - state
-      - last_changed
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: cover.rollladen_bad_1_og
-      name: Rollladen
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:washing-machine
-      heading: HWR
-      heading_style: title
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/hwr
-      badges:
-      - type: entity
-        entity: binary_sensor.bewegungsmelder_hwr_belegung
-        show_state: true
-        show_icon: true
-        visibility:
-        - condition: state
-          entity: binary_sensor.bewegungsmelder_hwr_belegung
-          state: 'on'
-    - type: tile
-      entity: light.hwr_deckenlampe
-      name: Deckenlampe
-      icon: mdi:ceiling-light-multiple
-      grid_options:
-        columns: full
-        rows: 1
-      state_content:
-      - state
-      - last_changed
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: sensor.waschmaschine_verbleibende_zeit
-      name: Waschmaschine
-      icon: mdi:washing-machine
-      visibility:
-      - condition: state
-        entity: binary_sensor.waschmaschine_lauft
-        state: 'on'
-    - type: tile
-      entity: sensor.trockner_verbleibende_zeit
-      name: Trockner
-      icon: mdi:tumble-dryer
-      visibility:
-      - condition: state
-        entity: binary_sensor.trockner_lauft
-        state: 'on'
+          - condition: state
+            entity: vacuum.robo
+            state_not: docked
+    top_margin: false

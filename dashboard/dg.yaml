@@ -1,245 +1,653 @@
 title: Dachgeschoss
 views:
-- title: Dachgeschoss
-  path: dg
-  icon: mdi:home-roof
-  type: sections
-  max_columns: 3
-  dense_section_placement: true
-  header:
-    layout: center
-    card:
-      type: markdown
-      text_only: true
-      content: |
-        # Dachgeschoss
-        [Erdgeschoss](/dashboard-eg/eg) · [1. Obergeschoss](/dashboard-og/og)
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:chair-rolling
-      heading: Lauras Büro
-      heading_style: title
-      badges:
+  - title: Dachgeschoss
+    path: dg
+    icon: mdi:home-roof
+    type: sections
+    max_columns: 3
+    dense_section_placement: false
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Lauras Büro
+            icon: mdi:chair-rolling
+            sub_button:
+              main:
+                - entity: binary_sensor.fenster_lauras_buro
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.fenster_lauras_buro
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru0690373120_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#lauras-buero"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.lauras_buro_deckenlampe
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.schreibtisch
+            name: Schreibtisch
+            icon: mdi:desk-lamp
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.lauras_buro_gross_2
+            name: Rollladen groß
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.lauras_buro_klein_2
+            name: Rollladen klein
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru0690373120
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Sportzimmer
+            icon: mdi:yoga
+            sub_button:
+              main:
+                - entity: binary_sensor.fenster_sportzimmer
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.fenster_sportzimmer
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru0630216448_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#sportzimmer"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.deckenlampe_sportzimmer_light_2
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: switch.sportzimmer_sportzimmer
+            name: Steckdose
+            icon: mdi:power-socket-de
+            grid_options:
+              columns: 6
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.sportzimmer_gross_2
+            name: Rollladen groß
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.sportzimmer_klein_2
+            name: Rollladen klein
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru0630216448
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Badezimmer
+            icon: mdi:bathtub
+            sub_button:
+              main:
+                - entity: binary_sensor.fenstersensor_bad_dg_opening
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.fenstersensor_bad_dg_opening
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru0673595904_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#bad-dg"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru0673595904
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: custom:bubble-card
+            card_type: separator
+            name: Haushalt
+            icon: mdi:home-assistant
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.roborock_dyad_pro_combo_status
+            name: Dyad Pro Combo
+            icon: mdi:broom
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.roborock_dyad_pro_combo_error
+            name: Dyad Fehler
+            icon: mdi:alert-circle
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: sensor.roborock_dyad_pro_combo_error
+                state_not: none
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Treppenhaus
+            icon: mdi:stairs
+            sub_button:
+              main:
+                - entity: binary_sensor.treppenhaus_bewegungsmelder_treppenhaus_dg_belegung
+                  icon: mdi:motion-sensor
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.treppenhaus_bewegungsmelder_treppenhaus_dg_belegung
+                      state: "on"
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#treppenhaus"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.deckenlampe_treppenhaus
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.liane_light
+            name: Liane
+            icon: mdi:string-lights
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: separator
+            name: Dachboden
+            icon: mdi:home-roof
+            sub_button:
+              main:
+                - entity: binary_sensor.dachboden_dachbodentur_tur
+                  icon: mdi:door-open
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.dachboden_dachbodentur_tur
+                      state: "on"
+                - entity: sensor.feuchtigkeitssensor_humidity
+                  icon: mdi:water-percent
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#dachboden"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.dachboden_deckenlampe_dachboden
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: full
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Solar
+            icon: mdi:solar-power-variant
+            sub_button:
+              main:
+                - entity: sensor.ecu_216000266768_current_power
+                  icon: mdi:flash
+                  show_background: false
+                  state_content: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: sensor.ecu_216000266768_today_energy
+            name: Heute
+            icon: mdi:solar-power
+          - type: tile
+            entity: sensor.ecu_216000266768_lifetime_energy
+            name: Gesamt
+            icon: mdi:counter
+          - type: custom:mini-graph-card
+            name: Aktuelle Produktion
+            entities:
+              - sensor.ecu_216000266768_current_power
+            points_per_hour: 4
+            hours_to_show: 24
+            line_color: "#f5a623"
+            grid_options:
+              columns: full
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#lauras-buero"
+            name: Lauras Büro
+            icon: mdi:chair-rolling
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenster_lauras_buro
+                name: Fenster
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.tado_smart_thermostat_ru0690373120_current_temperature
+                name: Temperatur
+                icon: mdi:thermometer
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#sportzimmer"
+            name: Sportzimmer
+            icon: mdi:yoga
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenster_sportzimmer
+                name: Fenster
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.tado_smart_thermostat_ru0630216448_current_temperature
+                name: Temperatur
+                icon: mdi:thermometer
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#bad-dg"
+            name: Badezimmer
+            icon: mdi:bathtub
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_bad_dg_opening
+                name: Fenster
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#treppenhaus"
+            name: Treppenhaus
+            icon: mdi:stairs
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.treppenhaus_bewegungsmelder_treppenhaus_dg_belegung
+                name: Anwesenheit
+                icon: mdi:motion-sensor
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#dachboden"
+            name: Dachboden
+            icon: mdi:home-roof
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.dachboden_dachbodentur_tur
+                name: Dachbodentür
+                icon: mdi:door
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.feuchtigkeitssensor_humidity
+                name: Luftfeuchtigkeit
+                icon: mdi:water-percent
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:navbar-card
+            desktop:
+              show_labels: true
+            mobile:
+              show_labels: true
+            routes:
+              - url: /lovelace/uebersicht
+                icon: mdi:home-outline
+                icon_selected: mdi:home
+                label: Zuhause
+              - url: /dashboard-eg/eg
+                icon: mdi:home-floor-0
+                label: EG
+              - url: /dashboard-og/og
+                icon: mdi:home-floor-1
+                label: 1. OG
+              - url: /dashboard-dg/dg
+                icon: mdi:home-floor-2
+                label: DG
+              - url: /lovelace/medien
+                icon: mdi:speaker
+                label: Medien
+            styles: ".navbar { --navbar-primary-color: #FFB300; }"
+    badges:
       - type: entity
-        entity: binary_sensor.fenster_lauras_buro
-        show_state: true
-        show_icon: true
-        visibility:
-        - condition: state
-          entity: binary_sensor.fenster_lauras_buro
-          state: 'on'
+        entity: person.philipp_kluter
+        show_entity_picture: true
       - type: entity
-        entity: sensor.tado_smart_thermostat_ru0690373120_current_temperature
-    - type: tile
-      entity: light.lauras_buro_deckenlampe
-      name: Deckenlampe
-      icon: mdi:ceiling-light
-      grid_options:
-        columns: 6
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-      visibility:
-      - condition: state
-        entity: light.lauras_buro_deckenlampe
-        state_not: unavailable
-    - type: tile
-      entity: light.schreibtisch
-      name: Schreibtisch
-      icon: mdi:desk-lamp
-      grid_options:
-        columns: 6
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: cover.lauras_buro_gross_2
-      name: Rollladen groß
-      grid_options:
-        columns: 6
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-    - type: tile
-      entity: cover.lauras_buro_klein_2
-      name: Rollladen klein
-      grid_options:
-        columns: 6
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:yoga
-      heading: Sportzimmer
-      heading_style: title
-      badges:
+        entity: person.laura_heimen
+        show_entity_picture: true
       - type: entity
-        entity: binary_sensor.fenster_sportzimmer
-        show_state: true
-        show_icon: true
-        visibility:
-        - condition: state
-          entity: binary_sensor.fenster_sportzimmer
-          state: 'on'
-      - type: entity
-        entity: sensor.tado_smart_thermostat_ru0630216448_current_temperature
-    - type: tile
-      entity: light.deckenlampe_sportzimmer_light_2
-      name: Deckenlampe
-      icon: mdi:ceiling-light
-      grid_options:
-        columns: 6
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-      visibility:
-      - condition: state
-        entity: light.deckenlampe_sportzimmer_light_2
-        state_not: unavailable
-    - type: tile
-      entity: switch.sportzimmer_sportzimmer
-      name: Steckdose
-      icon: mdi:power-socket-de
-      grid_options:
-        columns: 6
-        rows: 1
-    - type: tile
-      entity: cover.sportzimmer_gross_2
-      name: Rollladen groß
-      grid_options:
-        columns: 6
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-    - type: tile
-      entity: cover.sportzimmer_klein_2
-      name: Rollladen klein
-      grid_options:
-        columns: 6
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:bathtub
-      heading: Badezimmer
-      heading_style: title
-      badges:
-      - type: entity
-        entity: binary_sensor.fenstersensor_bad_dg_opening
-        show_state: true
-        show_icon: true
-        visibility:
-        - condition: state
-          entity: binary_sensor.fenstersensor_bad_dg_opening
-          state: 'on'
-      - type: entity
-        entity: sensor.tado_smart_thermostat_ru0673595904_current_temperature
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:stairs
-      heading: Treppenhaus
-      heading_style: title
-      badges:
-      - type: entity
-        entity: binary_sensor.treppenhaus_bewegungsmelder_treppenhaus_dg_belegung
-        show_state: true
-        show_icon: true
-        visibility:
-        - condition: state
-          entity: binary_sensor.treppenhaus_bewegungsmelder_treppenhaus_dg_belegung
-          state: 'on'
-    - type: tile
-      entity: light.deckenlampe_treppenhaus
-      name: Deckenlampe
-      icon: mdi:ceiling-light
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.liane_light
-      name: Liane
-      icon: mdi:string-lights
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:home-roof
-      heading: Dachboden
-      heading_style: title
-      badges:
-      - type: entity
-        entity: binary_sensor.dachboden_dachbodentur_tur
-        show_state: true
-        show_icon: true
-        visibility:
-        - condition: state
-          entity: binary_sensor.dachboden_dachbodentur_tur
-          state: 'on'
-      - type: entity
-        entity: sensor.feuchtigkeitssensor_humidity
-        show_state: true
-        show_icon: true
-        visibility:
-        - condition: state
-          entity: sensor.feuchtigkeitssensor_humidity
-          state_not: unavailable
-    - type: tile
-      entity: light.dachboden_deckenlampe_dachboden
-      name: Deckenlampe
-      icon: mdi:ceiling-light
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:solar-power-variant
-      heading: Solar
-      heading_style: title
-      badges:
+        entity: weather.forecast_home
       - type: entity
         entity: sensor.ecu_216000266768_current_power
+        name: PV
+        icon: mdi:solar-power
+        color: amber
+        show_name: false
         show_state: true
         show_icon: true
-    - type: tile
-      entity: sensor.ecu_216000266768_today_energy
-      name: Heute
-      icon: mdi:solar-power
-    - type: tile
-      entity: sensor.ecu_216000266768_lifetime_energy
-      name: Gesamt
-      icon: mdi:counter
-    - type: custom:mini-graph-card
-      name: Aktuelle Produktion
-      entities:
-      - sensor.ecu_216000266768_current_power
-      points_per_hour: 4
-      hours_to_show: 24
-      line_color: '#f5a623'
-      grid_options:
-        columns: full
+        visibility:
+          - condition: numeric_state
+            entity: sensor.ecu_216000266768_current_power
+            above: 0
+    top_margin: false

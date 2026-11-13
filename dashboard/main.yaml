@@ -1,1693 +1,2098 @@
 title: Home
 views:
-- title: Übersicht
-  path: uebersicht
-  icon: mdi:home-variant
-  type: sections
-  max_columns: 4
-  badges:
-  - type: entity
-    entity: person.philipp_kluter
-    name: Philipp
-    show_name: true
-  - type: entity
-    entity: person.laura_heimen
-    name: Laura
-    show_name: true
-  - type: entity
-    entity: sensor.ecu_216000266768_current_power
-    name: PV
-    icon: mdi:solar-power
-    color: amber
-    show_name: true
-  - type: entity
-    entity: lock.haustur
-    name: Haustür
-    show_name: true
-    show_state: true
-    show_icon: true
-  - type: entity
-    entity: binary_sensor.alle_turen
-    name: Türen
-    show_name: true
-    show_state: true
-    show_icon: true
-  - type: entity
-    entity: binary_sensor.alle_fenster
-    name: Fenster
-    show_name: true
-  - type: entity
-    entity: input_boolean.urlaubsmodus
-    name: Urlaubsmodus
-    icon: mdi:airplane
-    show_name: true
-    show_state: true
-    show_icon: true
-  - type: entity
-    entity: calendar.schulferien_mannheim
-    name: Schulferien
-    icon: mdi:school-outline
-    show_name: true
-    show_state: true
-    show_icon: true
-    state_content:
-    - message
-    - start_time
-    tap_action:
-      action: navigate
-      navigation_path: /lovelace/kalender
-  - type: entity
-    entity: binary_sensor.twinguard_flur_smoke
-    name: Rauch Flur
-    color: red
-    show_name: true
-    show_state: false
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.twinguard_flur_smoke
-      state: 'on'
-  - type: entity
-    entity: binary_sensor.twinguard_schlafzimmer_smoke
-    name: Rauch Schlafzimmer
-    color: red
-    show_name: true
-    show_state: false
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.twinguard_schlafzimmer_smoke
-      state: 'on'
-  - type: entity
-    entity: binary_sensor.wohnzimmer_twinguard_smoke
-    name: Rauch Wohnzimmer
-    color: red
-    show_name: true
-    show_state: false
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.wohnzimmer_twinguard_smoke
-      state: 'on'
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Warnungen
-      icon: mdi:alert-circle-outline
-      badges:
+  - title: Übersicht
+    path: uebersicht
+    icon: mdi:home-variant
+    type: sections
+    max_columns: 3
+    badges:
       - type: entity
-        entity: sensor.anzahl_warnungen
-        color: orange
+        entity: person.philipp_kluter
+        show_entity_picture: true
+      - type: entity
+        entity: person.laura_heimen
+        show_entity_picture: true
+      - type: entity
+        entity: weather.forecast_home
+      - type: entity
+        entity: sensor.eve_weather_20ebs9901_temperatur
+        name: Außen
+        icon: mdi:thermometer
+        show_name: true
         show_state: true
-        show_icon: false
-        visibility:
-        - condition: numeric_state
-          entity: sensor.anzahl_warnungen
-          above: 0
-    - type: tile
-      entity: binary_sensor.twinguard_flur_smoke
-      name: Rauchalarm Flur
-      icon: mdi:fire-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.twinguard_flur_smoke
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.twinguard_schlafzimmer_smoke
-      name: Rauchalarm Schlafzimmer
-      icon: mdi:fire-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.twinguard_schlafzimmer_smoke
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.wohnzimmer_twinguard_smoke
-      name: Rauchalarm Wohnzimmer
-      icon: mdi:fire-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.wohnzimmer_twinguard_smoke
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.outdoor_kamera_person
-      name: Person im Garten
-      icon: mdi:account-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.outdoor_kamera_person
-        state: 'on'
-    - type: tile
-      entity: lock.haustur
-      name: Haustür nicht abgeschlossen
-      icon: mdi:lock-open-alert
-      color: red
-      state_content:
-      - state
-      - last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: lock.haustur
-        state_not: locked
-    - type: tile
-      entity: binary_sensor.tursensor_seitentur_opening
-      name: Seitentür offen
-      icon: mdi:door-open
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.tursensor_seitentur_opening
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.tursensor_terassentur_opening
-      name: Terrassentür offen
-      icon: mdi:door-open
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.tursensor_terassentur_opening
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.fenstersensor_kuche_opening
-      name: Fenster Küche offen
-      icon: mdi:window-open-variant
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.fenstersensor_kuche_opening
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.fenstersensor_schlafzimmer_opening
-      name: Fenster Schlafzimmer offen
-      icon: mdi:window-open-variant
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.fenstersensor_schlafzimmer_opening
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.fenstersensor_philipps_buro_opening
-      name: Fenster Philipps Büro offen
-      icon: mdi:window-open-variant
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.fenstersensor_philipps_buro_opening
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.fenstersensor_bad_1_og_opening
-      name: Fenster Bad 1. OG offen
-      icon: mdi:window-open-variant
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.fenstersensor_bad_1_og_opening
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.fenstersensor_bad_dg_opening
-      name: Fenster Bad DG offen
-      icon: mdi:window-open-variant
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.fenstersensor_bad_dg_opening
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.fenster_lauras_buro
-      name: Fenster Lauras Büro offen
-      icon: mdi:window-open-variant
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.fenster_lauras_buro
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.fenster_sportzimmer
-      name: Fenster Sportzimmer offen
-      icon: mdi:window-open-variant
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.fenster_sportzimmer
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
-      name: Kühlschrank offen
-      icon: mdi:fridge-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
-      name: Gefrierfach offen
-      icon: mdi:fridge-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.rocky_dock_frischwassertank
-      name: 'Rocky: Frischwasser auffüllen'
-      icon: mdi:water-plus
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.rocky_dock_frischwassertank
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.rocky_dock_schmutzwassertank
-      name: 'Rocky: Schmutzwasser leeren'
-      icon: mdi:water-remove
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.rocky_dock_schmutzwassertank
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.rocky_wasserknappheit
-      name: 'Rocky: Wassertank leer'
-      icon: mdi:water-alert
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.rocky_wasserknappheit
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.philipps_buro_robo_wasserknappheit
-      name: 'Robo: Wassertank leer'
-      icon: mdi:water-alert
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.philipps_buro_robo_wasserknappheit
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.rasenbewasserung_gross_wasserleck
-      name: 'Bewässerung: Wasserleck'
-      icon: mdi:pipe-leak
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.rasenbewasserung_gross_wasserleck
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.rasenbewasserung_gross_wasserversorgung
-      name: 'Bewässerung: Wasserversorgung prüfen'
-      icon: mdi:water-off
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.rasenbewasserung_gross_wasserversorgung
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.dream_machine_special_edition_hdd_1
-      name: 'UniFi: Festplatte prüfen'
-      icon: mdi:harddisk
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.dream_machine_special_edition_hdd_1
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.nas_festplattenwarnung
-      name: 'NAS: Festplatte prüfen'
-      icon: mdi:nas
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.nas_festplattenwarnung
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.twinguard_battery
-      name: 'Rauchmelder Wohnzimmer: Batterie'
-      icon: mdi:battery-alert
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.twinguard_battery
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.twinguard_flur_battery
-      name: 'Rauchmelder Flur: Batterie'
-      icon: mdi:battery-alert
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.twinguard_flur_battery
-        state: 'on'
-    - type: tile
-      entity: binary_sensor.twinguard_schlafzimmer_battery
-      name: 'Rauchmelder Schlafzimmer: Batterie'
-      icon: mdi:battery-alert
-      color: orange
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.twinguard_schlafzimmer_battery
-        state: 'on'
-    - type: tile
-      entity: vacuum.robo
-      name: 'Robo: Fehler'
-      icon: mdi:robot-vacuum-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: vacuum.robo
-        state: error
-    - type: tile
-      entity: vacuum.rocky
-      name: 'Rocky: Fehler'
-      icon: mdi:robot-vacuum-alert
-      color: red
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: vacuum.rocky
-        state: error
-    - type: tile
-      entity: sensor.batterien_schwach
-      name: Batterie schwach
-      icon: mdi:battery-alert-variant-outline
-      color: orange
-      state_content: state
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: sensor.batterien_schwach
-        state_not: keine
-    - type: tile
-      entity: vacuum.rocky
-      name: 'Saugroboter: Wartung fällig'
-      icon: mdi:wrench-clock
-      color: orange
-      hide_state: true
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/system
-      icon_tap_action:
-        action: navigate
-        navigation_path: /lovelace/system
-      visibility:
-      - condition: or
-        conditions:
-        - condition: numeric_state
-          entity: sensor.rocky_verbleibende_zeit_der_hauptburste
-          below: 0
-        - condition: numeric_state
-          entity: sensor.rocky_verbleibende_zeit_der_seitenburste
-          below: 0
-        - condition: numeric_state
-          entity: sensor.rocky_verbleibende_filterzeit
-          below: 0
-        - condition: numeric_state
-          entity: sensor.rocky_verbleibende_sensorzeit
-          below: 0
-        - condition: numeric_state
-          entity: sensor.rocky_dock_schmutzfanger_verbleibend
-          below: 0
-        - condition: numeric_state
-          entity: sensor.rocky_dock_burstenwartung_verbleibend
-          below: 0
-        - condition: numeric_state
-          entity: sensor.robo_main_brush_time_left
-          below: 0
-        - condition: numeric_state
-          entity: sensor.robo_side_brush_time_left
-          below: 0
-        - condition: numeric_state
-          entity: sensor.robo_filter_time_left
-          below: 0
-        - condition: numeric_state
-          entity: sensor.robo_sensor_time_left
-          below: 0
-    - type: tile
-      entity: sensor.verfugbare_updates
-      name: Updates verfügbar
-      icon: mdi:package-up
-      color: blue
-      state_content: state
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: navigate
-        navigation_path: /config/updates
-      icon_tap_action:
-        action: navigate
-        navigation_path: /config/updates
-      visibility:
-      - condition: numeric_state
-        entity: sensor.verfugbare_updates
-        above: 0
-    - type: tile
-      entity: sensor.anzahl_warnungen
-      name: Alles in Ordnung
-      icon: mdi:check-circle-outline
-      color: green
-      hide_state: true
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: none
-      icon_tap_action:
-        action: none
-      visibility:
-      - condition: state
-        entity: sensor.anzahl_warnungen
-        state: '0'
-    - type: heading
-      heading: Zuhause
-      icon: mdi:home-heart
-    - type: weather-forecast
-      entity: weather.forecast_home
-      forecast_type: daily
-      show_current: true
-      show_forecast: true
-      grid_options:
-        columns: full
-  - type: grid
-    cards:
-    - type: heading
-      heading: Energie
-      icon: mdi:solar-power-variant
-    - type: tile
-      entity: sensor.ecu_216000266768_current_power
-      name: PV-Leistung
-      icon: mdi:solar-power
-      color: amber
-      features:
-      - type: trend-graph
-        hours_to_show: 24
-      grid_options:
-        columns: full
-    - type: tile
-      entity: sensor.ecu_216000266768_today_energy
-      name: Ertrag heute
-      icon: mdi:counter
-      grid_options:
-        columns: 6
-    - type: tile
-      entity: sensor.ecu_216000266768_inverters_online
-      name: Wechselrichter online
-      icon: mdi:lan-connect
-      grid_options:
-        columns: 6
-  - type: grid
-    column_span: 1
-    cards:
-    - type: heading
-      heading: Demnächst
-      icon: mdi:calendar-account
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/kalender
-      badges:
+        show_icon: true
       - type: entity
-        entity: calendar.schulferien_mannheim
-        name: Ferien
-        color: green
+        entity: sensor.nachste_linie_5
+        name: Linie 5
+        icon: mdi:tram
+        show_name: true
+        show_state: true
+        show_icon: true
+        tap_action:
+          action: navigate
+          navigation_path: "#opnv"
+        visibility:
+          - condition: time
+            after: "06:00:00"
+            before: "09:00:00"
+            weekdays:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+      - type: entity
+        entity: sensor.heizende_raume
+        name: Heizt
+        icon: mdi:radiator
+        color: deep-orange
+        show_name: true
+        show_state: true
+        show_icon: true
+        tap_action:
+          action: navigate
+          navigation_path: "#heizung"
+        visibility:
+          - condition: numeric_state
+            entity: sensor.heizende_raume
+            above: 0
+      - type: entity
+        entity: sensor.ecu_216000266768_current_power
+        name: PV
+        icon: mdi:solar-power
+        color: amber
+        show_name: false
+        show_state: true
+        show_icon: true
+        tap_action:
+          action: navigate
+          navigation_path: /dashboard-dg/dg
+        visibility:
+          - condition: numeric_state
+            entity: sensor.ecu_216000266768_current_power
+            above: 0
+      - type: entity
+        entity: input_boolean.urlaubsmodus
+        name: Urlaubsmodus
+        icon: mdi:airplane
+        color: orange
         show_name: true
         show_state: false
+        show_icon: true
         visibility:
-        - condition: state
-          entity: calendar.schulferien_mannheim
-          state: 'on'
-    - type: custom:calendar-card-pro
-      entities:
-      - entity: calendar.familienkalender
-        accent_color: home-assistant
-      - entity: calendar.philipp
-        label: person.philipp_kluter
-        accent_color: home-assistant
-      - entity: calendar.privat
-        label: person.laura_heimen
-        accent_color: home-assistant
-      - entity: calendar.arbeit
-        label: 🎒
-        accent_color: home-assistant
-      - entity: calendar.schulferien_mannheim
-        label: 🏖️
-        accent_color: home-assistant
-      days_to_show: 7
-      compact_events_to_show: 6
-      tap_action:
-        action: expand
-      show_location: false
-      allday_badge: title
-      grid_options:
-        columns: full
-      theme: waves
-  - type: grid
-    cards:
-    - type: heading
-      heading: Stockwerke & Bereiche
-      icon: mdi:floor-plan
-    - type: button
-      name: EG
-      icon: mdi:home-floor-0
-      tap_action:
-        action: navigate
-        navigation_path: /dashboard-eg/eg
-      grid_options:
-        columns: 4
-        rows: 2
-    - type: button
-      name: 1. OG
-      icon: mdi:home-floor-1
-      tap_action:
-        action: navigate
-        navigation_path: /dashboard-og/og
-      grid_options:
-        columns: 4
-        rows: 2
-    - type: button
-      name: DG
-      icon: mdi:home-floor-2
-      tap_action:
-        action: navigate
-        navigation_path: /dashboard-dg/dg
-      grid_options:
-        columns: 4
-        rows: 2
-    - type: button
-      name: Heizung
-      icon: mdi:radiator
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/heizung
-      grid_options:
-        columns: 4
-        rows: 2
-    - type: button
-      name: Garten
-      icon: mdi:flower
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/garten
-      grid_options:
-        columns: 4
-        rows: 2
-    - type: button
-      name: ÖPNV
-      icon: mdi:bus-clock
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/opnv
-      grid_options:
-        columns: 4
-        rows: 2
-  - type: grid
-    cards:
-    - type: heading
-      heading: Haushalt
-      icon: mdi:washing-machine
-    - type: tile
-      entity: sensor.waschmaschine_verbleibende_zeit
-      name: Waschmaschine
-      icon: mdi:washing-machine
-      grid_options:
-        columns: 4
-    - type: tile
-      entity: sensor.trockner_verbleibende_zeit
-      name: Trockner
-      icon: mdi:tumble-dryer
-      grid_options:
-        columns: 4
-    - type: tile
-      entity: sensor.dishwasher_verbleibende_zeit
-      name: Spülmaschine
-      icon: mdi:dishwasher
-      grid_options:
-        columns: 4
-    - type: tile
-      entity: vacuum.robo
-      grid_options:
-        columns: 6
-    - type: tile
-      entity: vacuum.rocky
-      grid_options:
-        columns: 6
-    - type: tile
-      entity: valve.rasenbewasserung_gross
-      name: Bewässerung groß
-      icon: mdi:sprinkler-variant
-      grid_options:
-        columns: 6
-    - type: tile
-      entity: valve.rasenbewasserung_klein_switch
-      name: Bewässerung klein
-      icon: mdi:sprinkler
-      grid_options:
-        columns: 6
-  - type: grid
-    cards:
-    - type: heading
-      heading: Garten
-      icon: mdi:cctv
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/kamera
-    - type: picture-entity
-      entity: camera.outdoor_kamera_fluent
-      camera_image: camera.outdoor_kamera_fluent
-      camera_view: auto
-      name: Outdoor Kamera
-      show_state: false
-      grid_options:
-        columns: full
-  dense_section_placement: true
-- title: Heizung
-  path: heizung
-  icon: mdi:home-thermometer
-  type: sections
-  max_columns: 3
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Erdgeschoss
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru4163584512
-      name: Diele
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru2167095808
-      name: Küche
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru1244545536
-      name: Wohnzimmer
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-  - type: grid
-    cards:
-    - type: heading
-      heading: 1. OG
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru2720481792
-      name: Bad 1.OG
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru3678551808
-      name: Philipps Büro
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru3532674816
-      name: Schlafzimmer
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-  - type: grid
-    cards:
-    - type: heading
-      heading: Dachgeschoss
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru0673595904
-      name: Bad DG
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru0690373120
-      name: Lauras Büro
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-    - type: tile
-      entity: climate.tado_smart_thermostat_ru0630216448
-      name: Sportzimmer
-      state_content:
-      - current_temperature
-      - hvac_action
-      features:
-      - type: target-temperature
-      - type: climate-hvac-modes
-        style: icons
-        hvac_modes:
-        - 'off'
-        - heat
-      grid_options:
-        columns: full
-- title: Garten
-  type: sections
-  max_columns: 2
-  path: garten
-  icon: mdi:flower-tulip-outline
-  header:
-    layout: center
-    badges_position: bottom
-    card:
-      type: markdown
-      text_only: true
-      content: |
-        # Garten
-        {% if is_state('valve.rasenbewasserung_gross', 'open')
-           or is_state('valve.rasenbewasserung_klein_switch', 'open') %}
-        Bewässerung läuft
-        {% else %}
-        Bewässerung aus
-        {% endif %}
-  badges:
-  - type: entity
-    entity: sensor.eve_weather_20ebs9901_temperatur
-    name: Außen
-    show_name: true
-    show_icon: true
-    show_state: true
-  - type: entity
-    entity: valve.rasenbewasserung_gross
-    name: Groß
-    icon: mdi:sprinkler-variant
-    show_name: true
-    state_content: last_changed
-    visibility:
-    - condition: state
-      entity: valve.rasenbewasserung_gross
-      state: open
-  - type: entity
-    entity: valve.rasenbewasserung_klein_switch
-    name: Klein
-    icon: mdi:sprinkler-variant
-    show_name: true
-    state_content: last_changed
-    visibility:
-    - condition: state
-      entity: valve.rasenbewasserung_klein_switch
-      state: open
-  - type: entity
-    entity: timer.bewaesserung
-    name: Aus in
-    icon: mdi:timer-sand
-    show_name: true
-    visibility:
-    - condition: state
-      entity: timer.bewaesserung
-      state: active
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Beleuchtung
-      icon: mdi:lightbulb-group-outline
-      heading_style: title
-    - type: tile
-      entity: light.garten_garten_controller
-      name: Hecke
-      icon: mdi:string-lights
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: light-brightness
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.eve_flare_7783
-      name: Flare 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.eve_flare_af38
-      name: Flare 2
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.outdoor_kamera_floodlight
-      name: Flutlicht
-      icon: mdi:light-flood-down
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-  - type: grid
-    cards:
-    - type: heading
-      heading: Bewässerung
-      icon: mdi:sprinkler-variant
-      heading_style: title
-    - type: tile
-      entity: weather.forecast_home
-      name: Wetter
-      grid_options:
-        columns: full
-      features:
-      - type: precipitation-forecast
-        forecast_type: hourly
-        hours_to_show: 24
-        precipitation_type: amount
-      - type: temperature-forecast
-        forecast_type: daily
-        days_to_show: 5
-    - type: tile
-      entity: valve.rasenbewasserung_gross
-      name: Rasen groß
-      icon: mdi:grass
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: valve-open-close
-      icon_tap_action:
-        action: more-info
-    - type: tile
-      entity: valve.rasenbewasserung_klein_switch
-      name: Rasen klein
-      icon: mdi:grass
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: valve-open-close
-      icon_tap_action:
-        action: more-info
-    - type: tile
-      entity: input_button.rasenbewasserung_kurz
-      name: Kurz bewässern
-      icon: mdi:water-sync
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: perform-action
-        perform_action: input_button.press
-        target:
-          entity_id: input_button.rasenbewasserung_kurz
-    - type: heading
-      heading: Abschalt-Timer
-      icon: mdi:timer-outline
-      heading_style: subtitle
-      visibility:
-      - condition: or
-        conditions:
-        - condition: state
-          entity: valve.rasenbewasserung_gross
-          state: open
-        - condition: state
-          entity: valve.rasenbewasserung_klein_switch
-          state: open
-    - type: tile
-      entity: input_number.bewaesserung_dauer
-      name: Aus in
-      icon: mdi:timer-edit-outline
-      grid_options:
-        columns: 6
-        rows: 2
-      features_position: bottom
-      features:
-      - type: numeric-input
-        style: buttons
-      visibility:
-      - condition: or
-        conditions:
-        - condition: state
-          entity: valve.rasenbewasserung_gross
-          state: open
-        - condition: state
-          entity: valve.rasenbewasserung_klein_switch
-          state: open
-    - type: tile
-      entity: input_button.bewaesserung_timer_starten
-      name: Timer setzen
-      icon: mdi:timer-play-outline
-      grid_options:
-        columns: 6
-        rows: 2
-      tap_action:
-        action: perform-action
-        perform_action: input_button.press
-        target:
-          entity_id: input_button.bewaesserung_timer_starten
-      visibility:
-      - condition: or
-        conditions:
-        - condition: state
-          entity: valve.rasenbewasserung_gross
-          state: open
-        - condition: state
-          entity: valve.rasenbewasserung_klein_switch
-          state: open
-    - type: tile
-      entity: timer.bewaesserung
-      name: Endet in
-      icon: mdi:timer-sand
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: more-info
-      visibility:
-      - condition: state
-        entity: timer.bewaesserung
-        state: active
-- title: Kamera
-  type: sections
-  max_columns: 4
-  path: kamera
-  icon: mdi:cctv
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Garten
-      heading_style: title
-    - type: picture-glance
-      title: Garten
-      camera_image: camera.outdoor_kamera_fluent
-      camera_view: auto
-      entities:
-      - binary_sensor.outdoor_kamera_person
-    - type: history-graph
-      entities:
-      - entity: binary_sensor.outdoor_kamera_person
-        name: Person erkannt
-      hours_to_show: 12
-      logarithmic_scale: false
-- title: ÖPNV
-  path: opnv
-  icon: mdi:train-bus
-  type: sections
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Next Bike
-    - type: entities
-      title: Verfügbare Räder
-      entities:
-      - entity: sensor.vrn_nextbike_george_washington_strasse
-        name: George-Washington-Straße
-        icon: mdi:bicycle
-        secondary_info: last-changed
-      - entity: sensor.vrn_nextbike_bensheimer_strasse
-        name: Bensheimer Straße
-        icon: mdi:bicycle
-        secondary_info: last-changed
-  - type: grid
-    cards:
-    - type: heading
-      heading: Linie 5 – Bensheimer Straße
-      icon: mdi:tram
-      heading_style: title
-    - type: markdown
-      text_only: true
-      grid_options:
-        columns: full
-      content: |
-        {% set l5 = (state_attr('sensor.kafertal_bensheimer_strasse', 'departures') or []) | selectattr('line', 'eq', 'RNV 5') | list %}
-        {% if l5 %}
-        | Abfahrt | | Richtung | Bstg. |
-        |:--|:--|:--|:-:|
-        {% for d in l5 %}| **{{ d.departure_time }}**{% if d.delay > 0 %} (+{{ d.delay }}){% endif %} | {{ 'jetzt' if d.minutes_until_departure < 1 else 'in ' ~ d.minutes_until_departure ~ ' min' }} | {{ d.destination }} | {{ d.platform }} |
-        {% endfor %}
-        {% else %}
-        Derzeit keine Abfahrten der Linie 5.
-        {% endif %}
-- title: System
-  path: system
-  icon: mdi:cog-outline
-  type: sections
-  max_columns: 4
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:wifi
-      heading: Guest-Wifi
-      heading_style: title
-    - type: picture
-      image: /api/image/serve/90317dab48e12ed7a96389aa3582cce9/512x512
-      tap_action:
-        action: none
-      hold_action:
-        action: none
-  - type: grid
-    cards:
-    - type: heading
-      heading: Home Assistant
-      heading_style: title
-    - type: custom:mini-graph-card
-      entities:
-      - entity: sensor.memory_use_percent
-        name: HA Memory Usage
-      - entity: sensor.nas_memory_usage_real
-        name: NAS Memory Usage
-        color: green
-      points_per_hour: 0.5
-      hours_to_show: 48
-      upper_bound: 100
-      lower_bound: 0
-    - type: custom:mini-graph-card
-      entities:
-      - entity: sensor.processor_use
-        name: HA CPU Usage
-      - entity: sensor.nas_cpu_utilization_total
-        name: NAS CPU Usage
-        color: green
-      points_per_hour: 4
-      hours_to_show: 12
-      upper_bound: 100
-      lower_bound: 0
-    - type: tile
-      entity: sensor.verfugbare_updates
-      name: Verfügbare Updates
-      grid_options:
-        columns: full
-      tap_action:
-        action: navigate
-        navigation_path: /config/updates
-    - type: tile
-      entity: update.home_assistant_core_update
-      name: Core
-      grid_options:
-        columns: full
-      features:
-      - type: update-actions
-        backup: ask
-    - type: tile
-      entity: update.home_assistant_operating_system_update
-      name: Betriebssystem
-      grid_options:
-        columns: full
-      features:
-      - type: update-actions
-        backup: ask
-    - type: tile
-      entity: update.home_assistant_supervisor_update
-      name: Supervisor
-      grid_options:
-        columns: full
-      features:
-      - type: update-actions
-        backup: ask
-  - type: grid
-    cards:
-    - type: heading
-      heading: NAS
-      heading_style: title
-    - type: custom:mini-graph-card
-      name: NAS Disk Usage
-      entities:
-      - sensor.nas_volume_3_volume_used
-      color_thresholds:
-      - value: 0
-        color: green
-      - value: 75
-        color: orange
-      - value: 90
-        color: red
-      lower_bound: 0
-      upper_bound: 100
-      points_per_hour: 0.25
-      hour24: true
-      hours_to_show: 720
-    - type: statistics-graph
-      title: NAS Disk Usage (Jahr)
-      entities:
-      - entity: sensor.nas_volume_3_nutzung
-        name: Volume 3
-      days_to_show: 365
-      period: week
-      stat_types:
-      - mean
-      - max
-      chart_type: line
-      min_y_axis: 0
-      max_y_axis: 100
-      grid_options:
-        columns: full
-  - type: grid
-    cards:
-    - type: heading
-      heading: Einstellungen
-      heading_style: title
-    - type: entities
-      entities:
-      - input_boolean.urlaubsmodus
-  - type: grid
-    cards:
-    - type: heading
-      heading: Wartung Saugroboter
-      icon: mdi:robot-vacuum
-      heading_style: title
-    - type: heading
-      heading: Rocky
-      heading_style: subtitle
-    - type: tile
-      entity: sensor.rocky_verbleibende_zeit_der_hauptburste
-      name: Hauptbürste
-      icon: mdi:brush
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.rocky_hauptbursten_verbrauchsmaterial_zurucksetzen
-        confirmation:
-          text: 'Rocky: Hauptbürste erledigt? Zähler zurücksetzen.'
-    - type: tile
-      entity: sensor.rocky_verbleibende_zeit_der_seitenburste
-      name: Seitenbürste
-      icon: mdi:fan
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.rocky_seitenbursten_verbrauchsmaterial_zurucksetzen
-        confirmation:
-          text: 'Rocky: Seitenbürste erledigt? Zähler zurücksetzen.'
-    - type: tile
-      entity: sensor.rocky_verbleibende_filterzeit
-      name: Filter
-      icon: mdi:air-filter
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.rocky_luftfilter_verbrauchsmaterial_zurucksetzen
-        confirmation:
-          text: 'Rocky: Filter erledigt? Zähler zurücksetzen.'
-    - type: tile
-      entity: sensor.rocky_verbleibende_sensorzeit
-      name: Sensoren reinigen
-      icon: mdi:eye-outline
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.rocky_sensor_verbrauchsmaterial_zurucksetzen
-        confirmation:
-          text: 'Rocky: Sensoren reinigen erledigt? Zähler zurücksetzen.'
-    - type: heading
-      heading: Rocky Station
-      heading_style: subtitle
-    - type: tile
-      entity: sensor.rocky_dock_schmutzfanger_verbleibend
-      name: Schmutzfänger
-      icon: mdi:filter-outline
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.rocky_dock_filter_verbrauch_zurucksetzen
-        confirmation:
-          text: 'Rocky Station: Schmutzfänger erledigt? Zähler zurücksetzen.'
-    - type: tile
-      entity: sensor.rocky_dock_burstenwartung_verbleibend
-      name: Reinigungsbürste
-      icon: mdi:brush-variant
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.rocky_dock_reinigungsbursten_verbrauch_zurucksetzen
-        confirmation:
-          text: 'Rocky Station: Reinigungsbürste erledigt? Zähler zurücksetzen.'
-    - type: heading
-      heading: Robo
-      heading_style: subtitle
-    - type: tile
-      entity: sensor.robo_main_brush_time_left
-      name: Hauptbürste
-      icon: mdi:brush
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.robo_reset_main_brush_consumable
-        confirmation:
-          text: 'Robo: Hauptbürste erledigt? Zähler zurücksetzen.'
-    - type: tile
-      entity: sensor.robo_side_brush_time_left
-      name: Seitenbürste
-      icon: mdi:fan
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.robo_reset_side_brush_consumable
-        confirmation:
-          text: 'Robo: Seitenbürste erledigt? Zähler zurücksetzen.'
-    - type: tile
-      entity: sensor.robo_filter_time_left
-      name: Filter
-      icon: mdi:air-filter
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.robo_reset_air_filter_consumable
-        confirmation:
-          text: 'Robo: Filter erledigt? Zähler zurücksetzen.'
-    - type: tile
-      entity: sensor.robo_sensor_time_left
-      name: Sensoren reinigen
-      icon: mdi:eye-outline
-      grid_options:
-        columns: 6
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.robo_reset_sensor_consumable
-        confirmation:
-          text: 'Robo: Sensoren reinigen erledigt? Zähler zurücksetzen.'
-- title: Medien
-  path: medien
-  icon: mdi:speaker
-  type: sections
-  max_columns: 3
-  subview: true
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Wohnzimmer
-      heading_style: title
-    - type: media-control
-      entity: media_player.sonos_move
-    - type: tile
-      entity: script.sonos_move_relaxed_remixed
-      name: Relaxed / Remixed
-      icon: mdi:playlist-music
-      hide_state: true
-      vertical: true
-      grid_options:
-        columns: 6
-        rows: 2
-      tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.sonos_move_relaxed_remixed
-      icon_tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.sonos_move_relaxed_remixed
-    - type: tile
-      entity: script.sonos_move_coffee_lounge
-      name: Coffee Lounge
-      icon: mdi:coffee
-      hide_state: true
-      vertical: true
-      grid_options:
-        columns: 6
-        rows: 2
-      tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.sonos_move_coffee_lounge
-      icon_tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.sonos_move_coffee_lounge
-  - type: grid
-    cards:
-    - type: heading
-      heading: Schlafzimmer
-      heading_style: title
-    - type: media-control
-      entity: media_player.schlafzimmer
-    - type: tile
-      entity: script.dasding_abspielen
-      name: DASDING
-      icon: mdi:radio
-      hide_state: true
-      vertical: true
-      grid_options:
-        columns: 6
-        rows: 2
-      tap_action:
-        action: perform-action
-        perform_action: script.dasding_abspielen
-        data:
-          player: media_player.schlafzimmer
-      icon_tap_action:
-        action: perform-action
-        perform_action: script.dasding_abspielen
-        data:
-          player: media_player.schlafzimmer
-  - type: grid
-    cards:
-    - type: heading
-      heading: Philipps Büro
-      heading_style: title
-    - type: media-control
-      entity: media_player.philipps_buro
-    - type: tile
-      entity: script.dasding_abspielen
-      name: DASDING
-      icon: mdi:radio
-      hide_state: true
-      vertical: true
-      grid_options:
-        columns: 6
-        rows: 2
-      tap_action:
-        action: perform-action
-        perform_action: script.dasding_abspielen
-        data:
-          player: media_player.philipps_buro
-      icon_tap_action:
-        action: perform-action
-        perform_action: script.dasding_abspielen
-        data:
-          player: media_player.philipps_buro
-- title: Hauswirtschaftsraum
-  path: hwr
-  icon: mdi:washing-machine
-  type: sections
-  max_columns: 3
-  subview: true
-  header:
-    card:
-      type: markdown
-      text_only: true
-      content: '# Hauswirtschaftsraum'
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Raum
-      icon: mdi:door
-      heading_style: title
-      badges:
+          - condition: state
+            entity: input_boolean.urlaubsmodus
+            state: "on"
       - type: entity
-        entity: binary_sensor.bewegungsmelder_hwr_belegung
+        entity: calendar.schulferien_mannheim
+        name: Schulferien
+        icon: mdi:school-outline
+        show_name: true
+        show_state: true
+        show_icon: true
+        state_content:
+          - message
+          - start_time
+        tap_action:
+          action: navigate
+          navigation_path: "#kalender"
+      - type: entity
+        entity: binary_sensor.twinguard_flur_smoke
+        name: Rauch Flur
+        color: red
+        show_name: true
+        show_state: false
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: binary_sensor.twinguard_flur_smoke
+            state: "on"
+      - type: entity
+        entity: binary_sensor.twinguard_schlafzimmer_smoke
+        name: Rauch Schlafzimmer
+        color: red
+        show_name: true
+        show_state: false
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: binary_sensor.twinguard_schlafzimmer_smoke
+            state: "on"
+      - type: entity
+        entity: binary_sensor.wohnzimmer_twinguard_smoke
+        name: Rauch Wohnzimmer
+        color: red
+        show_name: true
+        show_state: false
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: binary_sensor.wohnzimmer_twinguard_smoke
+            state: "on"
+      - type: entity
+        entity: sensor.pollenflug_mannheim_ambrosia
+        name: Ambrosia
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: binary_sensor.bewegungsmelder_hwr_belegung
-          state: 'on'
-    - type: tile
-      entity: light.hwr_deckenlampe
-      name: Deckenlampe
-      icon: mdi:ceiling-light-multiple
-      grid_options:
-        columns: full
-        rows: 1
-      state_content:
-      - state
-      - last_changed
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-  - type: grid
-    cards:
-    - type: heading
-      heading: Waschmaschine
-      icon: mdi:washing-machine
-      heading_style: title
-    - type: tile
-      entity: sensor.bosch_wav28e43_68a40e944efa_bsh_common_status_operationstate
-      name: Status
-      grid_options:
-        columns: full
-    - type: tile
-      entity: sensor.waschmaschine_verbleibende_zeit
-      name: Restzeit
-      icon: mdi:timer-sand
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.waschmaschine_lauft
-        state: 'on'
-  - type: grid
-    cards:
-    - type: heading
-      heading: Trockner
-      icon: mdi:tumble-dryer
-      heading_style: title
-    - type: tile
-      entity: sensor.434110536427092643_bsh_common_status_operationstate
-      name: Status
-      grid_options:
-        columns: full
-    - type: tile
-      entity: sensor.trockner_verbleibende_zeit
-      name: Restzeit
-      icon: mdi:timer-sand
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.trockner_lauft
-        state: 'on'
-- title: Kalender
-  path: kalender
-  icon: mdi:calendar-month
-  type: panel
-  subview: true
-  back_path: /lovelace/uebersicht
-  cards:
-  - type: calendar
-    entities:
-    - calendar.familienkalender
-    - calendar.philipp
-    - calendar.privat
-    - calendar.arbeit
-    - calendar.schulferien_mannheim
-    initial_view: dayGridMonth
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_ambrosia
+            above: 0
+      - type: entity
+        entity: sensor.pollenflug_mannheim_beifuss
+        name: Beifuß
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_beifuss
+            above: 0
+      - type: entity
+        entity: sensor.pollenflug_mannheim_birke
+        name: Birke
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_birke
+            above: 0
+      - type: entity
+        entity: sensor.pollenflug_mannheim_erle
+        name: Erle
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_erle
+            above: 0
+      - type: entity
+        entity: sensor.pollenflug_mannheim_esche
+        name: Esche
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_esche
+            above: 0
+      - type: entity
+        entity: sensor.pollenflug_mannheim_graser
+        name: Gräser
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_graser
+            above: 0
+      - type: entity
+        entity: sensor.pollenflug_mannheim_hasel
+        name: Hasel
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_hasel
+            above: 0
+      - type: entity
+        entity: sensor.pollenflug_mannheim_roggen
+        name: Roggen
+        icon: mdi:flower-pollen
+        color: amber
+        show_name: true
+        show_state: true
+        show_icon: true
+        visibility:
+          - condition: numeric_state
+            entity: sensor.pollenflug_mannheim_roggen
+            above: 0
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Warnungen
+            icon: mdi:alert-circle-outline
+            sub_button:
+              main:
+                - entity: sensor.anzahl_warnungen
+                  show_background: false
+                  state_content: state
+                  visibility:
+                    - condition: numeric_state
+                      entity: sensor.anzahl_warnungen
+                      above: 0
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: binary_sensor.twinguard_flur_smoke
+            name: Rauchalarm Flur
+            icon: mdi:fire-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.twinguard_flur_smoke
+                state: "on"
+          - type: tile
+            entity: binary_sensor.twinguard_schlafzimmer_smoke
+            name: Rauchalarm Schlafzimmer
+            icon: mdi:fire-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.twinguard_schlafzimmer_smoke
+                state: "on"
+          - type: tile
+            entity: binary_sensor.wohnzimmer_twinguard_smoke
+            name: Rauchalarm Wohnzimmer
+            icon: mdi:fire-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.wohnzimmer_twinguard_smoke
+                state: "on"
+          - type: tile
+            entity: binary_sensor.outdoor_kamera_person
+            name: Person im Garten
+            icon: mdi:account-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.outdoor_kamera_person
+                state: "on"
+          - type: tile
+            entity: lock.haustur
+            name: Haustür nicht abgeschlossen
+            icon: mdi:lock-open-alert
+            color: red
+            state_content:
+              - state
+              - last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: lock.haustur
+                state_not: locked
+          - type: tile
+            entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+            name: Kühlschrank offen
+            icon: mdi:fridge-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+                state: "on"
+          - type: tile
+            entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+            name: Gefrierfach offen
+            icon: mdi:fridge-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+                state: "on"
+          - type: tile
+            entity: binary_sensor.rocky_dock_frischwassertank
+            name: "Rocky: Frischwasser auffüllen"
+            icon: mdi:water-plus
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.rocky_dock_frischwassertank
+                state: "on"
+          - type: tile
+            entity: binary_sensor.rocky_dock_schmutzwassertank
+            name: "Rocky: Schmutzwasser leeren"
+            icon: mdi:water-remove
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.rocky_dock_schmutzwassertank
+                state: "on"
+          - type: tile
+            entity: binary_sensor.rocky_wasserknappheit
+            name: "Rocky: Wassertank leer"
+            icon: mdi:water-alert
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.rocky_wasserknappheit
+                state: "on"
+          - type: tile
+            entity: binary_sensor.philipps_buro_robo_wasserknappheit
+            name: "Robo: Wassertank leer"
+            icon: mdi:water-alert
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.philipps_buro_robo_wasserknappheit
+                state: "on"
+          - type: tile
+            entity: binary_sensor.rasenbewasserung_gross_wasserleck
+            name: "Bewässerung: Wasserleck"
+            icon: mdi:pipe-leak
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.rasenbewasserung_gross_wasserleck
+                state: "on"
+          - type: tile
+            entity: binary_sensor.rasenbewasserung_gross_wasserversorgung
+            name: "Bewässerung: Wasserversorgung prüfen"
+            icon: mdi:water-off
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.rasenbewasserung_gross_wasserversorgung
+                state: "on"
+          - type: tile
+            entity: binary_sensor.dream_machine_special_edition_hdd_1
+            name: "UniFi: Festplatte prüfen"
+            icon: mdi:harddisk
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.dream_machine_special_edition_hdd_1
+                state: "on"
+          - type: tile
+            entity: binary_sensor.nas_festplattenwarnung
+            name: "NAS: Festplatte prüfen"
+            icon: mdi:nas
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.nas_festplattenwarnung
+                state: "on"
+          - type: tile
+            entity: binary_sensor.twinguard_battery
+            name: "Rauchmelder Wohnzimmer: Batterie"
+            icon: mdi:battery-alert
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.twinguard_battery
+                state: "on"
+          - type: tile
+            entity: binary_sensor.twinguard_flur_battery
+            name: "Rauchmelder Flur: Batterie"
+            icon: mdi:battery-alert
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.twinguard_flur_battery
+                state: "on"
+          - type: tile
+            entity: binary_sensor.twinguard_schlafzimmer_battery
+            name: "Rauchmelder Schlafzimmer: Batterie"
+            icon: mdi:battery-alert
+            color: orange
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: binary_sensor.twinguard_schlafzimmer_battery
+                state: "on"
+          - type: tile
+            entity: vacuum.robo
+            name: "Robo: Fehler"
+            icon: mdi:robot-vacuum-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: vacuum.robo
+                state: error
+          - type: tile
+            entity: vacuum.rocky
+            name: "Rocky: Fehler"
+            icon: mdi:robot-vacuum-alert
+            color: red
+            state_content: last_changed
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: vacuum.rocky
+                state: error
+          - type: tile
+            entity: sensor.batterien_schwach
+            name: Batterie schwach
+            icon: mdi:battery-alert-variant-outline
+            color: orange
+            state_content: state
+            grid_options:
+              columns: full
+              rows: 1
+            visibility:
+              - condition: state
+                entity: sensor.batterien_schwach
+                state_not: keine
+          - type: tile
+            entity: vacuum.rocky
+            name: "Saugroboter: Wartung fällig"
+            icon: mdi:wrench-clock
+            color: orange
+            hide_state: true
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/system
+            icon_tap_action:
+              action: navigate
+              navigation_path: /lovelace/system
+            visibility:
+              - condition: or
+                conditions:
+                  - condition: numeric_state
+                    entity: sensor.rocky_verbleibende_zeit_der_hauptburste
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.rocky_verbleibende_zeit_der_seitenburste
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.rocky_verbleibende_filterzeit
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.rocky_verbleibende_sensorzeit
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.rocky_dock_schmutzfanger_verbleibend
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.rocky_dock_burstenwartung_verbleibend
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.robo_main_brush_time_left
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.robo_side_brush_time_left
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.robo_filter_time_left
+                    below: 0
+                  - condition: numeric_state
+                    entity: sensor.robo_sensor_time_left
+                    below: 0
+          - type: tile
+            entity: sensor.verfugbare_updates
+            name: Updates verfügbar
+            icon: mdi:package-up
+            color: blue
+            state_content: state
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: navigate
+              navigation_path: /config/updates
+            icon_tap_action:
+              action: navigate
+              navigation_path: /config/updates
+            visibility:
+              - condition: numeric_state
+                entity: sensor.verfugbare_updates
+                above: 0
+          - type: tile
+            entity: sensor.anzahl_warnungen
+            name: Alles in Ordnung
+            icon: mdi:check-circle-outline
+            color: green
+            hide_state: true
+            grid_options:
+              columns: full
+              rows: 1
+            tap_action:
+              action: none
+            icon_tap_action:
+              action: none
+            visibility:
+              - condition: state
+                entity: sensor.anzahl_warnungen
+                state: "0"
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: Offene Türen & Fenster
+            icon: mdi:window-open-variant
+            grid_options:
+              columns: full
+            visibility:
+              - condition: or
+                conditions:
+                  - condition: state
+                    entity: binary_sensor.tursensor_seitentur_opening
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.tursensor_terassentur_opening
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_kuche_opening
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_schlafzimmer_opening
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_philipps_buro_opening
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_bad_1_og_opening
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.fenstersensor_bad_dg_opening
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.fenster_lauras_buro
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.fenster_sportzimmer
+                    state: "on"
+                  - condition: state
+                    entity: binary_sensor.dachboden_dachbodentur_tur
+                    state: "on"
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#tueren-fenster"
+            tap_action:
+              action: navigate
+              navigation_path: "#tueren-fenster"
+            sub_button:
+              main:
+                - entity: binary_sensor.alle_turen
+                  icon: mdi:door-open
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.alle_turen
+                      state: "on"
+                - entity: binary_sensor.alle_fenster
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.alle_fenster
+                      state: "on"
+                - icon: mdi:chevron-right
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#tueren-fenster"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: separator
+            name: Demnächst
+            icon: mdi:calendar-account
+            sub_button:
+              main:
+                - entity: calendar.schulferien_mannheim
+                  show_background: false
+                  state_content: state
+                  visibility:
+                    - condition: state
+                      entity: calendar.schulferien_mannheim
+                      state: "on"
+                - icon: mdi:chevron-right
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#kalender"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - entities:
+              - entity: calendar.familienkalender
+                label: /local/familienkalender.jpg
+                accent_color: home-assistant
+              - entity: calendar.philipp
+                label: person.philipp_kluter
+                accent_color: home-assistant
+              - entity: calendar.privat
+                label: person.laura_heimen
+                accent_color: home-assistant
+              - entity: calendar.arbeit
+                label: 🎒
+                accent_color: home-assistant
+              - entity: calendar.schulferien_mannheim
+                label: 🏖️
+                accent_color: home-assistant
+            days_to_show: 7
+            compact_events_to_show: 6
+            allday_badge: title
+            show_location: false
+            type: custom:calendar-card-pro
+            grid_options:
+              columns: full
+            theme: waves
+            tap_action:
+              action: expand
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Wetter
+            icon: mdi:weather-partly-cloudy
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: weather-forecast
+            entity: weather.forecast_home
+            forecast_type: daily
+            show_current: true
+            show_forecast: true
+            grid_options:
+              columns: full
+          - type: custom:bubble-card
+            card_type: separator
+            name: Energie
+            icon: mdi:solar-power-variant
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: sensor.ecu_216000266768_current_power
+            name: PV-Leistung
+            icon: mdi:solar-power
+            color: amber
+            features:
+              - type: trend-graph
+                hours_to_show: 24
+            grid_options:
+              columns: full
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.ecu_216000266768_today_energy
+            name: Ertrag heute
+            icon: mdi:counter
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.ecu_216000266768_inverters_online
+            name: Wechselrichter online
+            icon: mdi:lan-connect
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        visibility:
+          - condition: or
+            conditions:
+              - condition: state
+                entity: binary_sensor.waschmaschine_lauft
+                state: "on"
+              - condition: state
+                entity: binary_sensor.trockner_lauft
+                state: "on"
+              - condition: state
+                entity: binary_sensor.spulmaschine_lauft
+                state: "on"
+              - condition: state
+                entity: vacuum.robo
+                state_not: docked
+              - condition: state
+                entity: vacuum.rocky
+                state_not: docked
+              - condition: state
+                entity: timer.bewaesserung
+                state: active
+              - condition: state
+                entity: valve.rasenbewasserung_gross
+                state: open
+              - condition: state
+                entity: valve.rasenbewasserung_klein_switch
+                state: open
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Läuft gerade
+            icon: mdi:play-circle-outline
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.waschmaschine_verbleibende_zeit
+            name: Waschmaschine
+            icon: mdi:washing-machine
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: binary_sensor.waschmaschine_lauft
+                state: "on"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.trockner_verbleibende_zeit
+            name: Trockner
+            icon: mdi:tumble-dryer
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: binary_sensor.trockner_lauft
+                state: "on"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.dishwasher_verbleibende_zeit
+            name: Spülmaschine
+            icon: mdi:dishwasher
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: binary_sensor.spulmaschine_lauft
+                state: "on"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: vacuum.rocky
+            name: Rocky
+            icon: mdi:robot-vacuum
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: vacuum-commands
+                commands:
+                  - start_pause
+                  - return_home
+            tap_action:
+              action: more-info
+            visibility:
+              - condition: state
+                entity: vacuum.rocky
+                state_not: docked
+          - type: tile
+            entity: vacuum.robo
+            name: Robo
+            icon: mdi:robot-vacuum
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: vacuum-commands
+                commands:
+                  - start_pause
+                  - return_home
+            tap_action:
+              action: more-info
+            visibility:
+              - condition: state
+                entity: vacuum.robo
+                state_not: docked
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: valve.rasenbewasserung_gross
+            name: Rasen groß
+            icon: mdi:sprinkler-variant
+            grid_options:
+              columns: 6
+            visibility:
+              - condition: state
+                entity: valve.rasenbewasserung_gross
+                state: open
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: valve.rasenbewasserung_klein_switch
+            name: Rasen klein
+            icon: mdi:sprinkler-variant
+            grid_options:
+              columns: 6
+            visibility:
+              - condition: state
+                entity: valve.rasenbewasserung_klein_switch
+                state: open
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: timer.bewaesserung
+            name: Bewässerung endet in
+            icon: mdi:timer-sand
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: timer.bewaesserung
+                state: active
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Kamera
+            icon: mdi:cctv
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: picture-glance
+            title: Outdoor Kamera
+            camera_image: camera.outdoor_kamera_fluent
+            camera_view: auto
+            entity: camera.outdoor_kamera_fluent
+            entities:
+              - binary_sensor.outdoor_kamera_person
+            tap_action:
+              action: more-info
+            grid_options:
+              columns: full
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.outdoor_kamera_person
+                name: Person erkannt
+            hours_to_show: 12
+            logarithmic_scale: false
+            grid_options:
+              columns: full
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Bereiche
+            icon: mdi:view-grid-outline
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: Heizung
+            icon: mdi:radiator
+            grid_options:
+              columns: 6
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#heizung"
+            tap_action:
+              action: navigate
+              navigation_path: "#heizung"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: ÖPNV
+            icon: mdi:bus-clock
+            grid_options:
+              columns: 6
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#opnv"
+            tap_action:
+              action: navigate
+              navigation_path: "#opnv"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: Medien
+            icon: mdi:speaker
+            grid_options:
+              columns: 6
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/medien
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/medien
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: System
+            icon: mdi:cog-outline
+            grid_options:
+              columns: 6
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/system
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/system
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#tueren-fenster"
+            name: Türen & Fenster
+            icon: mdi:window-open-variant
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Erdgeschoss
+                icon: mdi:home-floor-0
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.tursensor_seitentur_opening
+                name: Seitentür
+                icon: mdi:door
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.tursensor_terassentur_opening
+                name: Terrassentür
+                icon: mdi:door
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_kuche_opening
+                name: Küche
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: 1. OG
+                icon: mdi:home-floor-1
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_schlafzimmer_opening
+                name: Schlafzimmer
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_philipps_buro_opening
+                name: Philipps Büro
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_bad_1_og_opening
+                name: Bad 1. OG
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Dachgeschoss
+                icon: mdi:home-floor-2
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_bad_dg_opening
+                name: Bad DG
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenster_lauras_buro
+                name: Lauras Büro
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenster_sportzimmer
+                name: Sportzimmer
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.dachboden_dachbodentur_tur
+                name: Dachbodentür
+                icon: mdi:door
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#kalender"
+            name: Kalender
+            icon: mdi:calendar-month
+            width_desktop: 900px
+            cards:
+              - type: calendar
+                entities:
+                  - calendar.familienkalender
+                  - calendar.philipp
+                  - calendar.privat
+                  - calendar.arbeit
+                  - calendar.schulferien_mannheim
+                initial_view: dayGridMonth
+                grid_options:
+                  columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#heizung"
+            name: Heizung
+            icon: mdi:radiator
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Erdgeschoss
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru4163584512
+                name: Diele
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru2167095808
+                name: Küche
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru1244545536
+                name: Wohnzimmer
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: 1. OG
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru2720481792
+                name: Bad 1.OG
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru3678551808
+                name: Philipps Büro
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru3532674816
+                name: Schlafzimmer
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: Dachgeschoss
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru0673595904
+                name: Bad DG
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru0690373120
+                name: Lauras Büro
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru0630216448
+                name: Sportzimmer
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                button_action:
+                  tap_action:
+                    action: more-info
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#opnv"
+            name: ÖPNV
+            icon: mdi:bus-clock
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Next Bike
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: entities
+                title: Verfügbare Räder
+                entities:
+                  - entity: sensor.vrn_nextbike_george_washington_strasse
+                    name: George-Washington-Straße
+                    icon: mdi:bicycle
+                    secondary_info: last-changed
+                  - entity: sensor.vrn_nextbike_bensheimer_strasse
+                    name: Bensheimer Straße
+                    icon: mdi:bicycle
+                    secondary_info: last-changed
+                grid_options:
+                  columns: full
+              - type: custom:bubble-card
+                card_type: separator
+                name: Linie 5 – Bensheimer Straße
+                icon: mdi:tram
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: markdown
+                text_only: true
+                grid_options:
+                  columns: full
+                content: >
+                  {% set l5 = (state_attr('sensor.kafertal_bensheimer_strasse',
+                  'departures') or []) | selectattr('line', 'eq', 'RNV 5') |
+                  list %}
+
+                  {% if l5 %}
+
+                  | Abfahrt | | Richtung | Bstg. |
+
+                  |:--|:--|:--|:-:|
+
+                  {% for d in l5 %}| **{{ d.departure_time }}**{% if d.delay > 0
+                  %} (+{{ d.delay }}){% endif %} | {{ 'jetzt' if
+                  d.minutes_until_departure < 1 else 'in ' ~
+                  d.minutes_until_departure ~ ' min' }} | {{ d.destination }} |
+                  {{ d.platform }} |
+
+                  {% endfor %}
+
+                  {% else %}
+
+                  Derzeit keine Abfahrten der Linie 5.
+
+                  {% endif %}
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:navbar-card
+            desktop:
+              show_labels: true
+            mobile:
+              show_labels: true
+            routes:
+              - url: /lovelace/uebersicht
+                icon: mdi:home-outline
+                icon_selected: mdi:home
+                label: Zuhause
+              - url: /dashboard-eg/eg
+                icon: mdi:home-floor-0
+                label: EG
+              - url: /dashboard-og/og
+                icon: mdi:home-floor-1
+                label: 1. OG
+              - url: /dashboard-dg/dg
+                icon: mdi:home-floor-2
+                label: DG
+              - url: /lovelace/medien
+                icon: mdi:speaker
+                label: Medien
+            styles: ".navbar { --navbar-primary-color: #FFB300; }"
+    dense_section_placement: false
+    top_margin: false
+  - title: System
+    path: system
+    icon: mdi:cog-outline
+    type: sections
+    max_columns: 4
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Guest-Wifi
+            icon: mdi:wifi
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: picture
+            image: /api/image/serve/90317dab48e12ed7a96389aa3582cce9/512x512
+            tap_action:
+              action: none
+            hold_action:
+              action: none
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Home Assistant
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.memory_use_percent
+                name: HA Memory Usage
+              - entity: sensor.nas_memory_usage_real
+                name: NAS Memory Usage
+                color: green
+            points_per_hour: 0.5
+            hours_to_show: 48
+            upper_bound: 100
+            lower_bound: 0
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.processor_use
+                name: HA CPU Usage
+              - entity: sensor.nas_cpu_utilization_total
+                name: NAS CPU Usage
+                color: green
+            points_per_hour: 4
+            hours_to_show: 12
+            upper_bound: 100
+            lower_bound: 0
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.verfugbare_updates
+            name: Verfügbare Updates
+            grid_options:
+              columns: full
+            button_type: name
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: /config/updates
+            tap_action:
+              action: navigate
+              navigation_path: /config/updates
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: update.home_assistant_core_update
+            name: Core
+            grid_options:
+              columns: full
+            features:
+              - type: update-actions
+                backup: ask
+          - type: tile
+            entity: update.home_assistant_operating_system_update
+            name: Betriebssystem
+            grid_options:
+              columns: full
+            features:
+              - type: update-actions
+                backup: ask
+          - type: tile
+            entity: update.home_assistant_supervisor_update
+            name: Supervisor
+            grid_options:
+              columns: full
+            features:
+              - type: update-actions
+                backup: ask
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: NAS
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:mini-graph-card
+            name: NAS Disk Usage
+            entities:
+              - sensor.nas_volume_3_volume_used
+            color_thresholds:
+              - value: 0
+                color: green
+              - value: 75
+                color: orange
+              - value: 90
+                color: red
+            lower_bound: 0
+            upper_bound: 100
+            points_per_hour: 0.25
+            hour24: true
+            hours_to_show: 720
+          - type: statistics-graph
+            title: NAS Disk Usage (Jahr)
+            entities:
+              - entity: sensor.nas_volume_3_nutzung
+                name: Volume 3
+            days_to_show: 365
+            period: week
+            stat_types:
+              - mean
+              - max
+            chart_type: line
+            min_y_axis: 0
+            max_y_axis: 100
+            grid_options:
+              columns: full
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Einstellungen
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: entities
+            entities:
+              - input_boolean.urlaubsmodus
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Wartung Saugroboter
+            icon: mdi:robot-vacuum
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: separator
+            name: Rocky
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.rocky_verbleibende_zeit_der_hauptburste
+            name: Hauptbürste
+            icon: mdi:brush
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.rocky_verbleibende_zeit_der_seitenburste
+            name: Seitenbürste
+            icon: mdi:fan
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.rocky_verbleibende_filterzeit
+            name: Filter
+            icon: mdi:air-filter
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.rocky_verbleibende_sensorzeit
+            name: Sensoren reinigen
+            icon: mdi:eye-outline
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: separator
+            name: Rocky Station
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.rocky_dock_schmutzfanger_verbleibend
+            name: Schmutzfänger
+            icon: mdi:filter-outline
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.rocky_dock_burstenwartung_verbleibend
+            name: Reinigungsbürste
+            icon: mdi:brush-variant
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: separator
+            name: Robo
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.robo_main_brush_time_left
+            name: Hauptbürste
+            icon: mdi:brush
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.robo_side_brush_time_left
+            name: Seitenbürste
+            icon: mdi:fan
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.robo_filter_time_left
+            name: Filter
+            icon: mdi:air-filter
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: sensor.robo_sensor_time_left
+            name: Sensoren reinigen
+            icon: mdi:eye-outline
+            grid_options:
+              columns: 6
+            button_type: state
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+          - type: custom:navbar-card
+            desktop:
+              show_labels: true
+            mobile:
+              show_labels: true
+            routes:
+              - url: /lovelace/uebersicht
+                icon: mdi:home-outline
+                icon_selected: mdi:home
+                label: Zuhause
+              - url: /dashboard-eg/eg
+                icon: mdi:home-floor-0
+                label: EG
+              - url: /dashboard-og/og
+                icon: mdi:home-floor-1
+                label: 1. OG
+              - url: /dashboard-dg/dg
+                icon: mdi:home-floor-2
+                label: DG
+              - url: /lovelace/medien
+                icon: mdi:speaker
+                label: Medien
+            styles: ".navbar { --navbar-primary-color: #FFB300; }"
+    dense_section_placement: false
+  - title: Medien
+    path: medien
+    icon: mdi:speaker
+    type: sections
+    max_columns: 3
+    subview: true
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Wohnzimmer
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: media-player
+            entity: media_player.sonos_move
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: script.sonos_move_relaxed_remixed
+            name: Relaxed / Remixed
+            icon: mdi:playlist-music
+            grid_options:
+              columns: 6
+              rows: 2
+            button_type: name
+            button_action:
+              tap_action:
+                action: perform-action
+                perform_action: script.turn_on
+                target:
+                  entity_id: script.sonos_move_relaxed_remixed
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.sonos_move_relaxed_remixed
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: script.sonos_move_coffee_lounge
+            name: Coffee Lounge
+            icon: mdi:coffee
+            grid_options:
+              columns: 6
+              rows: 2
+            button_type: name
+            button_action:
+              tap_action:
+                action: perform-action
+                perform_action: script.turn_on
+                target:
+                  entity_id: script.sonos_move_coffee_lounge
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.sonos_move_coffee_lounge
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Schlafzimmer
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: media-player
+            entity: media_player.schlafzimmer
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: script.dasding_abspielen
+            name: DASDING
+            icon: mdi:radio
+            grid_options:
+              columns: 6
+              rows: 2
+            button_type: name
+            button_action:
+              tap_action:
+                action: perform-action
+                perform_action: script.dasding_abspielen
+                data:
+                  player: media_player.schlafzimmer
+            tap_action:
+              action: perform-action
+              perform_action: script.dasding_abspielen
+              data:
+                player: media_player.schlafzimmer
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Philipps Büro
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: media-player
+            entity: media_player.philipps_buro
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            entity: script.dasding_abspielen
+            name: DASDING
+            icon: mdi:radio
+            grid_options:
+              columns: 6
+              rows: 2
+            button_type: name
+            button_action:
+              tap_action:
+                action: perform-action
+                perform_action: script.dasding_abspielen
+                data:
+                  player: media_player.philipps_buro
+            tap_action:
+              action: perform-action
+              perform_action: script.dasding_abspielen
+              data:
+                player: media_player.philipps_buro
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+          - type: custom:navbar-card
+            desktop:
+              show_labels: true
+            mobile:
+              show_labels: true
+            routes:
+              - url: /lovelace/uebersicht
+                icon: mdi:home-outline
+                icon_selected: mdi:home
+                label: Zuhause
+              - url: /dashboard-eg/eg
+                icon: mdi:home-floor-0
+                label: EG
+              - url: /dashboard-og/og
+                icon: mdi:home-floor-1
+                label: 1. OG
+              - url: /dashboard-dg/dg
+                icon: mdi:home-floor-2
+                label: DG
+              - url: /lovelace/medien
+                icon: mdi:speaker
+                label: Medien
+            styles: ".navbar { --navbar-primary-color: #FFB300; }"
+    dense_section_placement: false

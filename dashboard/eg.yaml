@@ -1,807 +1,1673 @@
 title: Erdgeschoss
 views:
-- path: eg
-  title: Erdgeschoss
-  icon: mdi:home-floor-0
-  type: sections
-  max_columns: 3
-  dense_section_placement: true
-  top_margin: false
-  header:
-    layout: center
-    badges_position: bottom
-    card:
-      type: markdown
-      text_only: true
-      content: |
-        # Erdgeschoss
-        [1. Obergeschoss](/dashboard-og/og) · [Dachgeschoss](/dashboard-dg/dg)
-  badges:
-  - type: entity
-    entity: person.laura_heimen
-    show_entity_picture: true
-  - type: entity
-    entity: person.philipp_kluter
-    show_entity_picture: true
-  - type: entity
-    entity: weather.forecast_home
-  - type: entity
-    entity: sensor.ecu_216000266768_current_power
-    name: PV
-    icon: mdi:solar-power
-    color: amber
-    show_name: false
-    show_state: true
-    show_icon: true
-    tap_action:
-      action: navigate
-      navigation_path: /dashboard-dg/dg
-    visibility:
-    - condition: numeric_state
-      entity: sensor.ecu_216000266768_current_power
-      above: 0
-  - type: entity
-    entity: lock.haustur
-    name: Haustür
-    show_name: true
-    show_state: true
-    show_icon: true
-    color: red
-    visibility:
-    - condition: state
-      entity: lock.haustur
-      state_not: locked
-  - type: entity
-    entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
-    name: Kühlschrank
-    show_name: false
-    show_state: true
-    show_icon: true
-    color: red
-    icon: mdi:fridge-alert
-    visibility:
-    - condition: state
-      entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
-      state: 'on'
-  - type: entity
-    entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
-    name: Gefrierfach
-    show_name: false
-    show_state: true
-    show_icon: true
-    color: red
-    icon: mdi:fridge-alert
-    visibility:
-    - condition: state
-      entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
-      state: 'on'
-  - type: entity
-    entity: binary_sensor.alle_turen
-    show_name: false
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.alle_turen
-      state_not: 'off'
-  - type: entity
-    entity: binary_sensor.alle_fenster
-    show_name: false
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.alle_fenster
-      state_not: 'off'
-  - type: entity
-    entity: sensor.dishwasher_verbleibende_zeit
-    name: Spülmaschine
-    icon: mdi:dishwasher
-    show_name: true
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.spulmaschine_lauft
-      state: 'on'
-  - type: entity
-    entity: sensor.waschmaschine_verbleibende_zeit
-    name: Waschmaschine
-    icon: mdi:washing-machine
-    show_name: true
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.waschmaschine_lauft
-      state: 'on'
-  - type: entity
-    entity: sensor.trockner_verbleibende_zeit
-    name: Trockner
-    icon: mdi:tumble-dryer
-    show_name: true
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.trockner_lauft
-      state: 'on'
-  - type: entity
-    entity: vacuum.robo
-    name: Robo
-    icon: mdi:robot-vacuum
-    show_name: true
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: vacuum.robo
-      state_not: docked
-  - type: entity
-    entity: vacuum.rocky
-    name: Rocky
-    icon: mdi:robot-vacuum
-    show_name: true
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: vacuum.rocky
-      state_not: docked
-  - type: entity
-    entity: binary_sensor.rocky_dock_frischwassertank
-    name: 'Rocky: Wasser füllen'
-    icon: mdi:water-plus
-    color: blue
-    show_name: true
-    show_state: false
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.rocky_dock_frischwassertank
-      state: 'on'
-  - type: entity
-    entity: binary_sensor.rocky_dock_schmutzwassertank
-    name: 'Rocky: Schmutzwasser leeren'
-    icon: mdi:water-remove
-    color: brown
-    show_name: true
-    show_state: false
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: binary_sensor.rocky_dock_schmutzwassertank
-      state: 'on'
-  - type: entity
-    entity: timer.bewaesserung
-    name: Bewässerung
-    icon: mdi:sprinkler-variant
-    show_name: true
-    show_state: true
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: timer.bewaesserung
-      state: active
-  - type: entity
-    entity: input_boolean.urlaubsmodus
-    name: Urlaubsmodus
-    icon: mdi:airplane
-    color: orange
-    show_name: true
-    show_state: false
-    show_icon: true
-    visibility:
-    - condition: state
-      entity: input_boolean.urlaubsmodus
-      state: 'on'
-  - type: entity
-    entity: binary_sensor.outdoor_kamera_person
-    name: Person im Garten
-    icon: mdi:account-alert
-    color: red
-    show_name: true
-    show_state: false
-    show_icon: true
-    tap_action:
-      action: navigate
-      navigation_path: /lovelace/kamera
-    visibility:
-    - condition: state
-      entity: binary_sensor.outdoor_kamera_person
-      state: 'on'
-  - type: shortcut
-    text: Wartung fällig
-    icon: mdi:wrench-clock
-    color: amber
-    tap_action:
-      action: navigate
-      navigation_path: /lovelace/system
-    visibility:
-    - condition: or
-      conditions:
-      - condition: numeric_state
-        entity: sensor.rocky_verbleibende_zeit_der_hauptburste
-        below: 0
-      - condition: numeric_state
-        entity: sensor.rocky_verbleibende_zeit_der_seitenburste
-        below: 0
-      - condition: numeric_state
-        entity: sensor.rocky_verbleibende_filterzeit
-        below: 0
-      - condition: numeric_state
-        entity: sensor.rocky_verbleibende_sensorzeit
-        below: 0
-      - condition: numeric_state
-        entity: sensor.rocky_dock_schmutzfanger_verbleibend
-        below: 0
-      - condition: numeric_state
-        entity: sensor.rocky_dock_burstenwartung_verbleibend
-        below: 0
-      - condition: numeric_state
-        entity: sensor.robo_main_brush_time_left
-        below: 0
-      - condition: numeric_state
-        entity: sensor.robo_side_brush_time_left
-        below: 0
-      - condition: numeric_state
-        entity: sensor.robo_filter_time_left
-        below: 0
-      - condition: numeric_state
-        entity: sensor.robo_sensor_time_left
-        below: 0
-  - type: entity
-    entity: sensor.verfugbare_updates
-    name: Updates
-    icon: mdi:package-up
-    color: green
-    show_name: true
-    show_state: true
-    show_icon: true
-    tap_action:
-      action: navigate
-      navigation_path: /config/updates
-    visibility:
-    - condition: numeric_state
-      entity: sensor.verfugbare_updates
-      above: 0
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:bench
-      heading: Diele
-      heading_style: title
-      badges:
+  - title: Erdgeschoss
+    path: eg
+    icon: mdi:home-floor-0
+    type: sections
+    max_columns: 3
+    dense_section_placement: false
+    top_margin: false
+    badges:
       - type: entity
-        entity: binary_sensor.bewegungsmelder_diele
+        entity: person.philipp_kluter
+        show_entity_picture: true
+      - type: entity
+        entity: person.laura_heimen
+        show_entity_picture: true
+      - type: entity
+        entity: weather.forecast_home
+      - type: entity
+        entity: sensor.ecu_216000266768_current_power
+        name: PV
+        icon: mdi:solar-power
+        color: amber
+        show_name: false
         show_state: true
         show_icon: true
-        visibility:
-        - condition: state
-          entity: binary_sensor.bewegungsmelder_diele
-          state: 'on'
-      - type: entity
-        entity: sensor.tado_smart_thermostat_ru4163584512_current_temperature
-    - type: tile
-      entity: light.deckenlampe_light
-      name: Diele
-      icon: mdi:ceiling-light
-      grid_options:
-        columns: 4
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.treppenhaus_eg_treppenhaus_eg
-      name: Treppe
-      icon: mdi:stairs
-      grid_options:
-        columns: 4
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      grid_options:
-        columns: 4
-        rows: 1
-      entity: light.schalter_gaste_wc_schalter_gaste_wc
-      name: Gäste-WC
-      icon: mdi:toilet
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: lock.haustur
-      name: Haustür
-      grid_options:
-        columns: full
-        rows: 1
-      features_position: inline
-      features:
-      - type: lock-commands
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:fridge
-      heading: Küche
-      heading_style: title
-      tap_action:
-        action: navigate
-        navigation_path: /dashboard-eg/kuche
-      badges:
-      - type: entity
-        entity: binary_sensor.fenstersensor_kuche_opening
-        visibility:
-        - condition: state
-          entity: binary_sensor.fenstersensor_kuche_opening
-          state_not: 'off'
-      - type: entity
-        entity: sensor.tado_smart_thermostat_ru2167095808_current_temperature
-      - type: entity
-        entity: climate.tado_smart_thermostat_ru2167095808
-        show_state: true
-        show_icon: true
-        state_content:
-        - hvac_action
-        - temperature
         tap_action:
-          action: more-info
+          action: navigate
+          navigation_path: /dashboard-dg/dg
         visibility:
-        - condition: state
-          entity: sensor.heizung_kueche_current_action
-          state_not: idle
-    - type: tile
-      entity: light.arbeitsplatte_light
-      name: Arbeitsplatte
-      icon: mdi:wall-sconce-flat
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.kuche_deckenlampe
-      name: Deckenlampe
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.barlampe
-      name: Barlampe
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: cover.rollladen_kuche
-      name: Rollladen
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:silverware
-      heading: Esszimmer
-      heading_style: title
-      badges:
+          - condition: numeric_state
+            entity: sensor.ecu_216000266768_current_power
+            above: 0
       - type: entity
-        entity: binary_sensor.tursensor_seitentur_opening
+        entity: lock.haustur
+        name: Haustür
+        show_name: true
+        show_state: true
+        show_icon: true
+        color: red
+        visibility:
+          - condition: state
+            entity: lock.haustur
+            state_not: locked
+      - type: entity
+        entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+        name: Kühlschrank
+        show_name: false
+        show_state: true
+        show_icon: true
+        color: red
+        icon: mdi:fridge-alert
+        visibility:
+          - condition: state
+            entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_refrigerator
+            state: "on"
+      - type: entity
+        entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+        name: Gefrierfach
+        show_name: false
+        show_state: true
+        show_icon: true
+        color: red
+        icon: mdi:fridge-alert
+        visibility:
+          - condition: state
+            entity: binary_sensor.siemens_ki86nhdf0_68a40ea34a75_refrigeration_common_status_door_freezer
+            state: "on"
+      - type: entity
+        entity: binary_sensor.alle_turen
+        show_name: false
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: binary_sensor.tursensor_seitentur_opening
-          state_not: 'off'
+          - condition: state
+            entity: binary_sensor.alle_turen
+            state_not: "off"
       - type: entity
-        entity: binary_sensor.bewegungsmelder_esszimmer_belegung
+        entity: binary_sensor.alle_fenster
+        show_name: false
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: binary_sensor.bewegungsmelder_esszimmer_belegung
-          state: 'on'
-    - type: tile
-      entity: light.esszimmer_unten_light
-      name: Unten
-      features:
-      - type: light-brightness
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.esszimmer_oben_light
-      name: Oben
-      features:
-      - type: light-brightness
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: cover.rollladen_seitentur
-      name: Rollladen Seitentür
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:sofa
-      heading: Wohnzimmer
-      heading_style: title
-      badges:
+          - condition: state
+            entity: binary_sensor.alle_fenster
+            state_not: "off"
       - type: entity
-        entity: binary_sensor.tursensor_terassentur_opening
-        visibility:
-        - condition: state
-          entity: binary_sensor.tursensor_terassentur_opening
-          state_not: 'off'
-      - type: entity
-        entity: sensor.tado_smart_thermostat_ru1244545536_current_temperature
-      - type: entity
-        entity: climate.tado_smart_thermostat_ru1244545536
-        show_state: true
-        show_icon: true
-        state_content:
-        - hvac_action
-        - temperature
-        tap_action:
-          action: more-info
-        visibility:
-        - condition: state
-          entity: sensor.heizung_wohnzimmer_current_action
-          state_not: idle
-    - type: tile
-      entity: light.stehlampe
-      name: Stehlampe
-      features:
-      - type: light-brightness
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: light.deckenlampe_wohnzimmer_light
-      name: Deckenlampe
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: cover.rollladen_terrassentur
-      name: Rollladen Terrassentür
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: cover-open-close
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:grass
-      heading: Garten
-      heading_style: title
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/garten
-      badges:
-      - type: entity
-        entity: sensor.eve_weather_20ebs9901_temperatur
-      - type: entity
-        entity: timer.bewaesserung
-        name: Aus in
-        icon: mdi:timer-sand
+        entity: sensor.dishwasher_verbleibende_zeit
+        name: Spülmaschine
+        icon: mdi:dishwasher
         show_name: true
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: timer.bewaesserung
-          state: active
-    - type: tile
-      entity: light.garten_garten_controller
-      name: Hecke
-      icon: mdi:string-lights
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: valve.rasenbewasserung_gross
-      name: Rasen groß
-      icon: mdi:sprinkler-variant
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-    - type: tile
-      entity: valve.rasenbewasserung_klein_switch
-      name: Rasen klein
-      icon: mdi:sprinkler-variant
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:robot-vacuum
-      heading: Staubsauger
-      heading_style: title
-    - type: tile
-      entity: vacuum.robo
-      name: Robo
-      icon: mdi:robot-vacuum
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: vacuum-commands
-        commands:
-        - start_pause
-        - return_home
-      tap_action:
-        action: more-info
-    - type: tile
-      entity: vacuum.rocky
-      name: Rocky
-      icon: mdi:robot-vacuum
-      grid_options:
-        columns: full
-        rows: 2
-      features_position: bottom
-      features:
-      - type: vacuum-commands
-        commands:
-        - start_pause
-        - return_home
-      tap_action:
-        action: more-info
-  - type: grid
-    cards:
-    - type: heading
-      icon: mdi:compass-outline
-      heading: Mehr
-      heading_style: title
-    - type: button
-      name: Küche
-      icon: mdi:chef-hat
-      show_state: false
-      grid_options:
-        columns: 3
-        rows: 2
-      tap_action:
-        action: navigate
-        navigation_path: /dashboard-eg/kuche
-    - type: button
-      name: Medien
-      icon: mdi:speaker
-      show_state: false
-      grid_options:
-        columns: 3
-        rows: 2
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/medien
-    - type: button
-      name: 1. OG
-      icon: mdi:home-floor-1
-      show_state: false
-      grid_options:
-        columns: 3
-        rows: 2
-      tap_action:
-        action: navigate
-        navigation_path: /dashboard-og/og
-    - type: button
-      name: DG
-      icon: mdi:home-roof
-      show_state: false
-      grid_options:
-        columns: 3
-        rows: 2
-      tap_action:
-        action: navigate
-        navigation_path: /dashboard-dg/dg
-    - type: heading
-      icon: mdi:server-network
-      heading: Technikraum
-      heading_style: subtitle
-      badges:
+          - condition: state
+            entity: binary_sensor.spulmaschine_lauft
+            state: "on"
       - type: entity
-        entity: binary_sensor.bewegungsmelder_technikraum
+        entity: vacuum.rocky
+        name: Rocky
+        icon: mdi:robot-vacuum
+        show_name: true
         show_state: true
         show_icon: true
         visibility:
-        - condition: state
-          entity: binary_sensor.bewegungsmelder_technikraum
-          state: 'on'
-    - type: tile
-      entity: light.wandlampe_light
-      name: Wandlampe
-      icon: mdi:wall-sconce
-      grid_options:
-        columns: full
-        rows: 1
-      state_content:
-      - state
-      - last_changed
-      tap_action:
-        action: toggle
-      hold_action:
-        action: more-info
-- title: Küche
-  path: kuche
-  icon: mdi:chef-hat
-  type: sections
-  max_columns: 4
-  subview: true
-  back_path: /dashboard-eg/eg
-  sections:
-  - type: grid
-    cards:
-    - type: heading
-      heading: Lampen
-    - type: tile
-      entity: light.barlampe
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-    - type: tile
-      entity: light.arbeitsplatte_light
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-    - type: tile
-      entity: light.kuche_deckenlampe
-      name: Deckenlampe
-      state_content: last_changed
-      grid_options:
-        columns: full
-        rows: 1
-  - type: grid
-    cards:
-    - type: heading
-      heading: Küchengeräte
-      heading_style: title
-    - type: tile
-      entity: sensor.siemens_ex877lx57e_68a40e85448b_bsh_common_status_operationstate
-      name: Herd Status
-      icon: mdi:power
-      grid_options:
-        columns: full
-        rows: 1
-    - type: tile
-      entity: sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_status_operationstate
-      name: Backofen Status
-      grid_options:
-        columns: full
-        rows: 1
-    - type: tile
-      entity: sensor.012080386789002428_bsh_common_status_operationstate
-      name: Spülmaschine Status
-      grid_options:
-        columns: full
-        rows: 1
-    - type: tile
-      entity: sensor.012080386789002428_bsh_common_option_remainingprogramtime
-      name: Spülmaschine – verbleibende Zeit
-      grid_options:
-        columns: full
-        rows: 1
-      visibility:
-      - condition: state
-        entity: binary_sensor.spulmaschine_lauft
-        state: 'on'
-    - type: history-graph
-      entities:
-      - entity: sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_setting_powerstate
-        name: Backofen
-      - entity: sensor.siemens_ex877lx57e_68a40e85448b_bsh_common_setting_powerstate
-        name: Herd
-      logarithmic_scale: false
-      hours_to_show: 168
-  - type: grid
-    cards:
-    - type: heading
-      heading: Backofen vorheizen
-      icon: mdi:stove
-      heading_style: title
-      badges:
+          - condition: state
+            entity: vacuum.rocky
+            state_not: docked
       - type: entity
-        entity: sensor.siemens_hm836gpb6_68a40e861dae_cooking_oven_status_currentcavitytemperature
+        entity: binary_sensor.rocky_dock_frischwassertank
+        name: "Rocky: Wasser füllen"
+        icon: mdi:water-plus
+        color: blue
+        show_name: true
+        show_state: false
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: binary_sensor.rocky_dock_frischwassertank
+            state: "on"
+      - type: entity
+        entity: binary_sensor.rocky_dock_schmutzwassertank
+        name: "Rocky: Schmutzwasser leeren"
+        icon: mdi:water-remove
+        color: brown
+        show_name: true
+        show_state: false
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: binary_sensor.rocky_dock_schmutzwassertank
+            state: "on"
+      - type: entity
+        entity: timer.bewaesserung
+        name: Bewässerung
+        icon: mdi:sprinkler-variant
+        show_name: true
         show_state: true
         show_icon: true
-        icon: mdi:thermometer
-    - type: tile
-      entity: script.backofen_vorheizen_brotchen
-      name: Brötchen
-      icon: mdi:baguette
-      grid_options:
-        columns: 6
-        rows: 2
-      vertical: true
-      tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.backofen_vorheizen_brotchen
-        confirmation:
-          text: Backofen mit Heißluft auf 200 °C vorheizen?
-      icon_tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.backofen_vorheizen_brotchen
-        confirmation:
-          text: Backofen mit Heißluft auf 200 °C vorheizen?
-      hide_state: true
-    - type: tile
-      entity: script.backofen_vorheizen_pizza
-      name: Pizza
-      icon: mdi:pizza
-      grid_options:
-        columns: 6
-        rows: 2
-      vertical: true
-      tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.backofen_vorheizen_pizza
-        confirmation:
-          text: Backofen mit Pizzastufe auf 180 °C vorheizen?
-      icon_tap_action:
-        action: perform-action
-        perform_action: script.turn_on
-        target:
-          entity_id: script.backofen_vorheizen_pizza
-        confirmation:
-          text: Backofen mit Pizzastufe auf 180 °C vorheizen?
-      hide_state: true
-    - type: tile
-      entity: button.siemens_hm836gpb6_68a40e861dae_stop
-      name: Backofen stoppen
-      icon: mdi:stop-circle-outline
-      grid_options:
-        columns: full
-        rows: 1
-      tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.siemens_hm836gpb6_68a40e861dae_stop
-      icon_tap_action:
-        action: perform-action
-        perform_action: button.press
-        target:
-          entity_id: button.siemens_hm836gpb6_68a40e861dae_stop
-      visibility:
-      - condition: state
-        entity: sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_status_operationstate
-        state: BSH.Common.EnumType.OperationState.Run
-      hide_state: true
+        visibility:
+          - condition: state
+            entity: timer.bewaesserung
+            state: active
+      - type: entity
+        entity: input_boolean.urlaubsmodus
+        name: Urlaubsmodus
+        icon: mdi:airplane
+        color: orange
+        show_name: true
+        show_state: false
+        show_icon: true
+        visibility:
+          - condition: state
+            entity: input_boolean.urlaubsmodus
+            state: "on"
+      - type: entity
+        entity: binary_sensor.outdoor_kamera_person
+        name: Person im Garten
+        icon: mdi:account-alert
+        color: red
+        show_name: true
+        show_state: false
+        show_icon: true
+        tap_action:
+          action: navigate
+          navigation_path: "#garten"
+        visibility:
+          - condition: state
+            entity: binary_sensor.outdoor_kamera_person
+            state: "on"
+      - type: shortcut
+        text: Wartung fällig
+        icon: mdi:wrench-clock
+        color: amber
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/system
+        visibility:
+          - condition: or
+            conditions:
+              - condition: numeric_state
+                entity: sensor.rocky_verbleibende_zeit_der_hauptburste
+                below: 0
+              - condition: numeric_state
+                entity: sensor.rocky_verbleibende_zeit_der_seitenburste
+                below: 0
+              - condition: numeric_state
+                entity: sensor.rocky_verbleibende_filterzeit
+                below: 0
+              - condition: numeric_state
+                entity: sensor.rocky_verbleibende_sensorzeit
+                below: 0
+              - condition: numeric_state
+                entity: sensor.rocky_dock_schmutzfanger_verbleibend
+                below: 0
+              - condition: numeric_state
+                entity: sensor.rocky_dock_burstenwartung_verbleibend
+                below: 0
+              - condition: numeric_state
+                entity: sensor.robo_main_brush_time_left
+                below: 0
+              - condition: numeric_state
+                entity: sensor.robo_side_brush_time_left
+                below: 0
+              - condition: numeric_state
+                entity: sensor.robo_filter_time_left
+                below: 0
+              - condition: numeric_state
+                entity: sensor.robo_sensor_time_left
+                below: 0
+      - type: entity
+        entity: sensor.verfugbare_updates
+        name: Updates
+        icon: mdi:package-up
+        color: green
+        show_name: true
+        show_state: true
+        show_icon: true
+        tap_action:
+          action: navigate
+          navigation_path: /config/updates
+        visibility:
+          - condition: numeric_state
+            entity: sensor.verfugbare_updates
+            above: 0
+    sections:
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Diele
+            icon: mdi:bench
+            sub_button:
+              main:
+                - entity: binary_sensor.bewegungsmelder_diele
+                  icon: mdi:motion-sensor
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.bewegungsmelder_diele
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru4163584512_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#diele"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.deckenlampe_light
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: light.schalter_gaste_wc_schalter_gaste_wc
+            name: Gäste-WC
+            icon: mdi:toilet
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: lock.haustur
+            name: Haustür
+            grid_options:
+              columns: full
+              rows: 1
+            features_position: inline
+            features:
+              - type: lock-commands
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru4163584512
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Küche
+            icon: mdi:fridge
+            sub_button:
+              main:
+                - entity: binary_sensor.fenstersensor_kuche_opening
+                  icon: mdi:window-open-variant
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.fenstersensor_kuche_opening
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru2167095808_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#kueche"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.arbeitsplatte_light
+            name: Arbeitsplatte
+            icon: mdi:wall-sconce-flat
+            grid_options:
+              columns: 4
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.kuche_deckenlampe
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 4
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.barlampe
+            name: Bar
+            icon: mdi:lamp
+            grid_options:
+              columns: 4
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.rollladen_kuche
+            name: Rollladen
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru2167095808
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Esszimmer
+            icon: mdi:silverware
+            sub_button:
+              main:
+                - entity: binary_sensor.tursensor_seitentur_opening
+                  icon: mdi:door-open
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.tursensor_seitentur_opening
+                      state: "on"
+                - entity: binary_sensor.bewegungsmelder_esszimmer_belegung
+                  icon: mdi:motion-sensor
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.bewegungsmelder_esszimmer_belegung
+                      state: "on"
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#esszimmer"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.esszimmer_unten_light
+            name: Unten
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.esszimmer_oben_light
+            name: Oben
+            icon: mdi:ceiling-light-outline
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.rollladen_seitentur
+            name: Seitentür
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Wohnzimmer
+            icon: mdi:sofa
+            sub_button:
+              main:
+                - entity: binary_sensor.tursensor_terassentur_opening
+                  icon: mdi:door-open
+                  show_background: false
+                  visibility:
+                    - condition: state
+                      entity: binary_sensor.tursensor_terassentur_opening
+                      state: "on"
+                - entity: sensor.tado_smart_thermostat_ru1244545536_current_temperature
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#wohnzimmer"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.stehlampe
+            name: Stehlampe
+            icon: mdi:floor-lamp
+            grid_options:
+              columns: full
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.deckenlampe_wohnzimmer_light
+            name: Decke
+            icon: mdi:ceiling-light
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: light.treppenhaus_eg_treppenhaus_eg
+            name: Treppe
+            icon: mdi:stairs
+            grid_options:
+              columns: 6
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: cover
+            entity: cover.rollladen_terrassentur
+            name: Terrassentür
+            grid_options:
+              columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: climate
+            entity: climate.tado_smart_thermostat_ru1244545536
+            name: Heizung
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+            tap_action:
+              action: more-info
+            state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+          - type: custom:bubble-card
+            card_type: media-player
+            entity: media_player.sonos_move
+            name: Sonos Move
+            grid_options:
+              columns: full
+            button_action:
+              tap_action:
+                action: more-info
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Garten
+            icon: mdi:grass
+            sub_button:
+              main:
+                - entity: sensor.eve_weather_20ebs9901_temperatur
+                  icon: mdi:thermometer
+                  show_background: false
+                  state_content: state
+                - icon: mdi:dots-horizontal
+                  show_background: false
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#garten"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.garten_garten_controller
+            name: Hecke
+            icon: mdi:string-lights
+            grid_options:
+              columns: full
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: valve.rasenbewasserung_gross
+            name: Rasen groß
+            icon: mdi:sprinkler-variant
+            grid_options:
+              columns: 6
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: switch
+            entity: valve.rasenbewasserung_klein_switch
+            name: Rasen klein
+            icon: mdi:sprinkler-variant
+            grid_options:
+              columns: 6
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: weather.forecast_home
+            name: Regen
+            icon: mdi:weather-pouring
+            hide_state: true
+            grid_options:
+              columns: full
+            features_position: bottom
+            features:
+              - type: precipitation-forecast
+                forecast_type: hourly
+                hours_to_show: 24
+                precipitation_type: amount
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: separator
+            name: Haushalt
+            icon: mdi:home-assistant
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: tile
+            entity: vacuum.rocky
+            name: Rocky
+            icon: mdi:robot-vacuum
+            grid_options:
+              columns: full
+              rows: 2
+            features_position: bottom
+            features:
+              - type: vacuum-commands
+                commands:
+                  - start_pause
+                  - return_home
+            tap_action:
+              action: more-info
+          - type: custom:bubble-card
+            card_type: button
+            button_type: state
+            entity: sensor.012080386789002428_bsh_common_option_remainingprogramtime
+            name: Spülmaschine
+            icon: mdi:dishwasher
+            grid_options:
+              columns: full
+            visibility:
+              - condition: state
+                entity: binary_sensor.spulmaschine_lauft
+                state: "on"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: slider
+            entity: light.wandlampe_light
+            name: Technikraum
+            icon: mdi:wall-sconce
+            grid_options:
+              columns: full
+            use_accent_color: true
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: Küchengeräte
+            icon: mdi:chef-hat
+            grid_options:
+              columns: 6
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#kuechengeraete"
+            tap_action:
+              action: navigate
+              navigation_path: "#kuechengeraete"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: button
+            button_type: name
+            name: Haushaltsgeräte
+            icon: mdi:washing-machine
+            grid_options:
+              columns: 6
+            button_action:
+              tap_action:
+                action: navigate
+                navigation_path: "#haushalt"
+            tap_action:
+              action: navigate
+              navigation_path: "#haushalt"
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: markdown
+            text_only: true
+            content: "&nbsp;"
+            grid_options:
+              columns: full
+              rows: auto
+      - type: grid
+        cards:
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#diele"
+            name: Diele
+            icon: mdi:bench
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Licht
+                icon: mdi:lightbulb-group
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.deckenlampe_light
+                name: Deckenlampe
+                icon: mdi:ceiling-light
+                grid_options:
+                  columns: full
+                use_accent_color: true
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.schalter_gaste_wc_schalter_gaste_wc
+                name: Gäste-WC
+                icon: mdi:toilet
+                grid_options:
+                  columns: full
+                use_accent_color: true
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Haustür
+                icon: mdi:door
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: tile
+                entity: lock.haustur
+                name: Haustür
+                grid_options:
+                  columns: full
+                  rows: 1
+                features_position: inline
+                features:
+                  - type: lock-commands
+              - type: custom:bubble-card
+                card_type: separator
+                name: Heizung
+                icon: mdi:radiator
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru4163584512
+                name: Heizung
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                tap_action:
+                  action: more-info
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.bewegungsmelder_diele
+                name: Bewegung
+                icon: mdi:motion-sensor
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#kueche"
+            name: Küche
+            icon: mdi:fridge
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Rollladen & Heizung
+                icon: mdi:window-shutter
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: cover
+                entity: cover.rollladen_kuche
+                name: Rollladen
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru2167095808
+                name: Heizung
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                tap_action:
+                  action: more-info
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.fenstersensor_kuche_opening
+                name: Fenster
+                icon: mdi:window-closed-variant
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Geräte
+                icon: mdi:stove
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: name
+                name: Küchengeräte
+                icon: mdi:chef-hat
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: navigate
+                    navigation_path: "#kuechengeraete"
+                tap_action:
+                  action: navigate
+                  navigation_path: "#kuechengeraete"
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#esszimmer"
+            name: Esszimmer
+            icon: mdi:silverware
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Rollladen & Heizung
+                icon: mdi:window-shutter
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: cover
+                entity: cover.rollladen_seitentur
+                name: Seitentür
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.tursensor_seitentur_opening
+                name: Seitentür
+                icon: mdi:door
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.bewegungsmelder_esszimmer_belegung
+                name: Anwesenheit
+                icon: mdi:motion-sensor
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#wohnzimmer"
+            name: Wohnzimmer
+            icon: mdi:sofa
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Licht
+                icon: mdi:lightbulb-group
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: light.treppenhaus_eg_treppenhaus_eg
+                name: Treppe
+                icon: mdi:stairs
+                grid_options:
+                  columns: full
+                use_accent_color: true
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Musik
+                icon: mdi:speaker
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: media-player
+                entity: media_player.sonos_move
+                name: Sonos Move
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Rollladen & Heizung
+                icon: mdi:window-shutter
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: cover
+                entity: cover.rollladen_terrassentur
+                name: Terrassentür
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: climate
+                entity: climate.tado_smart_thermostat_ru1244545536
+                name: Heizung
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: more-info
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+                tap_action:
+                  action: more-info
+                state_content: "{{ state_attr(entity, 'current_temperature') }} °C"
+              - type: custom:bubble-card
+                card_type: separator
+                name: Sensoren
+                icon: mdi:radar
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: binary_sensor.tursensor_terassentur_opening
+                name: Terrassentür
+                icon: mdi:door
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#garten"
+            name: Garten
+            icon: mdi:grass
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Licht
+                icon: mdi:outdoor-lamp
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.eve_flare_7783
+                name: Flare 1
+                icon: mdi:outdoor-lamp
+                grid_options:
+                  columns: 6
+                use_accent_color: true
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.eve_flare_af38
+                name: Flare 2
+                icon: mdi:outdoor-lamp
+                grid_options:
+                  columns: 6
+                use_accent_color: true
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: slider
+                entity: light.outdoor_kamera_floodlight
+                name: Flutlicht
+                icon: mdi:light-flood-down
+                grid_options:
+                  columns: full
+                use_accent_color: true
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Bewässerung
+                icon: mdi:sprinkler-variant
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: valve.rasenbewasserung_gross
+                name: Rasen groß
+                icon: mdi:sprinkler-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: valve.rasenbewasserung_klein_switch
+                name: Rasen klein
+                icon: mdi:sprinkler-variant
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: name
+                entity: input_button.rasenbewasserung_kurz
+                name: Kurz bewässern
+                icon: mdi:water-sync
+                grid_options:
+                  columns: full
+                button_action:
+                  tap_action:
+                    action: perform-action
+                    perform_action: input_button.press
+                    target:
+                      entity_id: input_button.rasenbewasserung_kurz
+                tap_action:
+                  action: perform-action
+                  perform_action: input_button.press
+                  target:
+                    entity_id: input_button.rasenbewasserung_kurz
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Abschalt-Timer
+                icon: mdi:timer-outline
+                visibility:
+                  - condition: or
+                    conditions:
+                      - condition: state
+                        entity: valve.rasenbewasserung_gross
+                        state: open
+                      - condition: state
+                        entity: valve.rasenbewasserung_klein_switch
+                        state: open
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: tile
+                entity: input_number.bewaesserung_dauer
+                name: Aus in
+                icon: mdi:timer-edit-outline
+                grid_options:
+                  columns: 6
+                  rows: 2
+                features_position: bottom
+                features:
+                  - type: numeric-input
+                    style: buttons
+                visibility:
+                  - condition: or
+                    conditions:
+                      - condition: state
+                        entity: valve.rasenbewasserung_gross
+                        state: open
+                      - condition: state
+                        entity: valve.rasenbewasserung_klein_switch
+                        state: open
+              - type: custom:bubble-card
+                card_type: button
+                button_type: name
+                entity: input_button.bewaesserung_timer_starten
+                name: Timer setzen
+                icon: mdi:timer-play-outline
+                grid_options:
+                  columns: 6
+                button_action:
+                  tap_action:
+                    action: perform-action
+                    perform_action: input_button.press
+                    target:
+                      entity_id: input_button.bewaesserung_timer_starten
+                tap_action:
+                  action: perform-action
+                  perform_action: input_button.press
+                  target:
+                    entity_id: input_button.bewaesserung_timer_starten
+                visibility:
+                  - condition: or
+                    conditions:
+                      - condition: state
+                        entity: valve.rasenbewasserung_gross
+                        state: open
+                      - condition: state
+                        entity: valve.rasenbewasserung_klein_switch
+                        state: open
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: timer.bewaesserung
+                name: Endet in
+                icon: mdi:timer-sand
+                grid_options:
+                  columns: full
+                visibility:
+                  - condition: state
+                    entity: timer.bewaesserung
+                    state: active
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Kamera
+                icon: mdi:cctv
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: picture-glance
+                title: Garten
+                camera_image: camera.outdoor_kamera_fluent
+                camera_view: auto
+                entity: camera.outdoor_kamera_fluent
+                entities:
+                  - binary_sensor.outdoor_kamera_person
+                tap_action:
+                  action: more-info
+                grid_options:
+                  columns: full
+              - type: history-graph
+                entities:
+                  - entity: binary_sensor.outdoor_kamera_person
+                    name: Person erkannt
+                hours_to_show: 12
+                logarithmic_scale: false
+                grid_options:
+                  columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#kuechengeraete"
+            name: Küchengeräte
+            icon: mdi:chef-hat
+            show_previous_button: true
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Status
+                icon: mdi:information-outline
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.siemens_ex877lx57e_68a40e85448b_bsh_common_status_operationstate
+                name: Herd
+                icon: mdi:stove
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_status_operationstate
+                name: Backofen
+                icon: mdi:toaster-oven
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.012080386789002428_bsh_common_status_operationstate
+                name: Spülmaschine
+                icon: mdi:dishwasher
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.012080386789002428_bsh_common_option_remainingprogramtime
+                name: Spülmaschine – Restzeit
+                icon: mdi:timer-sand
+                grid_options:
+                  columns: full
+                visibility:
+                  - condition: state
+                    entity: binary_sensor.spulmaschine_lauft
+                    state: "on"
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Backofen vorheizen
+                icon: mdi:stove
+                sub_button:
+                  main:
+                    - entity: sensor.siemens_hm836gpb6_68a40e861dae_cooking_oven_status_currentcavitytemperature
+                      icon: mdi:thermometer
+                      show_background: false
+                      state_content: state
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: tile
+                entity: script.backofen_vorheizen_brotchen
+                name: Brötchen
+                icon: mdi:baguette
+                grid_options:
+                  columns: 6
+                  rows: 2
+                vertical: true
+                hide_state: true
+                tap_action:
+                  action: perform-action
+                  perform_action: script.turn_on
+                  target:
+                    entity_id: script.backofen_vorheizen_brotchen
+                  confirmation:
+                    text: Backofen mit Heißluft auf 200 °C vorheizen?
+                icon_tap_action:
+                  action: perform-action
+                  perform_action: script.turn_on
+                  target:
+                    entity_id: script.backofen_vorheizen_brotchen
+                  confirmation:
+                    text: Backofen mit Heißluft auf 200 °C vorheizen?
+              - type: tile
+                entity: script.backofen_vorheizen_pizza
+                name: Pizza
+                icon: mdi:pizza
+                grid_options:
+                  columns: 6
+                  rows: 2
+                vertical: true
+                hide_state: true
+                tap_action:
+                  action: perform-action
+                  perform_action: script.turn_on
+                  target:
+                    entity_id: script.backofen_vorheizen_pizza
+                  confirmation:
+                    text: Backofen mit Pizzastufe auf 180 °C vorheizen?
+                icon_tap_action:
+                  action: perform-action
+                  perform_action: script.turn_on
+                  target:
+                    entity_id: script.backofen_vorheizen_pizza
+                  confirmation:
+                    text: Backofen mit Pizzastufe auf 180 °C vorheizen?
+              - type: tile
+                entity: button.siemens_hm836gpb6_68a40e861dae_stop
+                name: Backofen stoppen
+                icon: mdi:stop-circle-outline
+                hide_state: true
+                grid_options:
+                  columns: full
+                  rows: 1
+                tap_action:
+                  action: perform-action
+                  perform_action: button.press
+                  target:
+                    entity_id: button.siemens_hm836gpb6_68a40e861dae_stop
+                icon_tap_action:
+                  action: perform-action
+                  perform_action: button.press
+                  target:
+                    entity_id: button.siemens_hm836gpb6_68a40e861dae_stop
+                visibility:
+                  - condition: state
+                    entity: sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_status_operationstate
+                    state: BSH.Common.EnumType.OperationState.Run
+              - type: custom:bubble-card
+                card_type: separator
+                name: Verlauf
+                icon: mdi:chart-timeline-variant
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: history-graph
+                entities:
+                  - entity: sensor.siemens_hm836gpb6_68a40e861dae_bsh_common_setting_powerstate
+                    name: Backofen
+                  - entity: sensor.siemens_ex877lx57e_68a40e85448b_bsh_common_setting_powerstate
+                    name: Herd
+                logarithmic_scale: false
+                hours_to_show: 168
+                grid_options:
+                  columns: full
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:bubble-card
+            card_type: pop-up
+            hash: "#haushalt"
+            name: Haushaltsgeräte
+            icon: mdi:washing-machine
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Erdgeschoss
+                icon: mdi:home-floor-0
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: tile
+                entity: vacuum.rocky
+                name: Rocky
+                icon: mdi:robot-vacuum
+                grid_options:
+                  columns: full
+                  rows: 2
+                features_position: bottom
+                features:
+                  - type: vacuum-commands
+                    commands:
+                      - start_pause
+                      - return_home
+                tap_action:
+                  action: more-info
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.012080386789002428_bsh_common_status_operationstate
+                name: Spülmaschine
+                icon: mdi:dishwasher
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.dishwasher_verbleibende_zeit
+                name: Restzeit
+                icon: mdi:timer-sand
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: 1. OG
+                icon: mdi:home-floor-1
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: tile
+                entity: vacuum.robo
+                name: Robo
+                icon: mdi:robot-vacuum
+                grid_options:
+                  columns: full
+                  rows: 2
+                features_position: bottom
+                features:
+                  - type: vacuum-commands
+                    commands:
+                      - start_pause
+                      - return_home
+                tap_action:
+                  action: more-info
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.waschmaschine_verbleibende_zeit
+                name: Waschmaschine
+                icon: mdi:washing-machine
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.trockner_verbleibende_zeit
+                name: Trockner
+                icon: mdi:tumble-dryer
+                grid_options:
+                  columns: 6
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: separator
+                name: Dachgeschoss
+                icon: mdi:home-floor-2
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: sensor.roborock_dyad_pro_combo_status
+                name: Dyad Pro Combo
+                icon: mdi:broom
+                grid_options:
+                  columns: full
+                styles: >-
+                  * { --bubble-accent-color: #FFB300 !important; --accent-color:
+                  #FFB300 !important; --bubble-climate-accent-color: #FFB300
+                  !important; }
+            styles: >-
+              * { --bubble-accent-color: #FFB300 !important; --accent-color:
+              #FFB300 !important; --bubble-climate-accent-color: #FFB300
+              !important; }
+          - type: custom:navbar-card
+            desktop:
+              show_labels: true
+            mobile:
+              show_labels: true
+            routes:
+              - url: /lovelace/uebersicht
+                icon: mdi:home-outline
+                icon_selected: mdi:home
+                label: Zuhause
+              - url: /dashboard-eg/eg
+                icon: mdi:home-floor-0
+                label: EG
+              - url: /dashboard-og/og
+                icon: mdi:home-floor-1
+                label: 1. OG
+              - url: /dashboard-dg/dg
+                icon: mdi:home-floor-2
+                label: DG
+              - url: /lovelace/medien
+                icon: mdi:speaker
+                label: Medien
+            styles: ".navbar { --navbar-primary-color: #FFB300; }"
